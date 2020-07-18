@@ -1,0 +1,2745 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://nippononline.ru/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" class="bx-core bx-no-touch bx-no-retina bx-chrome">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>
+        {%block title%}
+            Интернет-магазин продуктов из Японии
+        {%endblock%}
+    </title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="yes" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <link href="{% static 'css/core.min.css' %}" rel="stylesheet">
+
+    <script type="text/javascript" src="{%static 'script/jquery-3.5.1.js'%}"></script>
+    <script src="{% static 'script/basket.js' %}" type="text/javascript" async=""></script>
+
+    <script src="{% static 'script/approve' %}" type="text/javascript" async=""></script>
+    <script type="text/javascript" async="" src="{% static 'script/ec.js'%}"></script>
+    
+    <script async="" src="{% static 'script/call.tracker.js'%}"></script>
+    <script async="" src="{% static 'script/gtm.js'%}"></script>
+    <script type="text/javascript" async="" src="{% static 'script/watch.js'%}"></script>
+    <script type="text/javascript" async="" src="{% static 'script/d5pau3MwEp'%}"></script>
+    <script async="" src="{% static 'script/loader_2_j77ie3.js'%}"></script>
+    <script data-skip-moving="true">
+        (
+            function(w, d) {
+                var v = w.frameCacheVars = {
+                    'CACHE_MODE': 'HTMLCACHE',
+                    'storageBlocks': [],
+                    'dynamicBlocks': {
+                        'WIklcT': '4ef8164712f6',
+                        'basketitems-component-block': 'd41d8cd98f00',
+                        'header-auth-block1': 'd41d8cd98f00',
+                        'header-auth-block2': 'd41d8cd98f00',
+                        'header-basket-with-compare-block3': 'd41d8cd98f00',
+                        'header-auth-block3': 'd41d8cd98f00',
+                        'mobile-auth-block1': 'd41d8cd98f00',
+                        'mobile-basket-with-compare-block1': 'd41d8cd98f00',
+                        'IzufVt': '60912062ee90',
+                        '8ofwKu': '8754ff770ff4',
+                        'basketitems-block': 'd41d8cd98f00',
+                        'all-basketitems-block': 'd41d8cd98f00'
+                    },
+                    'AUTO_UPDATE': true,
+                    'AUTO_UPDATE_TTL': '0'
+                };
+                var inv = false;
+                if (v.AUTO_UPDATE === false) {
+                    if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0) {
+                        var lm = Date.parse(d.lastModified);
+                        if (!isNaN(lm)) {
+                            var td = new Date().getTime();
+                            if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td) {
+                                w.frameRequestStart = false;
+                                w.preventAutoUpdate = true;
+                                return;
+                            }
+                            inv = true;
+                        }
+                    } else {
+                        w.frameRequestStart = false;
+                        w.preventAutoUpdate = true;
+                        return;
+                    }
+                }
+                var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null);
+                if (!r) {
+                    return;
+                }
+                w.frameRequestStart = true;
+                var m = v.CACHE_MODE;
+                var l = w.location;
+                var x = new Date().getTime();
+                var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : "");
+                var u = l.protocol + "//" + l.host + l.pathname + q;
+                r.open("GET", u, true);
+                r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic");
+                r.setRequestHeader("BX-CACHE-MODE", m);
+                r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : "");
+                if (inv) {
+                    r.setRequestHeader("BX-INVALIDATE-CACHE", "Y");
+                }
+                try {
+                    r.setRequestHeader("BX-REF", d.referrer || "");
+                } catch (e) {}
+                if (m === "APPCACHE") {
+                    r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS));
+                    r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : "");
+                }
+                r.onreadystatechange = function() {
+                    if (r.readyState != 4) {
+                        return;
+                    }
+                    var a = r.getResponseHeader("BX-RAND");
+                    var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false;
+                    if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)) {
+                        var f = {
+                            error: true,
+                            reason: a != x ? "bad_rand" : "bad_status",
+                            url: u,
+                            xhr: r,
+                            status: r.status
+                        };
+                        if (w.BX && w.BX.ready) {
+                            BX.ready(function() {
+                                setTimeout(
+                                    function() {
+                                        BX.onCustomEvent("onFrameDataRequestFail", [f]);
+                                    }, 0);
+                            });
+                        } else {
+                            w.frameRequestFail = f;
+                        }
+                        return;
+                    }
+                    if (b) {
+                        b.onFrameDataReceived(r.responseText);
+                        if (!w.frameUpdateInvoked) {
+                            b.update(false);
+                        }
+                        w.frameUpdateInvoked = true;
+                    } else {
+                        w.frameDataString = r.responseText;
+                    }
+                };
+                r.send();
+            })(window, document);
+    </script>
+    <script data-skip-moving="true">
+        (
+            function(w, d, n) {
+                var cl = "bx-core";
+                var ht = d.documentElement;
+                var htc = ht ? ht.className : undefined;
+                if (htc === undefined || htc.indexOf(cl) !== -1) {
+                    return;
+                }
+                var ua = n.userAgent;
+                if (/(iPad;)|(iPhone;)/i.test(ua)) {
+                    cl += " bx-ios";
+                } else if (/Android/i.test(ua)) {
+                    cl += " bx-android";
+                }
+                cl += (/(ipad|iphone|android|mobile|touch)/i.test(ua) ? " bx-touch" : " bx-no-touch");
+                cl += w.devicePixelRatio && w.devicePixelRatio >= 2 ? " bx-retina" : " bx-no-retina";
+                var ieVersion = -1;
+                if (/AppleWebKit/.test(ua)) {
+                    cl += " bx-chrome";
+                } else if ((ieVersion = getIeVersion()) > 0) {
+                    cl += " bx-ie bx-ie" + ieVersion;
+                    if (ieVersion > 7 && ieVersion < 10 && !isDoctype()) {
+                        cl += " bx-quirks";
+                    }
+                } else if (/Opera/.test(ua)) {
+                    cl += " bx-opera";
+                } else if (/Gecko/.test(ua)) {
+                    cl += " bx-firefox";
+                }
+                if (/Macintosh/i.test(ua)) {
+                    cl += " bx-mac";
+                }
+                ht.className = htc ? htc + " " + cl : cl;
+
+                function isDoctype() {
+                    if (d.compatMode) {
+                        return d.compatMode == "CSS1Compat";
+                    }
+                    return d.documentElement && d.documentElement.clientHeight;
+                }
+
+                function getIeVersion() {
+                    if (/Opera/i.test(ua) || /Webkit/i.test(ua) || /Firefox/i.test(ua) || /Chrome/i.test(ua)) {
+                        return -1;
+                    }
+                    var rv = -1;
+                    if (!!(w.MSStream) && !(w.ActiveXObject) && ("ActiveXObject" in w)) {
+                        rv = 11;
+                    } else if (!!d.documentMode && d.documentMode >= 10) {
+                        rv = 10;
+                    } else if (!!d.documentMode && d.documentMode >= 9) {
+                        rv = 9;
+                    } else if (d.attachEvent && !/Opera/.test(ua)) {
+                        rv = 8;
+                    }
+                    if (rv == -1 || rv == 8) {
+                        var re;
+                        if (n.appName == "Microsoft Internet Explorer") {
+                            re = new RegExp("MSIE ([0-9]+[\.0-9]*)");
+                            if (re.exec(ua) != null) {
+                                rv = parseFloat(RegExp.$1);
+                            }
+                        } else if (n.appName == "Netscape") {
+                            rv = 11;
+                            re = new RegExp("Trident/.*rv:([0-9]+[\.0-9]*)");
+                            if (re.exec(ua) != null) {
+                                rv = parseFloat(RegExp.$1);
+                            }
+                        }
+                    }
+                    return rv;
+                }
+            }
+        )(window, document, navigator);
+    </script>
+
+
+    <link href="{% static 'css/ui.font.opensans.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/main.popup.bundle.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/template_4c0a62c0196fd0f66ead3843bdb54c8c_v1.css'%}" data-template-style="true" rel="stylesheet">
+    <link href="{% static 'css/popup.min.css'%}" data-template-style="true" rel="stylesheet">
+    <link rel="shortcut icon" href="https://nippononline.ru/favicon.ico?1585204744" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nippononline.ru/include/apple-touch-icon.png">
+    <meta property="og:title" content="Интернет-магазин продуктов из Японии">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://nippononline.ru/upload/CNext/a02/a02021c26537254a4f2a10d1c9ec2217.png">
+    <link rel="image_src" href="{% static 'img/logo.png'%}">
+    <link rel="stylesheet" href="{% static 'css/module.css'%}">
+</head>
+
+<body class=" site_s1 fill_bg_n" id="main">
+    <div id="panel"></div>
+    <div id="bxdynamic_WIklcT_start" style="display:none"></div>
+    <div id="bxdynamic_WIklcT_end" style="display:none"></div>
+    <div id="bxdynamic_basketitems-component-block_start" style="display:none"></div>
+    <div id="ajax_basket"></div>
+    <div id="bxdynamic_basketitems-component-block_end" style="display:none"></div>
+    <script src="{% static 'script/setTheme.php'%}" data-skip-moving="true"></script>
+    <div class="wrapper1 with_left_block front_page basket_fly basket_fill_DARK side_LEFT catalog_icons_N banner_auto with_fast_view mheader-v1 header-v1 regions_N fill_N footer-v1 front-vcustom mfixed_N mfixed_view_always title-v3 with_phones with_lazy">
+        <div class="header_wrap visible-lg visible-md title-v3 index">
+            <header id="header">
+                <div class="top-block top-block-v1">
+                    <div class="maxwidth-theme">
+                        <div class="wrapp_block">
+                            <div class="row">
+                                <div class="top-block-item col-md-4">
+                                    <div class="phone-block">
+                                        <div class="inline-block">
+                                            <div class="phone">
+                                                <i class="svg svg-phone"></i>
+                                                <a rel="nofollow" href="tel:+74957777763">
+                                                    <a href="tel:+74957777763">+7 495 777-77-63</a>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="inline-block">
+                                            <span class="callback-block animate-load twosmallfont colored" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback">Заказать звонок</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="top-block-item pull-left visible-lg">
+                                    <div class="address twosmallfont inline-block">
+                                        г. Москва, ул. Авиамоторная, д.50, с.2 (Центральный офис и склад)<br>
+                                    </div>
+                                </div>
+                                <div class="top-block-item pull-right show-fixed top-ctrl">
+                                    <button class="top-btn inline-search-show twosmallfont">
+                                    <i class="svg inline  svg-inline-search" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                                            <defs>
+                                                <style>
+                                                .sscls-1 {
+                                                    fill: #222;
+                                                    fill-rule: evenodd;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <path class="sscls-1" d="M7.5,0A7.5,7.5,0,1,1,0,7.5,7.5,7.5,0,0,1,7.5,0Zm0,2A5.5,5.5,0,1,1,2,7.5,5.5,5.5,0,0,1,7.5,2Z"></path>
+                                            <path class="sscls-1" d="M13.417,12.035l3.3,3.3a0.978,0.978,0,1,1-1.382,1.382l-3.3-3.3A0.978,0.978,0,0,1,13.417,12.035Z"></path>
+                                        </svg>
+                                    </i>                                
+                                    <span class="dark-color">Поиск</span>
+                                </button>
+                                </div>
+                                <div class="top-block-item pull-right show-fixed top-ctrl">
+                                    <div class="basket_wrap twosmallfont"></div>
+                                </div>
+                                <div class="top-block-item pull-right show-fixed top-ctrl">
+                                    <div class="personal_wrap">
+                                        <div class="personal top login twosmallfont">
+                                            <div id="bxdynamic_header-auth-block1_start" style="display:none">
+                                            </div>
+                                            <a rel="nofollow" title="Мой кабинет" class="personal-link dark-color animate-load" data-param-type="auth" data-param-backurl="/" data-name="auth" href="{%url 'personal_main'%}">
+                                                <i class="svg inline  svg-inline-cabinet" aria-hidden="true" title="Мой кабинет">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17">
+                                                    <defs>
+                                                        <style>
+                                                        .loccls-1 {
+                                                            fill: #222;
+                                                            fill-rule: evenodd;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="loccls-1" d="M14,17H2a2,2,0,0,1-2-2V8A2,2,0,0,1,2,6H3V4A4,4,0,0,1,7,0H9a4,4,0,0,1,4,4V6h1a2,2,0,0,1,2,2v7A2,2,0,0,1,14,17ZM11,4A2,2,0,0,0,9,2H7A2,2,0,0,0,5,4V6h6V4Zm3,4H2v7H14V8ZM8,9a1,1,0,0,1,1,1v2a1,1,0,0,1-2,0V10A1,1,0,0,1,8,9Z"></path>
+                                                </svg>
+                                            </i>
+                                                <span class="wrap">
+                                                {% if user.is_authenticated %}
+                                                    <span class="name">{{user.first_name}}</span>
+                                                {%else%}
+                                                    <span class="name">Войти</span>
+                                                {%endif%}
+                                                </span>
+                                            </a>
+                                            <div id="bxdynamic_header-auth-block1_end" style="display:none"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-wrapper topmenu-LIGHT">
+                    <div class="wrapper_inner">
+                        <div class="logo_and_menu-row">
+                            <div class="logo-row row">
+                                <div class="logo-block col-md-2 col-sm-3">
+                                    <div class="logo">
+                                        <a href="{% url 'main' %}">
+                                            <img src="{% static 'img/logo.png'%}" alt="ООО " НИППОН ""="" title="ООО " data-src="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 hidden-sm hidden-xs">
+                                    <div class="top-description">
+                                        Доставка по Москве и МО, а также во все города России и ближнего зарубежья!<br>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 menu-row">
+                                    <div class="nav-main-collapse collapse in">
+                                        <div class="menu-only">
+                                            <nav class="mega-menu sliced ovisible">
+                                                <div class="table-menu">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="menu-item  catalog wide_menu" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="{%url 'catalog'%}">
+                                                                            <div>
+                                                                                Каталог
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="https://nippononline.ru/help/">
+                                                                            <div>
+                                                                                Доставка и оплата
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="https://nippononline.ru/contacts/stores/">
+                                                                            <div>
+                                                                                Магазины
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="https://nippononline.ru/services/">
+                                                                            <div>
+                                                                                Услуги
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="https://nippononline.ru/sale/">
+                                                                            <div>
+                                                                                Акции
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="" href="https://nippononline.ru/services/optovoe-napravlenie/">
+                                                                            <div>
+                                                                                Оптовое направление
+                                                                                <div class="line-wrapper">
+                                                                                    <span class="line"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="menu-item dropdown js-dropdown nosave" style="visibility: visible;">
+                                                                    <div class="wrap">
+                                                                        <a class="dropdown-toggle more-items" href="https://nippononline.ru/#">
+                                                                            <span>Ещё</span>
+                                                                        </a>
+                                                                        <span class="tail"></span>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li class="menu-item " data-hidewidth="955" data-class="menu-item unvisible    ">
+                                                                                <a class="" href="https://nippononline.ru/franchise">
+                                                                                    <div>
+                                                                                        Франшиза
+                                                                                        <div class="line-wrapper">
+                                                                                            <span class="line"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="menu-item " data-hidewidth="1065" data-class="menu-item unvisible    ">
+                                                                                <a class="" href="https://nippononline.ru/company/">
+                                                                                    <div>
+                                                                                        Компания
+                                                                                        <div class="line-wrapper">
+                                                                                            <span class="line"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="menu-item " data-hidewidth="1129" data-class="menu-item unvisible    ">
+                                                                                <a class="" href="https://nippononline.ru/blog/">
+                                                                                    <div>
+                                                                                        Блог
+                                                                                        <div class="line-wrapper">
+                                                                                            <span class="line"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="menu-item " data-hidewidth="1353" data-class="menu-item unvisible    ">
+                                                                                <a class="" href="https://nippononline.ru/help/page-chef/">
+                                                                                    <div>
+                                                                                        Страница шеф-повара
+                                                                                        <div class="line-wrapper">
+                                                                                            <span class="line"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-row visible-xs"></div>
+                </div>
+            </header>
+        </div>
+        <div id="headerfixed">
+            <div class="maxwidth-theme">
+                <div class="logo-row v2 row margin0 menu-row">
+                    <div class="inner-table-block nopadding logo-block">
+                        <div class="logo">
+                            <a href="{% url 'main' %}">
+                                <img src="{% static 'img/logo.png'%}" alt="ООО " НИППОН ""="" title="ООО " data-src="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="inner-table-block menu-block">
+                        <div class="navs table-menu js-nav opacity1" style="width: 865px;">
+                            <nav class="mega-menu sliced ovisible">
+                                <div class="table-menu">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="menu-item  catalog wide_menu" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="{%url 'catalog'%}">
+                                                            <div>
+                                                                Каталог
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/help/">
+                                                            <div>
+                                                                Доставка и оплата
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/contacts/stores/">
+                                                            <div>
+                                                                Магазины
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/services/">
+                                                            <div>
+                                                                Услуги
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/sale/">
+                                                            <div>
+                                                                Акции
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/services/optovoe-napravlenie/">
+                                                            <div>
+                                                                Оптовое направление
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/franchise">
+                                                            <div>
+                                                                Франшиза
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/company/">
+                                                            <div>
+                                                                Компания
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/blog/">
+                                                            <div>
+                                                                Блог
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item" style="visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="" href="https://nippononline.ru/help/page-chef/">
+                                                            <div>
+                                                                Страница шеф-повара
+                                                                <div class="line-wrapper">
+                                                                    <span class="line"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="menu-item dropdown js-dropdown nosave" style="display: none; visibility: visible;">
+                                                    <div class="wrap">
+                                                        <a class="dropdown-toggle more-items" href="https://nippononline.ru/#">
+                                                            <span>Ещё</span>
+                                                        </a>
+                                                        <span class="tail"></span>
+                                                        <ul class="dropdown-menu"></ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="inner-table-block nopadding small-block">
+                        <div class="wrap_icon wrap_cabinet">
+                            <div id="bxdynamic_header-auth-block2_start" style="display:none"></div>
+                            <a rel="nofollow" title="Мой кабинет" class="personal-link dark-color animate-load" data-event="jqm" data-param-type="auth" data-param-backurl="/" data-name="auth" href="https://nippononline.ru/personal/">
+                                <i class="svg inline big svg-inline-cabinet" aria-hidden="true" title="Мой кабинет">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                                <defs>
+                                    <style>
+                                    .loccls-1 {
+                                        fill: #222;
+                                        fill-rule: evenodd;
+                                    }
+                                    </style>
+                                </defs>
+                                <path data-name="Rounded Rectangle 110" class="loccls-1" d="M1433,132h-15a3,3,0,0,1-3-3v-7a3,3,0,0,1,3-3h1v-2a6,6,0,0,1,6-6h1a6,6,0,0,1,6,6v2h1a3,3,0,0,1,3,3v7A3,3,0,0,1,1433,132Zm-3-15a4,4,0,0,0-4-4h-1a4,4,0,0,0-4,4v2h9v-2Zm4,5a1,1,0,0,0-1-1h-15a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h15a1,1,0,0,0,1-1v-7Zm-8,3.9v1.6a0.5,0.5,0,1,1-1,0v-1.6A1.5,1.5,0,1,1,1426,125.9Z" transform="translate(-1415 -111)"></path>
+                            </svg>
+                        </i>
+                            </a>
+                            <!-- /noindex -->
+                            <div id="bxdynamic_header-auth-block2_end" style="display:none"></div>
+                        </div>
+                    </div>
+                    <div class="inner-table-block small-block nopadding inline-search-show" data-type_search="fixed">
+                        <div class="search-block top-btn">
+                            <i class="svg svg-search lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobileheader" class="visible-xs visible-sm">
+            <div class="mobileheader-v1">
+                <div class="burger pull-left">
+                    <i class="svg inline  svg-inline-burger dark" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16">
+                        <defs>
+                            <style>
+                            .bu_bw_cls-1 {
+                                fill: #222;
+                                fill-rule: evenodd;
+                            }
+                            </style>
+                        </defs>
+                        <path data-name="Rounded Rectangle 81 copy 2" class="bu_bw_cls-1" d="M330,114h16a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H330a1,1,0,0,1-1-1h0A1,1,0,0,1,330,114Zm0,7h16a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H330a1,1,0,0,1-1-1h0A1,1,0,0,1,330,121Zm0,7h16a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H330a1,1,0,0,1-1-1h0A1,1,0,0,1,330,128Z" transform="translate(-329 -114)"></path>
+                    </svg>
+                </i>
+                    <i class="svg inline  svg-inline-close dark" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <defs>
+                            <style>
+                            .cccls-1 {
+                                fill: #222;
+                                fill-rule: evenodd;
+                            }
+                            </style>
+                        </defs>
+                        <path data-name="Rounded Rectangle 114 copy 3" class="cccls-1" d="M334.411,138l6.3,6.3a1,1,0,0,1,0,1.414,0.992,0.992,0,0,1-1.408,0l-6.3-6.306-6.3,6.306a1,1,0,0,1-1.409-1.414l6.3-6.3-6.293-6.3a1,1,0,0,1,1.409-1.414l6.3,6.3,6.3-6.3A1,1,0,0,1,340.7,131.7Z" transform="translate(-325 -130)"></path>
+                    </svg>
+                </i>
+                </div>
+                <div class="logo-block pull-left">
+                    <div class="logo">
+                        <a href="{%url 'main'%}">
+                            <img src="{% static 'img/logo.png'%}" alt="ООО " НИППОН ""="" title="ООО " data-src="">
+                        </a>
+                    </div>
+                </div>
+                <div class="right-icons pull-right">
+                    <div class="pull-right">
+                        <div class="wrap_icon">
+                            <button class="top-btn inline-search-show twosmallfont">
+                            <i class="svg inline  svg-inline-search big" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                                    <defs>
+                                        <style>
+                                        .sscls-1 {
+                                            fill: #222;
+                                            fill-rule: evenodd;
+                                        }
+                                        </style>
+                                    </defs>
+                                    <path data-name="Rounded Rectangle 106" class="sscls-1" d="M1590.71,131.709a1,1,0,0,1-1.42,0l-4.68-4.677a9.069,9.069,0,1,1,1.42-1.427l4.68,4.678A1,1,0,0,1,1590.71,131.709ZM1579,113a7,7,0,1,0,7,7A7,7,0,0,0,1579,113Z" transform="translate(-1570 -111)"></path>
+                                </svg>
+                            </i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="wrap_icon wrap_basket">
+                            <div id="bxdynamic_header-basket-with-compare-block3_start" style="display:none"></div>
+                            <a class="basket-link compare   big " href="https://nippononline.ru/catalog/compare.php" title="Список сравниваемых элементов">
+                                <span class="js-basket-block">
+                                <i class="svg inline  svg-inline-compare big" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                                        <defs>
+                                            <style>
+                                            .comcls-1 {
+                                                fill: #222;
+                                                fill-rule: evenodd;
+                                            }
+                                            </style>
+                                        </defs>
+                                        <path class="comcls-1" d="M20,4h0a1,1,0,0,1,1,1V21H19V5A1,1,0,0,1,20,4ZM14,7h0a1,1,0,0,1,1,1V21H13V8A1,1,0,0,1,14,7ZM8,1A1,1,0,0,1,9,2V21H7V2A1,1,0,0,1,8,1ZM2,9H2a1,1,0,0,1,1,1V21H1V10A1,1,0,0,1,2,9ZM0,0H1V1H0V0ZM0,0H1V1H0V0Z"></path>
+                                    </svg>
+                                </i>
+                                <span class="title dark_link">Сравнение</span>
+                                <span class="count">0</span>
+                                </span>
+                            </a>
+                            <a rel="nofollow" class="basket-link delay  big " href="https://nippononline.ru/basket/#delayed" title="Список отложенных товаров пуст">
+                                <span class="js-basket-block">
+                                    <i class="svg inline  svg-inline-wish big" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22.969" height="21" viewBox="0 0 22.969 21">
+                                            <defs>
+                                                <style>
+                                                .whcls-1 {
+                                                    fill: #222;
+                                                    fill-rule: evenodd;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <path class="whcls-1" d="M21.028,10.68L11.721,20H11.339L2.081,10.79A6.19,6.19,0,0,1,6.178,0a6.118,6.118,0,0,1,5.383,3.259A6.081,6.081,0,0,1,23.032,6.147,6.142,6.142,0,0,1,21.028,10.68ZM19.861,9.172h0l-8.176,8.163H11.369L3.278,9.29l0.01-.009A4.276,4.276,0,0,1,6.277,1.986,4.2,4.2,0,0,1,9.632,3.676l0.012-.01,0.064,0.1c0.077,0.107.142,0.22,0.208,0.334l1.692,2.716,1.479-2.462a4.23,4.23,0,0,1,.39-0.65l0.036-.06L13.52,3.653a4.173,4.173,0,0,1,3.326-1.672A4.243,4.243,0,0,1,19.861,9.172ZM22,20h1v1H22V20Zm0,0h1v1H22V20Z" transform="translate(-0.031)"></path>
+                                        </svg>
+                                    </i>
+                                    <span class="title dark_link">Отложенные</span>
+                                <span class="count">0</span>
+                                </span>
+                            </a>
+                            <a rel="nofollow" class="basket-link basket   big " href="https://nippononline.ru/basket/" title="Корзина пуста">
+                                <span class="js-basket-block">
+                                    <i class="svg inline  svg-inline-basket big" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21">
+                                            <defs>
+                                                <style>
+                                                .ba_bb_cls-1 {
+                                                    fill: #222;
+                                                    fill-rule: evenodd;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <path data-name="Ellipse 2 copy 6" class="ba_bb_cls-1" d="M1507,122l-0.99,1.009L1492,123l-1-1-1-9h-3a0.88,0.88,0,0,1-1-1,1.059,1.059,0,0,1,1.22-1h2.45c0.31,0,.63.006,0.63,0.006a1.272,1.272,0,0,1,1.4.917l0.41,3.077H1507l1,1v1ZM1492.24,117l0.43,3.995h12.69l0.82-4Zm2.27,7.989a3.5,3.5,0,1,1-3.5,3.5A3.495,3.495,0,0,1,1494.51,124.993Zm8.99,0a3.5,3.5,0,1,1-3.49,3.5A3.5,3.5,0,0,1,1503.5,124.993Zm-9,2.006a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,1494.5,127Zm9,0a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,1503.5,127Z" transform="translate(-1486 -111)"></path>
+                                        </svg>
+                                    </i>
+                                    <span class="title dark_link">Корзина</span>
+                                <span class="count">0</span>
+                                </span>
+                            </a>
+                            <!-- /noindex -->
+                            <div id="bxdynamic_header-basket-with-compare-block3_end" style="display:none"></div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="wrap_icon wrap_cabinet">
+                            <div id="bxdynamic_header-auth-block3_start" style="display:none"></div>
+                            <!-- noindex -->
+                            <a rel="nofollow" title="Мой кабинет" class="personal-link dark-color animate-load" data-event="jqm" data-param-type="auth" data-param-backurl="/" data-name="auth" href="https://nippononline.ru/personal/">
+                                <i class="svg inline big svg-inline-cabinet" aria-hidden="true" title="Мой кабинет">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                                        <defs>
+                                            <style>
+                                            .loccls-1 {
+                                                fill: #222;
+                                                fill-rule: evenodd;
+                                            }
+                                            </style>
+                                        </defs>
+                                        <path data-name="Rounded Rectangle 110" class="loccls-1" d="M1433,132h-15a3,3,0,0,1-3-3v-7a3,3,0,0,1,3-3h1v-2a6,6,0,0,1,6-6h1a6,6,0,0,1,6,6v2h1a3,3,0,0,1,3,3v7A3,3,0,0,1,1433,132Zm-3-15a4,4,0,0,0-4-4h-1a4,4,0,0,0-4,4v2h9v-2Zm4,5a1,1,0,0,0-1-1h-15a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h15a1,1,0,0,0,1-1v-7Zm-8,3.9v1.6a0.5,0.5,0,1,1-1,0v-1.6A1.5,1.5,0,1,1,1426,125.9Z" transform="translate(-1415 -111)"></path>
+                                    </svg>
+                                </i>
+                            </a>
+                            <!-- /noindex -->
+                            <div id="bxdynamic_header-auth-block3_end" style="display:none"></div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="wrap_icon wrap_phones">
+                            <!-- noindex -->
+                            <i class="svg inline big svg-inline-phone" aria-hidden="true">
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9562 15.97L18.9893 16.3282C19.0225 16.688 18.9784 17.0504 18.8603 17.3911C18.6223 18.086 18.2725 18.7374 17.8248 19.3198L17.7228 19.4524L17.6003 19.5662C16.8841 20.2314 15.9875 20.6686 15.0247 20.8243C14.0374 21.0619 13.0068 21.0586 12.0201 20.814L11.9327 20.7924L11.8476 20.763C10.712 20.3703 9.65189 19.7871 8.71296 19.0385C8.03805 18.582 7.41051 18.0593 6.83973 17.4779L6.81497 17.4527L6.79112 17.4267C4.93379 15.3963 3.51439 13.0063 2.62127 10.4052L2.6087 10.3686L2.59756 10.3315C2.36555 9.5598 2.21268 8.76667 2.14121 7.9643C1.94289 6.79241 1.95348 5.59444 2.17289 4.42568L2.19092 4.32964L2.21822 4.23581C2.50215 3.26018 3.0258 2.37193 3.7404 1.65124C4.37452 0.908181 5.21642 0.370416 6.15867 0.107283L6.31009 0.0649959L6.46626 0.0468886C7.19658 -0.0377903 7.93564 -0.00763772 8.65659 0.136237C9.00082 0.203673 9.32799 0.34095 9.61768 0.540011L9.90227 0.735566L10.1048 1.01522C10.4774 1.52971 10.7173 2.12711 10.8045 2.75455C10.8555 2.95106 10.9033 3.13929 10.9499 3.32228C11.0504 3.71718 11.1446 4.08764 11.2499 4.46408C11.5034 5.03517 11.6255 5.65688 11.6059 6.28327L11.5984 6.52137L11.5353 6.75107C11.3812 7.31112 11.0546 7.68722 10.8349 7.8966C10.6059 8.11479 10.3642 8.2737 10.18 8.38262C9.89673 8.55014 9.57964 8.69619 9.32537 8.8079C9.74253 10.2012 10.5059 11.4681 11.5455 12.4901C11.7801 12.3252 12.0949 12.1097 12.412 11.941C12.6018 11.8401 12.8614 11.7177 13.1641 11.6357C13.4565 11.5565 13.9301 11.4761 14.4706 11.6169L14.6882 11.6736L14.8878 11.7772C15.4419 12.0649 15.9251 12.4708 16.3035 12.9654C16.5807 13.236 16.856 13.4937 17.1476 13.7666C17.2974 13.9068 17.4515 14.0511 17.6124 14.2032C18.118 14.5805 18.5261 15.0751 18.8003 15.6458L18.9562 15.97ZM16.3372 15.7502C16.6216 15.9408 16.8496 16.2039 16.9977 16.5121C17.0048 16.5888 16.9952 16.6661 16.9697 16.7388C16.8021 17.2295 16.5553 17.6895 16.2391 18.1009C15.795 18.5134 15.234 18.7788 14.6329 18.8608C13.9345 19.0423 13.2016 19.0464 12.5012 18.8728C11.5558 18.5459 10.675 18.0561 9.8991 17.4258C9.30961 17.0338 8.76259 16.5817 8.26682 16.0767C6.59456 14.2487 5.31682 12.0971 4.51287 9.75567C4.31227 9.08842 4.18279 8.40192 4.12658 7.70756C3.95389 6.74387 3.95792 5.75691 4.13855 4.79468C4.33628 4.11526 4.70731 3.49868 5.21539 3.00521C5.59617 2.53588 6.11383 2.19633 6.69661 2.03358C7.22119 1.97276 7.75206 1.99466 8.26981 2.09849C8.34699 2.11328 8.42029 2.14388 8.48501 2.18836C8.68416 2.46334 8.80487 2.78705 8.83429 3.12504C8.89113 3.34235 8.94665 3.56048 9.00218 3.77864C9.12067 4.24418 9.2392 4.70987 9.37072 5.16815C9.5371 5.49352 9.61831 5.85557 9.60687 6.22066C9.51714 6.54689 8.89276 6.81665 8.28746 7.07816C7.71809 7.32415 7.16561 7.56284 7.0909 7.83438C7.07157 8.17578 7.12971 8.51712 7.26102 8.83297C7.76313 10.9079 8.87896 12.7843 10.4636 14.2184C10.6814 14.4902 10.9569 14.7105 11.2702 14.8634C11.5497 14.9366 12.0388 14.5907 12.5428 14.2342C13.0783 13.8555 13.6307 13.4648 13.9663 13.5523C14.295 13.7229 14.5762 13.9719 14.785 14.2773C15.1184 14.6066 15.4631 14.9294 15.808 15.2523C15.9849 15.418 16.1618 15.5836 16.3372 15.7502Z" fill="#222222"></path>
+                                </svg>
+                            </i>
+                            <div id="mobilePhone" class="dropdown-mobile-phone">
+                                <div class="wrap">
+                                    <div class="more_phone title">
+                                        <span class="no-decript dark-color ">
+                                            Телефоны 
+                                            <i class="svg inline  svg-inline-close dark dark-i" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                    <defs>
+                                                        <style>
+                                                        .cccls-1 {
+                                                            fill: #222;
+                                                            fill-rule: evenodd;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path data-name="Rounded Rectangle 114 copy 3" class="cccls-1" d="M334.411,138l6.3,6.3a1,1,0,0,1,0,1.414,0.992,0.992,0,0,1-1.408,0l-6.3-6.306-6.3,6.306a1,1,0,0,1-1.409-1.414l6.3-6.3-6.293-6.3a1,1,0,0,1,1.409-1.414l6.3,6.3,6.3-6.3A1,1,0,0,1,340.7,131.7Z" transform="translate(-325 -130)"></path>
+                                                </svg>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="more_phone">
+                                        <a class="dark-color no-decript" rel="nofollow" href="tel:+74957777763">
+                                            <a href="tel:+74957777763">+7 495 777-77-63</a>
+                                        </a>
+                                    </div>
+                                    <div class="more_phone">
+                                        <a rel="nofollow" class="dark-color no-decript callback" href="https://nippononline.ru/" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback">
+                                            Заказать звонок
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /noindex -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobilemenu" class="leftside ">
+                <div class="mobilemenu-v1 scroller">
+                    <div class="wrap">
+                        <div id="bxdynamic_mobile-auth-block1_start" style="display:none"></div>
+                        <!-- noindex -->
+                        <div class="menu middle">
+                            <ul>
+                                <li>
+                                    <a rel="nofollow" class="dark-color" href="https://nippononline.ru/personal/">
+                                        <i class="svg inline  svg-inline-cabinet" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17">
+                                                <defs>
+                                                    <style>
+                                                    .loccls-1 {
+                                                        fill: #222;
+                                                        fill-rule: evenodd;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                                <path class="loccls-1" d="M14,17H2a2,2,0,0,1-2-2V8A2,2,0,0,1,2,6H3V4A4,4,0,0,1,7,0H9a4,4,0,0,1,4,4V6h1a2,2,0,0,1,2,2v7A2,2,0,0,1,14,17ZM11,4A2,2,0,0,0,9,2H7A2,2,0,0,0,5,4V6h6V4Zm3,4H2v7H14V8ZM8,9a1,1,0,0,1,1,1v2a1,1,0,0,1-2,0V10A1,1,0,0,1,8,9Z"></path>
+                                            </svg>
+                                        </i>
+                                        <span>Личный кабинет</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /noindex -->
+                        <div id="bxdynamic_mobile-auth-block1_end" style="display:none"></div>
+                        <div class="menu top">
+                            <ul class="top">
+                                <li class="selected">
+                                    <a class=" dark-color" href="https://nippononline.ru/index.php" title="Главная">
+                                        <span>Главная</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color parent" href="https://nippononline.ru/catalog/" title="Каталог">
+                                        <span>Каталог</span>
+                                        <span class="arrow"><i class="svg svg_triangle_right"></i></span>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="https://nippononline.ru/catalog/">Каталог</a></li>
+                                        {% for catalog_name in catalog%}
+                                            <li>
+                                                <a class="dark-color" href="{%url 'catalog_details' category=catalog_name.name%}" title="{{catalog_name.alter_name}}">
+                                                    <span>{{catalog_name.alter_name}}</span>
+                                                </a>
+                                            </li>
+                                       
+                                        {%endfor%}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class=" dark-color parent" href="https://nippononline.ru/help/" title="Доставка и оплата">
+                                        <span>Доставка и оплата</span>
+                                        <span class="arrow"><i class="svg svg_triangle_right"></i></span>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="https://nippononline.ru/help/">Доставка и оплата</a></li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/help/delivery/" title="Условия доставки">
+                                                <span>Условия доставки</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/help/exchange-and-return" title="Обмен и Возврат">
+                                                <span>Обмен и Возврат</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/contacts/stores/" title="Магазины">
+                                        <span>Магазины</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color parent" href="https://nippononline.ru/services/" title="Услуги">
+                                        <span>Услуги</span>
+                                        <span class="arrow"><i class="svg svg_triangle_right"></i></span>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="https://nippononline.ru/services/">Услуги</a></li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/services/optovoe-napravlenie/" title="Оптовое направление">
+                                                <span>Оптовое направление</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/services/podarochnye-nabory/" title="Подарочные наборы">
+                                                <span>Подарочные наборы</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/services/torgovoe-oborudovanie/" title="Торговое оборудование">
+                                                <span>Торговое оборудование</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/services/logisticheskie-uslugi-iz-yaponii/" title="Логистические услуги из Японии">
+                                                <span>Логистические услуги из Японии</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/sale/" title="Акции">
+                                        <span>Акции</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/services/optovoe-napravlenie/" title="Оптовое направление">
+                                        <span>Оптовое направление</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/franchise" title="Франшиза">
+                                        <span>Франшиза</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color parent" href="https://nippononline.ru/company/" title="Компания">
+                                        <span>Компания</span>
+                                        <span class="arrow"><i class="svg svg_triangle_right"></i></span>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="https://nippononline.ru/company/">Компания</a></li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/company/news/" title="Новости">
+                                                <span>Новости</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/company/staff/" title="Сотрудники">
+                                                <span>Сотрудники</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/company/vacancy/" title="Вакансии">
+                                                <span>Вакансии</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/company/licenses/" title="Лицензии">
+                                                <span>Лицензии</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dark-color" href="https://nippononline.ru/include/licenses_detail.php" title="Политика">
+                                                <span>Политика</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/blog/" title="Блог">
+                                        <span>Блог</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" dark-color" href="https://nippononline.ru/help/page-chef/" title="Страница шеф-повара">
+                                        <span>Страница шеф-повара</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div id="bxdynamic_mobile-basket-with-compare-block1_start" style="display:none"></div>
+                        <!-- noindex -->
+                        <div class="menu middle">
+                            <ul>
+                                <li class="counters">
+                                    <a rel="nofollow" class="dark-color basket-link basket ready " href="https://nippononline.ru/basket/">
+                                        <i class="svg svg-basket"></i>
+                                        <span>Корзина<span class="count empted">0</span></span>
+                                    </a>
+                                </li>
+                                <li class="counters">
+                                    <a rel="nofollow" class="dark-color basket-link delay ready " href="https://nippononline.ru/basket/#delayed">
+                                        <i class="svg svg-wish"></i>
+                                        <span>Отложенные<span class="count empted">0</span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu middle">
+                            <ul>
+                                <li class="counters">
+                                    <a rel="nofollow" class="dark-color basket-link compare ready " href="https://nippononline.ru/catalog/compare.php">
+                                        <i class="svg svg-compare"></i>
+                                        <span>Сравнение товаров<span class="count empted">0</span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /noindex -->
+                        <div id="bxdynamic_mobile-basket-with-compare-block1_end" style="display:none"></div>
+
+                        <!-- noindex -->
+                        <div class="menu middle mobile-menu-contacts">
+                            <ul>
+                                <li>
+                                    <a rel="nofollow" href="tel:+74957777763" class="dark-color no-decript ">
+                                        <i class="svg svg-phone"></i>
+                                        <span><a href="tel:+74957777763">+7 495 777-77-63</a></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="contacts">
+                            <div class="title">Контактная информация</div>
+                            <div class="address">
+                                <i class="svg inline  svg-inline-address" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16">
+                                        <defs>
+                                            <style>
+                                            .acls-1 {
+                                                fill-rule: evenodd;
+                                            }
+                                            </style>
+                                        </defs>
+                                        <path data-name="Ellipse 74 copy" class="acls-1" d="M763.9,42.916h0.03L759,49h-1l-4.933-6.084h0.03a6.262,6.262,0,0,1-1.1-3.541,6.5,6.5,0,0,1,13,0A6.262,6.262,0,0,1,763.9,42.916ZM758.5,35a4.5,4.5,0,0,0-3.741,7h-0.012l3.542,4.447h0.422L762.289,42H762.24A4.5,4.5,0,0,0,758.5,35Zm0,6a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,758.5,41Z" transform="translate(-752 -33)"></path>
+                                    </svg>
+                                </i> г. Москва, ул. Авиамоторная, д.50, с.2 (Центральный офис и склад)<br>
+                            </div>
+                            <div class="email">
+                                <i class="svg inline  svg-inline-email" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13">
+                                        <defs>
+                                            <style>
+                                            .ecls-1 {
+                                                fill: #222;
+                                                fill-rule: evenodd;
+                                            }
+                                            </style>
+                                        </defs>
+                                        <path class="ecls-1" d="M14,13H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0H14a2,2,0,0,1,2,2v9A2,2,0,0,1,14,13ZM3.534,2L8.015,6.482,12.5,2H3.534ZM14,3.5L8.827,8.671a1.047,1.047,0,0,1-.812.3,1.047,1.047,0,0,1-.811-0.3L2,3.467V11H14V3.5Z"></path>
+                                    </svg>
+                                </i>
+                                <a href="mailto:info@nippononline.ru">
+                                    <a href="mailto:info@nippononline.ru">info@nippononline.ru</a>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="social-icons">
+                            <!-- noindex -->
+                            <ul>
+                                <li class="vk">
+                                    <a href="https://vk.com/nipponmoscow" class="dark-color" target="_blank" rel="nofollow" title="Вконтакте">
+                                        <i class="svg inline  svg-inline-vk" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                <defs>
+                                                    <style>
+                                                    .cls-1 {
+                                                        fill: #222;
+                                                        fill-rule: evenodd;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                                <path class="cls-1" d="M10.994,6.771v3.257a0.521,0.521,0,0,0,.426.351c0.3,0,.978-1.8,1.279-2.406a1.931,1.931,0,0,1,.738-0.826A0.61,0.61,0,0,1,13.8,6.992h2.878a0.464,0.464,0,0,1,.3.727,29.378,29.378,0,0,1-2.255,2.736,1.315,1.315,0,0,0-.238.55,1.2,1.2,0,0,0,.313.627c0.2,0.226,1.816,2,1.966,2.155a1.194,1.194,0,0,1,.276.576,0.765,0.765,0,0,1-.8.614c-0.627,0-2.167,0-2.342,0a2.788,2.788,0,0,1-.952-0.565c-0.226-.2-1.153-1.152-1.278-1.277a2.457,2.457,0,0,0,.024-0.363,0.826,0.826,0,0,0-.7.8,4.083,4.083,0,0,1-.238,1.139,1.024,1.024,0,0,1-.737.275A5,5,0,0,1,7.1,14.262,14.339,14.339,0,0,1,2.9,9.251C2.127,7.708,1.953,7.468,2,7.293s0.05-.3.226-0.3,2.39,0,2.606,0a0.851,0.851,0,0,1,.351.326c0.075,0.1.647,1.056,0.822,1.356S7.046,10.38,7.513,10.38a0.6,0.6,0,0,0,.474-0.7c0-.4,0-1.979,0-2.18a1.94,1.94,0,0,0-.978-1A1.261,1.261,0,0,1,7.937,6c0.6-.025,2.1-0.025,2.43.024A0.779,0.779,0,0,1,10.994,6.771Z"></path>
+                                            </svg>
+                                        </i> Вконтакте
+                                    </a>
+                                </li>
+                                <li class="instagram">
+                                    <a href="https://www.instagram.com/nippononline.ru/" class="dark-color" target="_blank" rel="nofollow" title="Instagram">
+                                        <i class="svg inline  svg-inline-inst" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                <defs>
+                                                    <style>
+                                                    .cls-1 {
+                                                        fill: #222;
+                                                        fill-rule: evenodd;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                                <path class="cls-1" d="M13,17H7a4,4,0,0,1-4-4V7A4,4,0,0,1,7,3h6a4,4,0,0,1,4,4v6A4,4,0,0,1,13,17ZM15,7a2,2,0,0,0-2-2H7A2,2,0,0,0,5,7v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V7Zm-5,6a3,3,0,1,1,3-3A3,3,0,0,1,10,13Zm1-4H9v2h2V9Z"></path>
+                                            </svg>
+                                        </i> Instagram
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- /noindex -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobilemenu-overlay"></div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer id="footer">
+
+        <div class="footer_inner no_fill footer-light ext_view">
+            <div class="bottom_wrapper">
+                <div class="wrapper_inner">
+                    <div class="row bottom-middle">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="bottom-menu">
+                                        <div class="items">
+                                            <div class="item-link">
+                                                <div class="item">
+                                                    <div class="title">
+                                                        <a href="https://nippononline.ru/company/index.php">Компания</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap">
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/company/">О компании</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/company/news/">Новости</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/company/staff/">Сотрудники</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/company/vacancy/">Вакансии</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/contacts/">Контакты</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="{%url 'politic'%}">Политика</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="bottom-menu">
+                                        <div class="items">
+                                            <div class="item-link">
+                                                <div class="item">
+                                                    <div class="title">
+                                                        <a href="https://nippononline.ru/info/">Информация</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap">
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/help/">Помощь</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/help/delivery/">Условия доставки</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/help/exchange-and-return">Обмен и Возврат</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="bottom-menu">
+                                        <div class="items">
+                                            <div class="item-link">
+                                                <div class="item">
+                                                    <div class="title">
+                                                        <a href="https://nippononline.ru/help/">Помощь</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap">
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/blog/">Блог</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/info/faq/">Вопрос-ответ</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/info/brands/">Бренды</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-link">
+                                                    <div class="item">
+                                                        <div class="title">
+                                                            <a href="https://nippononline.ru/landings/">Обзоры</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-6">
+                                    <div class="subscribe_wrap">
+                                        <div id="bxdynamic_8ofwKu_start" style="display:none"></div>
+                                        <div class="subscribe-form s_hgkNft">
+                                            <div class="wrap_bg">
+                                                <div class="top_blocks">
+                                                    <div class="text">
+                                                        <div class="title">Будьте всегда в курсе!</div>
+                                                        <div class="more">Узнавайте о скидках и акциях первым</div>
+                                                    </div>
+                                                </div>
+                                                <form action="https://nippononline.ru/personal/subscribe/" class="sform box-sizing" novalidate="novalidate">
+                                                    <label for="sf_RUB_ID_1hgkNft" class="hidden">
+                                                        <input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_1hgkNft" value="1" checked=""> Новости магазина             
+                                                    </label>
+                                                    <div class="email_wrap">
+                                                        <input type="email" title="Ваш e-mail" class="email_input" name="sf_EMAIL" maxlength="100" required="" size="20" value="" placeholder="Ваш e-mail" aria-required="true">
+                                                        <input type="submit" name="OK" class="btn btn-default send_btn" value="Подписаться">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="bxdynamic_8ofwKu_end" style="display:none"></div>
+                                    </div>
+                                    <br>
+                                    <div class="social-block rounded_block">
+                                        <div class="social-icons">
+                                            <div class="small_title">Оставайтесь на связи</div>
+                                            <!-- noindex -->
+                                            <ul>
+                                                <li class="vk">
+                                                    <a href="https://vk.com/nipponmoscow" target="_blank" rel="nofollow" title="Вконтакте">
+                                                        Вконтакте               
+                                                    </a>
+                                                </li>
+                                                <li class="instagram">
+                                                    <a href="https://www.instagram.com/nippononline.ru/" target="_blank" rel="nofollow" title="Instagram"> 
+                                                        Instagram               
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <!-- /noindex -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-4 col-sm-offset-2">
+                                    <div class="info contacts_block_footer">
+                                        <span class="white_middle_text">Наши контакты</span>
+                                        <div class="phone blocks">
+                                            <!-- noindex -->
+                                            <div class="phone">
+                                                <i class="svg svg-phone"></i>
+                                                <a rel="nofollow" href="tel:+74957777763"><a href="tel:+74957777763">+7 495 777-77-63</a></a>
+                                            </div>
+                                            <!-- /noindex -->
+                                        </div>
+                                        <div class="email blocks">
+                                            <a href="mailto:info@nippononline.ru"><a href="mailto:info@nippononline.ru">info@nippononline.ru</a></a>
+                                        </div>
+
+
+                                        <div class="address blocks">
+                                            г. Москва, ул. Авиамоторная, д.50, с.2 (Центральный офис и склад)<br> </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-under">
+                        <div class="row">
+                            <div class="col-md-12 outer-wrapper">
+                                <div class="inner-wrapper row">
+                                    <div class="copy-block">
+                                        <div class="copy">
+                                            2020 © ООО "НИППОН"
+                                            <p>
+                                                <br>
+                                            </p>
+                                            <p>
+                                                <br>
+                                            </p>
+                                            <p>
+                                                <br>
+                                            </p>
+                                            <p>
+                                            </p>
+                                            <p><a href="https://nipponbox.ru/">Японские сладости</a> каждый месяц</p>
+                                        </div>
+                                        <div class="print-block"></div>
+                                        <div id="bx-composite-banner"></div>
+                                    </div>
+                                    <div class="pull-right pay_system_icons">
+                                        <span class="">
+                                            <i title="Cash" class="cacsh"></i>
+                                            <i title="MasterCard" class="mastercard"></i>
+                                            <i title="Visa" class="visa"></i>
+                                            <i title="Yandex" class="yandex_money"></i>
+                                            <i title="WebMoney" class="webmoney"></i>
+                                            <i title="Qiwi" class="qiwi"></i>
+                                            <i title="Sberbank" class="sbrf"></i>
+                                            <i title="Alfa" class="alfa"></i>                               
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="bx_areas">
+    
+    </div>
+    <div class="inline-search-block fixed with-close big">
+        <div class="maxwidth-theme">
+            <div class="col-md-12">
+                <div class="search-wrapper">
+                    <div id="title-search">
+                        <form action="{%url 'catalog_details' category='search'%}" class="search">
+                            <div class="search-input-div">
+                                <input class="search-input" id="title-search-input" type="text" name="q" value="" placeholder="Поиск" size="20" maxlength="50" autocomplete="off">
+                            </div>
+                            <div class="search-button-div">
+                                <button class="btn btn-search btn-default bold btn-lg" type="submit" name="s" value="Найти">Найти</button>
+                                <span class="close-block inline-search-hide"><span class="svg svg-close close-icons"></span></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bxdynamic_basketitems-block_start" style="display:none"></div>
+    <script>
+        function jsPriceFormat(_number) {
+            BX.Currency.setCurrencyFormat('RUB', {
+                'CURRENCY': 'RUB',
+                'LID': 'ru',
+                'FORMAT_STRING': '# руб.',
+                'FULL_NAME': 'Рубль',
+                'DEC_POINT': '.',
+                'THOUSANDS_SEP': ' ',
+                'DECIMALS': '2',
+                'THOUSANDS_VARIANT': 'S',
+                'HIDE_ZERO': 'Y',
+                'CREATED_BY': '',
+                'DATE_CREATE': '',
+                'MODIFIED_BY': '93594',
+                'TIMESTAMP_X': '2018-05-07 18:18:29'
+            });
+            return BX.Currency.currencyFormat(_number, 'RUB', true);
+        }
+    </script>
+    <script>
+        var arBasketAspro = {
+            'BASKET': [],
+            'DELAY': [],
+            'SUBSCRIBE': [],
+            'NOT_AVAILABLE': {
+                '20124': '20124',
+                '24616': '24616'
+            },
+            'COMPARE': []
+        };
+        $(document).ready(function() {
+            setBasketStatusBtn();
+        });
+    </script>
+    <div id="bxdynamic_basketitems-block_end" style="display:none"></div>
+    <div id="bxdynamic_all-basketitems-block_start" style="display:none"></div>
+    <div class="basket_wrapp  fly basket_fill_DARK">
+        <div class="header-cart fly" id="basket_line">
+            <div class="basket_fly">
+                <div class="wrap_cont">
+                    <!--'start_frame_cache_ouh0s0'-->
+                    <input type="hidden" name="total_price" value="{{total_amount}} руб.">
+                    <input type="hidden" name="total_discount_price" value="{{total_amount}} руб.">
+                    <input type="hidden" name="total_count" value="2">
+                    <input type="hidden" name="delay_count" value="0">
+
+                    <div class="opener">
+                        <div title="В корзине товаров на {{total_amount}} руб." data-type="AnDelCanBuy" class="basket_count small clicked">
+                            <a href="https://nippononline.ru/basket/"></a>
+                            <div class="wraps_icon_block basket">
+                                <div class="count">
+                                    <span>
+                                        <span class="items">
+                                            <span id="count_in_basket_small">{{products_total_nmb}}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div title="Список отложенных товаров пуст" data-type="DelDelCanBuy" class="wish_count small clicked empty">
+                            <a href="https://nippononline.ru/basket/#delayed"></a>
+                            <div class="wraps_icon_block delay">
+                                <div class="count empty_items">
+                                    <span>
+                                        <span class="items">
+                                            <span>0</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div title="Сравнение товаров" class="compare_count small">
+                            <a href="https://nippononline.ru/catalog/compare.php"></a>
+                            <div id="compare_fly" class="wraps_icon_block compare  empty_block">
+                                <div class="count empty_items">
+                                    <span>
+                                        <span class="items">
+                                            <span>0</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="{% static 'script/script.min.js'%}"></script>
+
+                    <!-- <p>
+                        <font class="errortext">Извините, но указанное ранее количество товара недоступно.<br>Установлено ближайшее доступное значение.</font>
+                    </p>
+                    <p>
+                        <font class="errortext">Извините, но указанное ранее количество товара недоступно.<br>Установлено ближайшее доступное значение.</font>
+                    </p> -->
+                    <div class="basket_sort">
+                        <div class="basket_title">
+                            <a href="{%url 'basket'%}" class="dark-color basket-link">
+                                Корзина
+                                <i class="fa basket-go"></i>
+                            </a>
+                        </div>
+                        <ul class="tabs">
+                            <li item-section="AnDelCanBuy" data-type="AnDelCanBuy">
+                                <div class="wrap_li">
+                                    <span>Готовые к заказу</span>
+                                    <span class="quantity">
+                                        &nbsp;(
+                                        <span class="count" id="count_in_basket">{{products_total_nmb}}</span>
+                                            )
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="wrap_remove_button">
+                            <span class="btn btn-default white white-bg grey remove_all_basket AnDelCanBuy cur" data-type="basket">
+                                Очистить
+                            </span>
+                        </span>
+                    </div>
+
+                    <form method="post" action="" name="basket_form" id="basket_form" class="basket_wrapp">
+                        {%csrf_token%}
+                        <ul class="tabs_content basket">
+                            <li item-section="AnDelCanBuy">
+                                <div class="module-cart">
+                                    <div class="goods" style="overflow-x: hidden !important;">
+                                        <table class="colored" width="100%" id="basket_items">
+                                            <thead>
+                                                <tr>
+                                                    <td class="thumb-cell"></td>
+                                                    <td class="name-th">
+                                                        Наименование</td>
+                                                    <td class="price-th">Цена</td>
+                                                    <td class="quantity-th">Количество</td>
+                                                    <td class="summ-th">Сумма</td>
+                                                    <td class="delay-cell"></td>
+                                                    <td class="remove-cell"></td>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                {%for product_b in products_in_basket%}
+                                                    {%include 'nipponapp/includes/product_card_inbasket.html'%}
+                                                {%endfor%}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="itog">
+                                        <table class="colored fixed" height="100%" width="100%">
+                                            <tfoot>
+                                                <tr data-id="total_row">
+                                                    <td colspan="2" class="row_titles">
+                                                        <div class="item_title">Итого</div>
+                                                    </td>
+                                                    <td class="row_values">
+                                                        <div class="wrap_prices">
+                                                            <div data-type="price_normal">
+                                                                <div class="price">{{total_amount}} руб.</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="total_buttons" class="bottom_btn">
+                                                    <td>
+                                                        <div class="basket_close">
+                                                            <span class="btn btn-default white grey close"><span>Продолжить покупки</span></span>
+                                                            <div class="description">Вернуться к выбору товаров</div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="back_btn">
+                                                        <div class="basket_back">
+                                                            <div class="wrap_button">
+                                                                <a href="{% url 'basket' %}" class="btn btn-default white"><span>Перейти в корзину</span></a>
+                                                            </div>
+                                                            <div class="description">Полноценное оформление<br> заказа</div>
+                                                        </div>
+                                                    </td>
+                                                    <td width="19%">
+                                                        <div class="basket_fast_order clearfix">
+                                                            <a onclick="oneClickBuyBasket()" class="btn btn-default fast_order"><span>Быстрый заказ</span></a>
+                                                            <div class="description">Вам потребуется указать<br>только имя и номер</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="one_click_buy_basket_frame"></div>
+                            </li>
+                        </ul>
+                        <input id="fly_basket_params" type="hidden" name="PARAMS" value="a%3A82%3A%7Bs%3A12%3A%22COLUMNS_LIST%22%3Ba%3A8%3A%7Bi%3A0%3Bs%3A4%3A%22NAME%22%3Bi%3A1%3Bs%3A8%3A%22QUANTITY%22%3Bi%3A2%3Bs%3A6%3A%22DELETE%22%3Bi%3A3%3Bs%3A5%3A%22DELAY%22%3Bi%3A4%3Bs%3A5%3A%22PRICE%22%3Bi%3A5%3Bs%3A4%3A%22TYPE%22%3Bi%3A7%3Bs%3A5%3A%22PROPS%22%3Bi%3A8%3Bs%3A15%3A%22PREVIEW_PICTURE%22%3B%7Ds%3A12%3A%22OFFERS_PROPS%22%3Ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22SIZES%22%3Bi%3A1%3Bs%3A9%3A%22COLOR_REF%22%3B%7Ds%3A11%3A%22HIDE_COUPON%22%3Bs%3A1%3A%22N%22%3Bs%3A20%3A%22PRICE_VAT_SHOW_VALUE%22%3Bs%3A1%3A%22Y%22%3Bs%3A29%3A%22COUNT_DISCOUNT_4_ALL_QUANTITY%22%3Bs%3A1%3A%22N%22%3Bs%3A14%3A%22USE_PREPAYMENT%22%3Bs%3A1%3A%22N%22%3Bs%3A9%3A%22SET_TITLE%22%3Bs%3A1%3A%22N%22%3Bs%3A16%3A%22AJAX_MODE_CUSTOM%22%3Bs%3A1%3A%22Y%22%3Bs%3A12%3A%22SHOW_MEASURE%22%3Bs%3A1%3A%22Y%22%3Bs%3A13%3A%22PICTURE_WIDTH%22%3Bs%3A2%3A%2270%22%3Bs%3A14%3A%22PICTURE_HEIGHT%22%3Bs%3A2%3A%2270%22%3Bs%3A14%3A%22PATH_TO_BASKET%22%3Bs%3A8%3A%22%2Fbasket%2F%22%3Bs%3A13%3A%22PATH_TO_ORDER%22%3Bs%3A7%3A%22%2Forder%2F%22%3Bs%3A12%3A%22PATH_TO_AUTH%22%3Bs%3A6%3A%22%2Fauth%2F%22%3Bs%3A15%3A%22PATH_TO_COMPARE%22%3Bs%3A20%3A%22%2Fcatalog%2Fcompare.php%22%3Bs%3A22%3A%22SHOW_FULL_ORDER_BUTTON%22%3Bs%3A1%3A%22N%22%3Bs%3A22%3A%22SHOW_FAST_ORDER_BUTTON%22%3Bs%3A1%3A%22Y%22%3Bs%3A10%3A%22CACHE_TYPE%22%3Bs%3A1%3A%22A%22%3Bs%3A15%3A%22COMPATIBLE_MODE%22%3Bs%3A1%3A%22Y%22%3Bs%3A16%3A%22DEFERRED_REFRESH%22%3Bs%3A1%3A%22N%22%3Bs%3A14%3A%22QUANTITY_FLOAT%22%3Bs%3A1%3A%22N%22%3Bs%3A15%3A%22ACTION_VARIABLE%22%3Bs%3A12%3A%22basketAction%22%3Bs%3A9%3A%22AJAX_PATH%22%3Bs%3A53%3A%22%2Fbitrix%2Fcomponents%2Fbitrix%2Fsale.basket.basket%2Fajax.php%22%3Bs%3A16%3A%22AUTO_CALCULATION%22%3Bs%3A1%3A%22Y%22%3Bs%3A11%3A%22WEIGHT_KOEF%22%3Bs%3A4%3A%221000%22%3Bs%3A11%3A%22WEIGHT_UNIT%22%3Bs%3A4%3A%22%D0%BA%D0%B3%22%3Bs%3A16%3A%22COLUMNS_LIST_EXT%22%3Ba%3A8%3A%7Bi%3A0%3Bs%3A4%3A%22NAME%22%3Bi%3A1%3Bs%3A8%3A%22QUANTITY%22%3Bi%3A2%3Bs%3A6%3A%22DELETE%22%3Bi%3A3%3Bs%3A5%3A%22DELAY%22%3Bi%3A4%3Bs%3A5%3A%22PRICE%22%3Bi%3A5%3Bs%3A4%3A%22TYPE%22%3Bi%3A7%3Bs%3A5%3A%22PROPS%22%3Bi%3A8%3Bs%3A15%3A%22PREVIEW_PICTURE%22%3B%7Ds%3A13%3A%22CORRECT_RATIO%22%3Bs%3A1%3A%22Y%22%3Bs%3A21%3A%22BASKET_IMAGES_SCALING%22%3Bs%3A8%3A%22adaptive%22%3Bs%3A10%3A%22LABEL_PROP%22%3Ba%3A0%3A%7B%7Ds%3A17%3A%22LABEL_PROP_MOBILE%22%3Ba%3A0%3A%7B%7Ds%3A19%3A%22LABEL_PROP_POSITION%22%3Bs%3A8%3A%22top-left%22%3Bs%3A21%3A%22SHOW_DISCOUNT_PERCENT%22%3Bs%3A1%3A%22Y%22%3Bs%3A25%3A%22DISCOUNT_PERCENT_POSITION%22%3Bs%3A12%3A%22bottom-right%22%3Bs%3A29%3A%22BASKET_WITH_ORDER_INTEGRATION%22%3Bs%3A1%3A%22N%22%3Bs%3A24%3A%22BASKET_MAX_COUNT_TO_SHOW%22%3Bi%3A5%3Bs%3A25%3A%22BASKET_HAS_BEEN_REFRESHED%22%3Bs%3A1%3A%22N%22%3Bs%3A12%3A%22SHOW_RESTORE%22%3Bs%3A1%3A%22Y%22%3Bs%3A9%3A%22USE_GIFTS%22%3Bs%3A1%3A%22Y%22%3Bs%3A11%3A%22GIFTS_PLACE%22%3Bs%3A6%3A%22BOTTOM%22%3Bs%3A24%3A%22GIFTS_PAGE_ELEMENT_COUNT%22%3Bi%3A4%3Bs%3A13%3A%22%7ECOLUMNS_LIST%22%3Ba%3A8%3A%7Bi%3A0%3Bs%3A4%3A%22NAME%22%3Bi%3A1%3Bs%3A8%3A%22QUANTITY%22%3Bi%3A2%3Bs%3A6%3A%22DELETE%22%3Bi%3A3%3Bs%3A5%3A%22DELAY%22%3Bi%3A4%3Bs%3A5%3A%22PRICE%22%3Bi%3A5%3Bs%3A4%3A%22TYPE%22%3Bi%3A7%3Bs%3A5%3A%22PROPS%22%3Bi%3A8%3Bs%3A15%3A%22PREVIEW_PICTURE%22%3B%7Ds%3A13%3A%22%7EOFFERS_PROPS%22%3Ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22SIZES%22%3Bi%3A1%3Bs%3A9%3A%22COLOR_REF%22%3B%7Ds%3A12%3A%22%7EHIDE_COUPON%22%3Bs%3A1%3A%22N%22%3Bs%3A21%3A%22%7EPRICE_VAT_SHOW_VALUE%22%3Bs%3A1%3A%22Y%22%3Bs%3A30%3A%22%7ECOUNT_DISCOUNT_4_ALL_QUANTITY%22%3Bs%3A1%3A%22N%22%3Bs%3A15%3A%22%7EUSE_PREPAYMENT%22%3Bs%3A1%3A%22N%22%3Bs%3A10%3A%22%7ESET_TITLE%22%3Bs%3A1%3A%22N%22%3Bs%3A17%3A%22%7EAJAX_MODE_CUSTOM%22%3Bs%3A1%3A%22Y%22%3Bs%3A13%3A%22%7ESHOW_MEASURE%22%3Bs%3A1%3A%22Y%22%3Bs%3A14%3A%22%7EPICTURE_WIDTH%22%3Bs%3A2%3A%2270%22%3Bs%3A15%3A%22%7EPICTURE_HEIGHT%22%3Bs%3A2%3A%2270%22%3Bs%3A15%3A%22%7EPATH_TO_BASKET%22%3Bs%3A8%3A%22%2Fbasket%2F%22%3Bs%3A14%3A%22%7EPATH_TO_ORDER%22%3Bs%3A7%3A%22%2Forder%2F%22%3Bs%3A13%3A%22%7EPATH_TO_AUTH%22%3Bs%3A6%3A%22%2Fauth%2F%22%3Bs%3A16%3A%22%7EPATH_TO_COMPARE%22%3Bs%3A20%3A%22%2Fcatalog%2Fcompare.php%22%3Bs%3A23%3A%22%7ESHOW_FULL_ORDER_BUTTON%22%3Bs%3A1%3A%22N%22%3Bs%3A23%3A%22%7ESHOW_FAST_ORDER_BUTTON%22%3Bs%3A1%3A%22Y%22%3Bs%3A11%3A%22%7ECACHE_TYPE%22%3Bs%3A1%3A%22A%22%3Bs%3A16%3A%22%7ECOMPATIBLE_MODE%22%3Bs%3A1%3A%22Y%22%3Bs%3A17%3A%22%7EDEFERRED_REFRESH%22%3Bs%3A1%3A%22N%22%3Bs%3A15%3A%22%7EQUANTITY_FLOAT%22%3Bs%3A1%3A%22N%22%3Bs%3A16%3A%22%7EACTION_VARIABLE%22%3Bs%3A12%3A%22basketAction%22%3Bs%3A10%3A%22%7EAJAX_PATH%22%3Bs%3A53%3A%22%2Fbitrix%2Fcomponents%2Fbitrix%2Fsale.basket.basket%2Fajax.php%22%3Bs%3A17%3A%22%7EAUTO_CALCULATION%22%3Bs%3A1%3A%22Y%22%3Bs%3A12%3A%22%7EWEIGHT_KOEF%22%3Bs%3A4%3A%221000%22%3Bs%3A12%3A%22%7EWEIGHT_UNIT%22%3Bs%3A4%3A%22%D0%BA%D0%B3%22%3Bs%3A17%3A%22%7ECOLUMNS_LIST_EXT%22%3Ba%3A8%3A%7Bi%3A0%3Bs%3A4%3A%22NAME%22%3Bi%3A1%3Bs%3A8%3A%22QUANTITY%22%3Bi%3A2%3Bs%3A6%3A%22DELETE%22%3Bi%3A3%3Bs%3A5%3A%22DELAY%22%3Bi%3A4%3Bs%3A5%3A%22PRICE%22%3Bi%3A5%3Bs%3A4%3A%22TYPE%22%3Bi%3A7%3Bs%3A5%3A%22PROPS%22%3Bi%3A8%3Bs%3A15%3A%22PREVIEW_PICTURE%22%3B%7Ds%3A14%3A%22%7ECORRECT_RATIO%22%3Bs%3A1%3A%22Y%22%3Bs%3A22%3A%22%7EBASKET_IMAGES_SCALING%22%3Bs%3A8%3A%22adaptive%22%3Bs%3A11%3A%22%7ELABEL_PROP%22%3Ba%3A0%3A%7B%7Ds%3A18%3A%22%7ELABEL_PROP_MOBILE%22%3Ba%3A0%3A%7B%7Ds%3A20%3A%22%7ELABEL_PROP_POSITION%22%3Bs%3A8%3A%22top-left%22%3Bs%3A22%3A%22%7ESHOW_DISCOUNT_PERCENT%22%3Bs%3A1%3A%22Y%22%3Bs%3A26%3A%22%7EDISCOUNT_PERCENT_POSITION%22%3Bs%3A12%3A%22bottom-right%22%3Bs%3A30%3A%22%7EBASKET_WITH_ORDER_INTEGRATION%22%3Bs%3A1%3A%22N%22%3Bs%3A25%3A%22%7EBASKET_MAX_COUNT_TO_SHOW%22%3Bi%3A5%3Bs%3A26%3A%22%7EBASKET_HAS_BEEN_REFRESHED%22%3Bs%3A1%3A%22N%22%3Bs%3A13%3A%22%7ESHOW_RESTORE%22%3Bs%3A1%3A%22Y%22%3Bs%3A10%3A%22%7EUSE_GIFTS%22%3Bs%3A1%3A%22Y%22%3Bs%3A12%3A%22%7EGIFTS_PLACE%22%3Bs%3A6%3A%22BOTTOM%22%3Bs%3A25%3A%22%7EGIFTS_PAGE_ELEMENT_COUNT%22%3Bi%3A4%3B%7D">
+                    </form>
+
+                    <script>
+                        $(document).ready(function() {
+                            $("#basket_line .basket_fly").on('submit', function(e) {
+                                e.preventDefault();
+                            });
+                            $('#basket_line .basket_fly a.apply-button').click(function() {
+                                $('#basket_line .basket_fly form[name^=basket_form]').prepend('<input type="hidden" name="BasketRefresh" value="Y" />');
+                                $.post(arNextOptions['SITE_DIR'] + 'basket/', $("#basket_line .basket_fly form[name^=basket_form]").serialize(), $.proxy(
+                                    function(data) {
+                                        $('#basket_line .basket_fly form[name^=basket_form] input[name=BasketRefresh]').remove();
+                                    }));
+                            });
+
+                            $("#basket_line .basket_fly .tabs > li").on("click", function() {
+                                $("#basket_line .basket_fly .tabs > li").removeClass("cur");
+                                $("#basket_line .basket_fly .tabs_content > li").removeClass("cur");
+                                $("#basket_line .basket_fly .basket_sort .remove_all_basket").removeClass("cur");
+                                $("#basket_line .basket_fly .tabs > li:eq(" + $(this).index() + ")").addClass("cur");
+                                $("#basket_line .basket_fly .tabs_content > li:eq(" + $(this).index() + ")").addClass("cur");
+                                $("#basket_line .basket_fly .basket_sort .remove_all_basket." + $(this).data('type')).addClass("cur");
+                            });
+
+                            $("#basket_line .basket_fly .back_button, #basket_line .basket_fly .close").on("click", function() {
+                                $("#basket_line .basket_fly .opener > div").trigger('click');
+                            });
+                        });
+
+
+                        var animateRow = function(row) {
+                            $(row).find("td.thumb-cell img").css({
+                                "maxHeight": "inherit",
+                                "maxWidth": "inherit"
+                            }).fadeTo(50, 0);
+                            var columns = $(row).find("td");
+                            $(columns).wrapInner('<div class="slide"></div>');
+                            $(row).find(".summ-cell").wrapInner('<div class="slide"></div>');
+                            setTimeout(function() {
+                                $(columns).animate({
+                                    "paddingTop": 0,
+                                    "paddingBottom": 0
+                                }, 50)
+                            }, 0);
+                            $(columns).find(".slide").slideUp(333);
+                        }
+
+                        $("#basket_form").ready(function() {
+                            $('form[name^=basket_form] .counter_block input[type=text]').change(function(e) {
+                                e.preventDefault();
+                                // updateQuantity($(this).attr("id"), $(this).attr("data-id"), $(this).attr("step"));
+                            });
+
+                            $('.basket_sort .remove_all_basket').click(function(e) {
+                                if (!$(this).hasClass('disabled')) {
+                                    $(this).addClass('disabled');
+                                    delete_all_items($(this).data("type"), $(".tabs_content li:eq(" + $(this).index() + ")").attr("item-section"), 333);
+
+                                }
+                                $(this).removeClass('disabled');
+                            })
+
+                            // $('form[name^=basket_form] .remove').unbind('click').click(function(e) {
+                            //     e.preventDefault();
+                            //     var row = $(this).parents("tr").first();
+                            //     row.fadeTo(100, 0.05, function() {});
+                            //     deleteProduct($(this).parents("tr[data-id]").attr('data-id'), $(this).parents("li").attr("item-section"), $(this).parents("tr[data-id]").attr('product-id'), $(this).parents("tr[data-id]"));
+                            //     markProductRemoveBasket($(this).parents("tr[data-id]").attr('product-id'));
+                            //     return false;
+                            // });
+
+                            $('form[name^=basket_form] .delay .wish_item').unbind('click').click(function(e) {
+                                delayProduct($(this).parents("tr[data-id]").attr('data-id'), $(this).parents("li").attr("item-section"), $(this).parents("tr[data-id]"));
+                                var row = $(this).parents("tr").first();
+                                row.fadeTo(100, 0.05, function() {});
+                                markProductDelay($(this).parents("tr[data-id]").attr('product-id'));
+                            });
+
+                            $('form[name^=basket_form] .add .wish_item').unbind('click').click(function(e) {
+                                var basketId = $(this).parents("tr[data-id]").attr('data-id');
+                                var controlId = "QUANTITY_INPUT_" + basketId;
+                                var ratio = $(this).parents("tr[data-id]").find("#" + controlId).attr("step");
+                                var quantity = $(this).parents("tr[data-id]").find("#" + controlId).attr("value");
+                                var row = $(this).parents("tr").first();
+                                row.fadeTo(100, 0.05, function() {});
+                                addProduct(basketId, $(this).parents("li").attr("item-section"), $(this).parents("tr[data-id]"));
+                                markProductAddBasket($(this).parents("tr[data-id]").attr('product-id'));
+                            });
+                        });
+                    </script>
+                    <script>
+                        function jsPriceFormat(_number) {
+                            BX.Currency.setCurrencyFormat('RUB', {
+                                'CURRENCY': 'RUB',
+                                'LID': 'ru',
+                                'FORMAT_STRING': '# руб.',
+                                'FULL_NAME': 'Рубль',
+                                'DEC_POINT': '.',
+                                'THOUSANDS_SEP': ' ',
+                                'DECIMALS': '2',
+                                'THOUSANDS_VARIANT': 'S',
+                                'HIDE_ZERO': 'Y',
+                                'CREATED_BY': '',
+                                'DATE_CREATE': '',
+                                'MODIFIED_BY': '93594',
+                                'TIMESTAMP_X': '2018-05-07 18:18:29'
+                            });
+                            return BX.Currency.currencyFormat(_number, 'RUB', true);
+                        }
+                    </script>
+                    <!--'end_frame_cache_ouh0s0'-->
+                </div>
+            </div>
+            <script>
+                arBasketAsproCounters = {
+                    'READY': {
+                        'COUNT': '0',
+                        'TITLE': '',
+                        'HREF': {
+                            'TITLE': 'Страница корзины',
+                            'TYPE': 'text',
+                            'DEFAULT': '#SITE_DIR#basket/',
+                            'THEME': 'N',
+                            'VALUE': '/basket/',
+                            'TYPE_BLOCK': 'URL_PAGES'
+                        }
+                    },
+                    'DELAY': {
+                        'COUNT': '0',
+                        'TITLE': '',
+                        'HREF': {
+                            'TITLE': 'Страница корзины',
+                            'TYPE': 'text',
+                            'DEFAULT': '#SITE_DIR#basket/',
+                            'THEME': 'N',
+                            'VALUE': '/basket/',
+                            'TYPE_BLOCK': 'URL_PAGES'
+                        }
+                    },
+                    'COMPARE': {
+                        'COUNT': '0',
+                        'TITLE': 'Сравнение товаров',
+                        'HREF': {
+                            'TITLE': 'Страница сравнения товаров',
+                            'TYPE': 'text',
+                            'DEFAULT': '#SITE_DIR#catalog/compare.php',
+                            'THEME': 'N',
+                            'VALUE': '/catalog/compare.php',
+                            'TYPE_BLOCK': 'URL_PAGES'
+                        }
+                    },
+                    'DEFAULT': true
+                };
+                SetActualBasketFlyCounters();
+            </script>
+        </div>
+    </div>
+    
+    <script>
+        if (!window.BX) window.BX = {};
+        if (!window.BX.message) window.BX.message = function(mess) {
+            if (typeof mess == 'object')
+                for (var i in mess) BX.message[i] = mess[i];
+            return true;
+        };
+    </script>
+    <script>
+        (window.BX || top.BX).message({
+            'JS_CORE_LOADING': 'Загрузка...',
+            'JS_CORE_NO_DATA': '- Нет данных -',
+            'JS_CORE_WINDOW_CLOSE': 'Закрыть',
+            'JS_CORE_WINDOW_EXPAND': 'Развернуть',
+            'JS_CORE_WINDOW_NARROW': 'Свернуть в окно',
+            'JS_CORE_WINDOW_SAVE': 'Сохранить',
+            'JS_CORE_WINDOW_CANCEL': 'Отменить',
+            'JS_CORE_WINDOW_CONTINUE': 'Продолжить',
+            'JS_CORE_H': 'ч',
+            'JS_CORE_M': 'м',
+            'JS_CORE_S': 'с',
+            'JSADM_AI_HIDE_EXTRA': 'Скрыть лишние',
+            'JSADM_AI_ALL_NOTIF': 'Показать все',
+            'JSADM_AUTH_REQ': 'Требуется авторизация!',
+            'JS_CORE_WINDOW_AUTH': 'Войти',
+            'JS_CORE_IMAGE_FULL': 'Полный размер'
+        });
+    </script>
+    <script src="{%static 'script/core.min.js'%}"></script>
+    <script>
+        (window.BX || top.BX).message({
+            'LANGUAGE_ID': 'ru',
+            'FORMAT_DATE': 'DD.MM.YYYY',
+            'FORMAT_DATETIME': 'DD.MM.YYYY HH:MI:SS',
+            'COOKIE_PREFIX': 'BITRIX_SM',
+            'SERVER_TZ_OFFSET': '10800',
+            'SITE_ID': 's1',
+            'SITE_DIR': '/'
+        });
+    </script>
+    <script src="{% static 'script/kernel_main_v1.js'%}"></script>
+    <script src="{% static 'script/api.js'%}"></script>
+    <script src="{% static 'script/kernel_main_polyfill_customevent_v1.js'%}"></script>
+    <script src="{% static 'script/dexie.bitrix.bundle.min.js'%}"></script>
+    <script src="{% static 'script/core_ls.min.js'%}"></script>
+    <script src="{% static 'script/core_frame_cache.min.js'%}"></script>
+    <script src="{% static 'script/jquery-1.8.3.min.js'%}"></script>
+    <script src="{% static 'script/core.min.js'%}"></script>
+    <script src="{% static 'script/jquery-2.1.3.min.js'%}"></script>
+    <script src="{% static 'script/ajax.min.js'%}"></script>
+    <script src="{% static 'script/main.popup.bundle.min.js'%}"></script>
+    <script src="{% static 'script/core_currency.min.js'%}"></script>
+    <script>
+        BX.message({
+            'PHONE': 'Телефон',
+            'FAST_VIEW': 'Быстрый просмотр',
+            'TABLES_SIZE_TITLE': 'Подбор размера',
+            'SOCIAL': 'Социальные сети',
+            'DESCRIPTION': 'Описание магазина',
+            'ITEMS': 'Товары',
+            'LOGO': 'Логотип',
+            'REGISTER_INCLUDE_AREA': 'Текст о регистрации',
+            'AUTH_INCLUDE_AREA': 'Текст об авторизации',
+            'FRONT_IMG': 'Изображение компании',
+            'EMPTY_CART': 'пуста',
+            'CATALOG_VIEW_MORE': '... Показать все',
+            'CATALOG_VIEW_LESS': '... Свернуть',
+            'JS_REQUIRED': 'Заполните это поле',
+            'JS_FORMAT': 'Неверный формат',
+            'JS_FILE_EXT': 'Недопустимое расширение файла',
+            'JS_PASSWORD_COPY': 'Пароли не совпадают',
+            'JS_PASSWORD_LENGTH': 'Минимум 6 символов',
+            'JS_ERROR': 'Неверно заполнено поле',
+            'JS_FILE_SIZE': 'Максимальный размер 5мб',
+            'JS_FILE_BUTTON_NAME': 'Выберите файл',
+            'JS_FILE_DEFAULT': 'Файл не найден',
+            'JS_DATE': 'Некорректная дата',
+            'JS_DATETIME': 'Некорректная дата/время',
+            'JS_REQUIRED_LICENSES': 'Согласитесь с условиями',
+            'LICENSE_PROP': 'Согласие на обработку персональных данных',
+            'LOGIN_LEN': 'Введите минимум {0} символа',
+            'FANCY_CLOSE': 'Закрыть',
+            'FANCY_NEXT': 'Следующий',
+            'FANCY_PREV': 'Предыдущий',
+            'TOP_AUTH_REGISTER': 'Регистрация',
+            'CALLBACK': 'Заказать звонок',
+            'S_CALLBACK': 'Заказать звонок',
+            'UNTIL_AKC': 'До конца акции',
+            'TITLE_QUANTITY_BLOCK': 'Остаток',
+            'TITLE_QUANTITY': 'шт.',
+            'TOTAL_SUMM_ITEM': 'Общая стоимость ',
+            'SUBSCRIBE_SUCCESS': 'Вы успешно подписались',
+            'RECAPTCHA_TEXT': 'Подтвердите, что вы не робот',
+            'JS_RECAPTCHA_ERROR': 'Пройдите проверку',
+            'COUNTDOWN_SEC': 'сек.',
+            'COUNTDOWN_MIN': 'мин.',
+            'COUNTDOWN_HOUR': 'час.',
+            'COUNTDOWN_DAY0': 'дней',
+            'COUNTDOWN_DAY1': 'день',
+            'COUNTDOWN_DAY2': 'дня',
+            'COUNTDOWN_WEAK0': 'Недель',
+            'COUNTDOWN_WEAK1': 'Неделя',
+            'COUNTDOWN_WEAK2': 'Недели',
+            'COUNTDOWN_MONTH0': 'Месяцев',
+            'COUNTDOWN_MONTH1': 'Месяц',
+            'COUNTDOWN_MONTH2': 'Месяца',
+            'COUNTDOWN_YEAR0': 'Лет',
+            'COUNTDOWN_YEAR1': 'Год',
+            'COUNTDOWN_YEAR2': 'Года',
+            'CATALOG_PARTIAL_BASKET_PROPERTIES_ERROR': 'Заполнены не все свойства у добавляемого товара',
+            'CATALOG_EMPTY_BASKET_PROPERTIES_ERROR': 'Выберите свойства товара, добавляемые в корзину в параметрах компонента',
+            'CATALOG_ELEMENT_NOT_FOUND': 'Элемент не найден',
+            'ERROR_ADD2BASKET': 'Ошибка добавления товара в корзину',
+            'CATALOG_SUCCESSFUL_ADD_TO_BASKET': 'Успешное добавление товара в корзину',
+            'ERROR_BASKET_TITLE': 'Ошибка корзины',
+            'ERROR_BASKET_PROP_TITLE': 'Выберите свойства, добавляемые в корзину',
+            'ERROR_BASKET_BUTTON': 'Выбрать',
+            'BASKET_TOP': 'Корзина в шапке',
+            'ERROR_ADD_DELAY_ITEM': 'Ошибка отложенной корзины',
+            'VIEWED_TITLE': 'Ранее вы смотрели',
+            'VIEWED_BEFORE': 'Ранее вы смотрели',
+            'BEST_TITLE': 'Лучшие предложения',
+            'CT_BST_SEARCH_BUTTON': 'Поиск',
+            'CT_BST_SEARCH2_BUTTON': 'Найти',
+            'BASKET_PRINT_BUTTON': 'Распечатать',
+            'BASKET_CLEAR_ALL_BUTTON': 'Очистить',
+            'BASKET_QUICK_ORDER_BUTTON': 'Быстрый заказ',
+            'BASKET_CONTINUE_BUTTON': 'Продолжить покупки',
+            'BASKET_ORDER_BUTTON': 'Оформить заказ',
+            'SHARE_BUTTON': 'Поделиться',
+            'BASKET_CHANGE_TITLE': 'Ваш заказ',
+            'BASKET_CHANGE_LINK': 'Изменить',
+            'MORE_INFO_SKU': 'Подробнее',
+            'FROM': 'от',
+            'TITLE_BLOCK_VIEWED_NAME': 'Ранее вы смотрели',
+            'T_BASKET': 'Корзина',
+            'FILTER_EXPAND_VALUES': 'Показать все',
+            'FILTER_HIDE_VALUES': 'Свернуть',
+            'FULL_ORDER': 'Полный заказ',
+            'CUSTOM_COLOR_CHOOSE': 'Выбрать',
+            'CUSTOM_COLOR_CANCEL': 'Отмена',
+            'S_MOBILE_MENU': 'Меню',
+            'NEXT_T_MENU_BACK': 'Назад',
+            'NEXT_T_MENU_CALLBACK': 'Обратная связь',
+            'NEXT_T_MENU_CONTACTS_TITLE': 'Будьте на связи',
+            'SEARCH_TITLE': 'Поиск',
+            'SOCIAL_TITLE': 'Оставайтесь на связи',
+            'HEADER_SCHEDULE': 'Время работы',
+            'SEO_TEXT': 'SEO описание',
+            'COMPANY_IMG': 'Картинка компании',
+            'COMPANY_TEXT': 'Описание компании',
+            'CONFIG_SAVE_SUCCESS': 'Настройки сохранены',
+            'CONFIG_SAVE_FAIL': 'Ошибка сохранения настроек',
+            'ITEM_ECONOMY': 'Экономия',
+            'ITEM_ARTICLE': 'Артикул: ',
+            'JS_FORMAT_ORDER': 'имеет неверный формат',
+            'JS_BASKET_COUNT_TITLE': 'В корзине товаров на SUMM',
+            'POPUP_VIDEO': 'Видео',
+            'POPUP_GIFT_TEXT': 'Нашли что-то особенное? Намекните другу о подарке!',
+            'ORDER_FIO_LABEL': 'Ф.И.О.',
+            'ORDER_PHONE_LABEL': 'Телефон',
+            'ORDER_REGISTER_BUTTON': 'Регистрация'
+        });
+    </script>
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        lazySizesConfig.loadMode = 2;
+        lazySizesConfig.expand = 100;
+        lazySizesConfig.expFactor = 1;
+        lazySizesConfig.hFac = 0.1;
+    </script>
+    <script src="{%static 'script/template_ccf5be4452a0195592d0061ad2dd0769_v1.js'%}"></script>
+
+
+
+
+    <script>
+        window.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+        }
+        BX.message({
+            'MIN_ORDER_PRICE_TEXT': '<b>Минимальная сумма заказа #PRICE#<\/b><br/>Пожалуйста, добавьте еще товаров в корзину',
+            'LICENSES_TEXT': 'Я согласен на <a href=\"/include/licenses_detail.php\" target=\"_blank\">обработку персональных данных<\/a>'
+        });
+
+        var arNextOptions = ({
+            "SITE_DIR": "/",
+            "SITE_ID": "s1",
+            "SITE_ADDRESS": "nippon",
+            "FORM": ({
+                "ASK_FORM_ID": "ASK",
+                "SERVICES_FORM_ID": "SERVICES",
+                "FEEDBACK_FORM_ID": "FEEDBACK",
+                "CALLBACK_FORM_ID": "CALLBACK",
+                "RESUME_FORM_ID": "RESUME",
+                "TOORDER_FORM_ID": "TOORDER"
+            }),
+            "PAGES": ({
+                "FRONT_PAGE": "1",
+                "BASKET_PAGE": "",
+                "ORDER_PAGE": "",
+                "PERSONAL_PAGE": "",
+                "CATALOG_PAGE": "",
+                "CATALOG_PAGE_URL": "/catalog/",
+                "BASKET_PAGE_URL": "/basket/",
+            }),
+            "PRICES": ({
+                "MIN_PRICE": "0",
+            }),
+            "THEME": ({
+                'THEME_SWITCHER': 'N',
+                'BASE_COLOR': 'CUSTOM',
+                'BASE_COLOR_CUSTOM': 'FE6345',
+                'TOP_MENU': '',
+                'TOP_MENU_FIXED': 'Y',
+                'COLORED_LOGO': 'N',
+                'SIDE_MENU': 'LEFT',
+                'SCROLLTOTOP_TYPE': 'ROUND_COLOR',
+                'SCROLLTOTOP_POSITION': 'PADDING',
+                'USE_LAZY_LOAD': 'Y',
+                'CAPTCHA_FORM_TYPE': '',
+                'ONE_CLICK_BUY_CAPTCHA': 'N',
+                'PHONE_MASK': '+7 (999) 999-99-99',
+                'VALIDATE_PHONE_MASK': '^[+][0-9] [(][0-9]{3}[)] [0-9]{3}[-][0-9]{2}[-][0-9]{2}$',
+                'DATE_MASK': 'd.m.y',
+                'DATE_PLACEHOLDER': 'дд.мм.гггг',
+                'VALIDATE_DATE_MASK': '^[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}$',
+                'DATETIME_MASK': 'd.m.y h:s',
+                'DATETIME_PLACEHOLDER': 'дд.мм.гггг чч:мм',
+                'VALIDATE_DATETIME_MASK': '^[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4} [0-9]{1,2}\:[0-9]{1,2}$',
+                'VALIDATE_FILE_EXT': 'png|jpg|jpeg|gif|doc|docx|xls|xlsx|txt|pdf|odt|rtf',
+                'BANNER_WIDTH': '',
+                'BIGBANNER_ANIMATIONTYPE': 'SLIDE_HORIZONTAL',
+                'BIGBANNER_SLIDESSHOWSPEED': '5000',
+                'BIGBANNER_ANIMATIONSPEED': '600',
+                'PARTNERSBANNER_SLIDESSHOWSPEED': '5000',
+                'PARTNERSBANNER_ANIMATIONSPEED': '600',
+                'ORDER_BASKET_VIEW': 'FLY',
+                'SHOW_BASKET_ONADDTOCART': 'Y',
+                'SHOW_BASKET_PRINT': 'Y',
+                "SHOW_ONECLICKBUY_ON_BASKET_PAGE": 'Y',
+                'SHOW_LICENCE': 'Y',
+                'LICENCE_CHECKED': 'Y',
+                'LOGIN_EQUAL_EMAIL': 'Y',
+                'PERSONAL_ONEFIO': 'Y',
+                'SHOW_TOTAL_SUMM': 'N',
+                'SHOW_TOTAL_SUMM_TYPE': 'CHANGE',
+                'CHANGE_TITLE_ITEM': 'N',
+                'DISCOUNT_PRICE': '',
+                'STORES': '',
+                'STORES_SOURCE': 'IBLOCK',
+                'TYPE_SKU': 'TYPE_1',
+                'MENU_POSITION': 'LINE',
+                'MENU_TYPE_VIEW': 'HOVER',
+                'DETAIL_PICTURE_MODE': 'POPUP',
+                'PAGE_WIDTH': '3',
+                'PAGE_CONTACTS': '1',
+                'HEADER_TYPE': '1',
+                'REGIONALITY_SEARCH_ROW': 'N',
+                'HEADER_TOP_LINE': '',
+                'HEADER_FIXED': '2',
+                'HEADER_MOBILE': '1',
+                'HEADER_MOBILE_MENU': '1',
+                'HEADER_MOBILE_MENU_SHOW_TYPE': '',
+                'TYPE_SEARCH': 'fixed',
+                'PAGE_TITLE': '3',
+                'INDEX_TYPE': 'custom',
+                'FOOTER_TYPE': '1',
+                'PRINT_BUTTON': 'N',
+                'EXPRESSION_FOR_PRINT_PAGE': 'Версия для печати',
+                'EXPRESSION_FOR_FAST_VIEW': 'Быстрый просмотр',
+                'FILTER_VIEW': 'VERTICAL',
+                'YA_GOALS': 'Y',
+                'YA_COUNTER_ID': '29248350',
+                'USE_FORMS_GOALS': 'COMMON',
+                'USE_SALE_GOALS': '',
+                'USE_DEBUG_GOALS': 'N',
+                'SHOW_HEADER_GOODS': 'Y',
+                'INSTAGRAMM_INDEX': 'Y',
+                'USE_PHONE_AUTH': 'N',
+                'MOBILE_CATALOG_LIST_ELEMENTS_COMPACT': 'N',
+            }),
+            "PRESETS": [{
+                'ID': '968',
+                'TITLE': 'Тип 1',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset968_1544181424.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': '9',
+                    'BASE_COLOR_CUSTOM': '1976d2',
+                    'SHOW_BG_BLOCK': 'N',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '3',
+                    'FONT_STYLE': '2',
+                    'MENU_COLOR': 'COLORED',
+                    'LEFT_BLOCK': '1',
+                    'SIDE_MENU': 'LEFT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '1',
+                    'HOVER_TYPE_IMG': 'shine',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '3',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'N',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index1',
+                        'SUB_PARAMS': {
+                            'TIZERS': 'Y',
+                            'CATALOG_SECTIONS': 'Y',
+                            'CATALOG_TAB': 'Y',
+                            'MIDDLE_ADV': 'Y',
+                            'SALE': 'Y',
+                            'BLOG': 'Y',
+                            'BOTTOM_BANNERS': 'Y',
+                            'COMPANY_TEXT': 'Y',
+                            'BRANDS': 'Y',
+                            'INSTAGRAMM': 'Y'
+                        }
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_slider',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_only',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '1',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'COMPACT',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_1',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'FLY',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '3',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '4',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }, {
+                'ID': '221',
+                'TITLE': 'Тип 2',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset221_1544181431.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': '11',
+                    'BASE_COLOR_CUSTOM': '107bb1',
+                    'SHOW_BG_BLOCK': 'N',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '2',
+                    'FONT_STYLE': '8',
+                    'MENU_COLOR': 'LIGHT',
+                    'LEFT_BLOCK': '2',
+                    'SIDE_MENU': 'LEFT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '1',
+                    'HOVER_TYPE_IMG': 'shine',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '4',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'N',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index3',
+                        'SUB_PARAMS': {
+                            'TOP_ADV_BOTTOM_BANNER': 'Y',
+                            'FLOAT_BANNER': 'Y',
+                            'CATALOG_SECTIONS': 'Y',
+                            'CATALOG_TAB': 'Y',
+                            'TIZERS': 'Y',
+                            'SALE': 'Y',
+                            'BOTTOM_BANNERS': 'Y',
+                            'COMPANY_TEXT': 'Y',
+                            'BRANDS': 'Y',
+                            'INSTAGRAMM': 'N'
+                        }
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_slider',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_with_childs',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '2',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'VERTICAL',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_3',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'NORMAL',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '3',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '1',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }, {
+                'ID': '215',
+                'TITLE': 'Тип 3',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset215_1544181438.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': '16',
+                    'BASE_COLOR_CUSTOM': '188b30',
+                    'SHOW_BG_BLOCK': 'N',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '3',
+                    'FONT_STYLE': '8',
+                    'MENU_COLOR': 'LIGHT',
+                    'LEFT_BLOCK': '3',
+                    'SIDE_MENU': 'LEFT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '1',
+                    'HOVER_TYPE_IMG': 'shine',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '4',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'N',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index2',
+                        'SUB_PARAMS': []
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_list',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_with_childs',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '2',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'VERTICAL',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_4',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'NORMAL',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '3',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '1',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }, {
+                'ID': '881',
+                'TITLE': 'Тип 4',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset881_1544181443.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': 'CUSTOM',
+                    'BASE_COLOR_CUSTOM': 'f07c00',
+                    'SHOW_BG_BLOCK': 'N',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '1',
+                    'FONT_STYLE': '1',
+                    'MENU_COLOR': 'COLORED',
+                    'LEFT_BLOCK': '2',
+                    'SIDE_MENU': 'RIGHT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '3',
+                    'HOVER_TYPE_IMG': 'blink',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '4',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'Y',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index4',
+                        'SUB_PARAMS': []
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_slider',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_with_childs',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '9',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'COMPACT',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_4',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'NORMAL',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '1',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '1',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }, {
+                'ID': '741',
+                'TITLE': 'Тип 5',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset741_1544181450.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': 'CUSTOM',
+                    'BASE_COLOR_CUSTOM': 'd42727',
+                    'BGCOLOR_THEME': 'LIGHT',
+                    'CUSTOM_BGCOLOR_THEME': 'f6f6f7',
+                    'SHOW_BG_BLOCK': 'Y',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '2',
+                    'FONT_STYLE': '5',
+                    'MENU_COLOR': 'COLORED',
+                    'LEFT_BLOCK': '2',
+                    'SIDE_MENU': 'LEFT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '1',
+                    'HOVER_TYPE_IMG': 'shine',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '4',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'N',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index3',
+                        'SUB_PARAMS': {
+                            'TOP_ADV_BOTTOM_BANNER': 'Y',
+                            'FLOAT_BANNER': 'Y',
+                            'CATALOG_SECTIONS': 'Y',
+                            'CATALOG_TAB': 'Y',
+                            'TIZERS': 'Y',
+                            'SALE': 'Y',
+                            'BOTTOM_BANNERS': 'Y',
+                            'COMPANY_TEXT': 'Y',
+                            'BRANDS': 'Y',
+                            'INSTAGRAMM': 'N'
+                        }
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_slider',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_only',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '3',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'VERTICAL',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_1',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'NORMAL',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '3',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '4',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }, {
+                'ID': '889',
+                'TITLE': 'Тип 6',
+                'DESCRIPTION': '',
+                'IMG': '/bitrix/images/aspro.next/themes/preset889_1544181455.png',
+                'OPTIONS': {
+                    'THEME_SWITCHER': 'Y',
+                    'BASE_COLOR': '9',
+                    'BASE_COLOR_CUSTOM': '1976d2',
+                    'SHOW_BG_BLOCK': 'N',
+                    'COLORED_LOGO': 'Y',
+                    'PAGE_WIDTH': '2',
+                    'FONT_STYLE': '8',
+                    'MENU_COLOR': 'COLORED',
+                    'LEFT_BLOCK': '2',
+                    'SIDE_MENU': 'LEFT',
+                    'H1_STYLE': '2',
+                    'TYPE_SEARCH': 'fixed',
+                    'PAGE_TITLE': '1',
+                    'HOVER_TYPE_IMG': 'shine',
+                    'SHOW_LICENCE': 'Y',
+                    'MAX_DEPTH_MENU': '3',
+                    'HIDE_SITE_NAME_TITLE': 'Y',
+                    'SHOW_CALLBACK': 'Y',
+                    'PRINT_BUTTON': 'N',
+                    'USE_GOOGLE_RECAPTCHA': 'N',
+                    'GOOGLE_RECAPTCHA_SHOW_LOGO': 'Y',
+                    'HIDDEN_CAPTCHA': 'Y',
+                    'INSTAGRAMM_WIDE_BLOCK': 'N',
+                    'BIGBANNER_HIDEONNARROW': 'N',
+                    'INDEX_TYPE': {
+                        'VALUE': 'index1',
+                        'SUB_PARAMS': {
+                            'TIZERS': 'Y',
+                            'CATALOG_SECTIONS': 'Y',
+                            'CATALOG_TAB': 'Y',
+                            'MIDDLE_ADV': 'Y',
+                            'SALE': 'Y',
+                            'BLOG': 'Y',
+                            'BOTTOM_BANNERS': 'Y',
+                            'COMPANY_TEXT': 'Y',
+                            'BRANDS': 'Y',
+                            'INSTAGRAMM': 'Y'
+                        }
+                    },
+                    'FRONT_PAGE_BRANDS': 'brands_slider',
+                    'FRONT_PAGE_SECTIONS': 'front_sections_with_childs',
+                    'TOP_MENU_FIXED': 'Y',
+                    'HEADER_TYPE': '3',
+                    'USE_REGIONALITY': 'Y',
+                    'FILTER_VIEW': 'COMPACT',
+                    'SEARCH_VIEW_TYPE': 'with_filter',
+                    'USE_FAST_VIEW_PAGE_DETAIL': 'fast_view_1',
+                    'SHOW_TOTAL_SUMM': 'Y',
+                    'CHANGE_TITLE_ITEM': 'N',
+                    'VIEW_TYPE_HIGHLOAD_PROP': 'N',
+                    'SHOW_HEADER_GOODS': 'Y',
+                    'SEARCH_HIDE_NOT_AVAILABLE': 'N',
+                    'LEFT_BLOCK_CATALOG_ICONS': 'N',
+                    'SHOW_CATALOG_SECTIONS_ICONS': 'Y',
+                    'LEFT_BLOCK_CATALOG_DETAIL': 'Y',
+                    'CATALOG_COMPARE': 'Y',
+                    'CATALOG_PAGE_DETAIL': 'element_3',
+                    'SHOW_BREADCRUMBS_CATALOG_SUBSECTIONS': 'Y',
+                    'SHOW_BREADCRUMBS_CATALOG_CHAIN': 'H1',
+                    'TYPE_SKU': 'TYPE_1',
+                    'DETAIL_PICTURE_MODE': 'POPUP',
+                    'MENU_POSITION': 'LINE',
+                    'MENU_TYPE_VIEW': 'HOVER',
+                    'VIEWED_TYPE': 'LOCAL',
+                    'VIEWED_TEMPLATE': 'HORIZONTAL',
+                    'USE_WORD_EXPRESSION': 'Y',
+                    'ORDER_BASKET_VIEW': 'NORMAL',
+                    'ORDER_BASKET_COLOR': 'DARK',
+                    'SHOW_BASKET_ONADDTOCART': 'Y',
+                    'SHOW_BASKET_PRINT': 'Y',
+                    'SHOW_BASKET_ON_PAGES': 'N',
+                    'USE_PRODUCT_QUANTITY_LIST': 'Y',
+                    'USE_PRODUCT_QUANTITY_DETAIL': 'Y',
+                    'ONE_CLICK_BUY_CAPTCHA': 'N',
+                    'SHOW_ONECLICKBUY_ON_BASKET_PAGE': 'Y',
+                    'ONECLICKBUY_SHOW_DELIVERY_NOTE': 'N',
+                    'PAGE_CONTACTS': '3',
+                    'CONTACTS_USE_FEEDBACK': 'Y',
+                    'CONTACTS_USE_MAP': 'Y',
+                    'BLOG_PAGE': 'list_elements_2',
+                    'PROJECTS_PAGE': 'list_elements_2',
+                    'NEWS_PAGE': 'list_elements_3',
+                    'STAFF_PAGE': 'list_elements_1',
+                    'PARTNERS_PAGE': 'list_elements_3',
+                    'PARTNERS_PAGE_DETAIL': 'element_4',
+                    'VACANCY_PAGE': 'list_elements_1',
+                    'LICENSES_PAGE': 'list_elements_2',
+                    'FOOTER_TYPE': '1',
+                    'ADV_TOP_HEADER': 'N',
+                    'ADV_TOP_UNDERHEADER': 'N',
+                    'ADV_SIDE': 'Y',
+                    'ADV_CONTENT_TOP': 'N',
+                    'ADV_CONTENT_BOTTOM': 'N',
+                    'ADV_FOOTER': 'N',
+                    'HEADER_MOBILE_FIXED': 'Y',
+                    'HEADER_MOBILE': '1',
+                    'HEADER_MOBILE_MENU': '1',
+                    'HEADER_MOBILE_MENU_OPEN': '1',
+                    'PERSONAL_ONEFIO': 'Y',
+                    'LOGIN_EQUAL_EMAIL': 'Y',
+                    'YA_GOALS': 'N',
+                    'YANDEX_ECOMERCE': 'N',
+                    'GOOGLE_ECOMERCE': 'N'
+                }
+            }],
+            "REGIONALITY": ({
+                'USE_REGIONALITY': 'N',
+                'REGIONALITY_VIEW': 'POPUP_REGIONS',
+            }),
+            "COUNTERS": ({
+                "YANDEX_COUNTER": 1,
+                "GOOGLE_COUNTER": 1,
+                "YANDEX_ECOMERCE": "Y",
+                "GOOGLE_ECOMERCE": "Y",
+                "TYPE": {
+                    "ONE_CLICK": "Купить в 1 клик",
+                    "QUICK_ORDER": "Быстрый заказ",
+                },
+                "GOOGLE_EVENTS": {
+                    "ADD2BASKET": "addToCart",
+                    "REMOVE_BASKET": "removeFromCart",
+                    "CHECKOUT_ORDER": "checkout",
+                    "PURCHASE": "purchase",
+                }
+            }),
+            "JS_ITEM_CLICK": ({
+                "precision": 6,
+                "precisionFactor": Math.pow(10, 6)
+            })
+        });
+    </script>
+
+    
+
+
+
+    <div class="title-search-result title-search-input fixed_type" style="display: none;"></div>
+    <a class="scroll-to-top ROUND_COLOR PADDING" href="https://nippononline.ru/#" id="scrollToTop"></a>
+
+    {%include 'nipponapp/includes/auth_form.html'%}
+</body>
+
+</html>
