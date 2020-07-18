@@ -1,0 +1,127 @@
+<div class="list_item_wrapp item_wrap item">
+	<table class="list_item" id="bx_3966226736_{{product.id}}">
+		<tr class="adaptive_name">
+			<td colspan="3">
+				<div class="desc_name">
+					<a href="{%url 'product_detail' category=product.category.name index=product.id%}">
+						<span>{{product.name}}</span>
+					</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="image_block">
+				<div class="image_wrapper_block">
+					<div class="stickers">
+						{%if product.is_hit%}
+						<div>
+							<div class="sticker_khit_prodazh">Хит продаж</div>
+						</div>
+						{%endif%}
+						{%if product.is_new%}
+						<div>
+							<div class="sticker_novinka">Новинка</div>
+						</div>
+						{%endif%}
+						{%if product.is_sovet%}
+						<div>
+							<div class="sticker_sovetuem">Советуем</div>
+						</div>
+						{%endif%}
+					</div>
+					<a href="{%url 'product_detail' category=product.category.name index=product.id%}" class="thumb shine" id="bx_3966226736_{{product.id}}_pict">
+						<img src="/static/img/{{product.get_image_path}}" alt="{{product.name}}" title="{{product.name}}" />
+					</a>
+				</div>
+				<div class="fast_view_block" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="2" data-param-id="{{product.id}}" data-param-item_href="{%url 'product_detail' category=product.category.name index=product.id%}" data-name="fast_view">Быстрый просмотр</div>
+			</td>
+
+			<td class="description_wrapp">
+				<div class="description">
+					<div class="item-title">
+						<a href="{%url 'product_detail' category=product.category.name index=product.id%}" class="dark_link">
+							<span>{{product.name}}</span>
+						</a>
+					</div>
+					<div class="wrapp_stockers">
+						<div class="item-stock" id='bx_3966226736_{{product.id}}_store_quantity'>
+							<span class="icon stock"></span>
+							<span class="value">{{product.count}}</span>
+						</div>								
+						<div class="article_block" data-name="Артикул" data-value="{{product.article}}">
+						Артикул: {{product.article}}																	
+						</div>
+					</div>
+					<div class="preview_text">{{product.name}}</div> 									
+				</div>
+				<div class="like_icons">
+					<div class="wish_item_button" >
+						<span class="wish_item to" data-item="{{product.id}}" data-iblock="2">
+							<i></i>
+							<span>Отложить</span>
+						</span>
+						<span class="wish_item in added" style="display: none;" data-item="{{product.id}}" data-iblock="2">
+							<i></i>
+							<span>В отложенных</span>
+						</span>
+					</div>
+				</div>
+			</td>
+			<td class="information_wrapp main_item_wrapper">
+				<div class="information   inner_content js_offers__{{product.id}}">
+					<div class="cost prices clearfix">
+						<div class="price_matrix_block">
+							<div class="price_matrix_wrapper ">
+								<div class="price" data-currency="RUB" data-value="{{product.price}}">
+									<span>
+										<span class="values_wrapper">
+											<span class="price_value">{{product.price}}</span>
+											<span class="price_currency"> руб.</span>
+										</span>
+										<span class="price_measure">/шт</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="basket_props_block" id="bx_basket_div_{{product.id}}" style="display: none;">
+					</div>
+					<form id="buy-form" action="{% url 'basket_upd'%}">{% csrf_token %}
+						<div class="counter_wrapp ">
+							<div class="counter_block" data-offers="N" data-item="{{product.id}}">
+								<span class="minus" id="bx_3966226736_{{product.id}}_quant_down">-</span>
+								<input type="text" class="text" id="bx_3966226736_{{product.id}}_quantity" name="quantity" value="1" />
+								<span class="plus" id="bx_3966226736_{{product.id}}_quant_up" data-max='42'>+</span>
+							</div>
+							<div id="bx_3966226736_{{product.id}}_basket_actions" class="button_block ">
+								<!--noindex-->
+								<button type="submit" id="btn-to-basket"  data-value="{{product.price}}" 
+								data-currency="RUB" 
+								class="small to-cart btn btn-default transition_bg animate-load" 
+								data-item="{{product.id}}" 
+								data-float_ratio="" 
+								data-ratio="1" 
+								data-bakset_div="bx_basket_div_{{product.id}}" 
+								data-props="" 
+								data-part_props="Y" 
+								data-add_props="Y"  
+								data-empty_props="" 
+								data-offers="" 
+								data-iblockID="2"  
+								data-quantity="1"
+								data-id="{{product.id}}">
+									В корзину
+								</button>
+								<a rel="nofollow" href="{%url 'basket'%}" class="small in-cart btn btn-default transition_bg" data-item="{{product.id}}"  style="display:none;" id='in-basket-btn'>
+									<i></i>
+									<span>В корзине</span>
+								</a>										<!--/noindex-->
+							</div>
+						</div>
+					</form>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

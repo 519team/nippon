@@ -1,0 +1,69 @@
+<div class="bx-soa-item-tr bx-soa-basket-info" data-id="{{product_b.product.id}}" data-nmb="{{product_b.nmb}}">
+	<div class="bx-soa-item-td" style="min-width: 300px;">
+		<div class="bx-soa-item-block">
+			<div class="bx-soa-item-img-block">
+				<a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id%}">
+					<div class="bx-soa-item-imgcontainer"style="background-image: url(/static/img/{{product_b.product.get_image_path}});background-image: -webkit-image-set(url(/static/img/{{product_b.product.get_image_path}}) 1x, url(/static/img/{{product_b.product.get_image_path}}) 2x)">
+					</div>
+				</a>
+			</div>
+			<div class="bx-soa-item-content">
+				<div class="bx-soa-item-title">
+					<a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id%}">
+						{{product_b.product.name}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bx-soa-item-td bx-soa-item-properties">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Артикул
+		</div>
+		<div class="bx-soa-item-td-text">
+			<span>{{product_b.product.article}}</span>
+			<br>
+		</div>
+	</div>
+	<div class="bx-soa-item-td bx-soa-item-properties bx-text-right">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Скидка
+		</div>
+		<div class="bx-soa-item-td-text">
+			<span>0%</span>
+		</div>
+	</div>
+	<div class="bx-soa-item-td bx-soa-item-properties bx-text-right">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Цена
+		</div>
+		<div class="bx-soa-item-td-text">
+			<strong	class="bx-price">{{product_b.product.price}} руб.</strong>
+		</div>
+	</div>
+	<div class="bx-soa-item-td bx-soa-item-properties">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Вес
+		</div>
+		<div class="bx-soa-item-td-text">
+			<span>0 кг</span>
+		</div>
+	</div>
+	<div class="bx-soa-item-nth-4p1"></div>
+	<div class="bx-soa-item-td bx-soa-item-properties bx-text-right">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Количество
+		</div>
+		<div class="bx-soa-item-td-text">
+			<span>{{product_b.nmb}}&nbsp;шт</span>
+		</div>
+	</div>
+	<div class="bx-soa-item-td bx-soa-item-properties bx-text-right">
+		<div class="bx-soa-item-td-title visible-xs visible-sm">
+			Сумма
+		</div>
+		<div class="bx-soa-item-td-text">
+			<strong class="bx-price all">{{product_b.total_price}} руб.</strong>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+{%extends 'base.html'%}
+{%block content%}
+	<div class="wraps hover_shine" id="content">
+		<div class="top_inner_block_wrapper maxwidth-theme">
+			<div class="page-top-wrapper grey v3">
+				<section class="page-top maxwidth-theme ">
+					<div class="page-top-main">
+						<h1 id="pagetitle">
+							{{title}}
+						</h1>
+					</div>
+					<div class="breadcrumbs" id="navigation" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<a href="{%url 'catalog'%}" title="Каталог" itemprop="item">
+								<span itemprop="name">Каталог</span>
+								<meta itemprop="position" content="1">
+							</a>
+						</div>	
+						
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="wrapper_inner front ">
+			<div class="right_block  wide_N">
+				<div class="middle ">
+					<div class="container">
+						<div class="catalog_section_list row items flexbox">
+							{%for cat_name in catalog%}
+
+								<div class="item_block col-md-6 col-sm-6">
+									<div class="section_item item" id="bx_1847241719_3676">
+										<table class="section_item_inner">
+											<tbody>
+												<tr>
+													<td class="image">
+														<a href="{%url 'catalog_details' category=cat_name.name%}" class="thumb">
+															<img data-lazyload="" class=" lazyloaded" src="/static/img/{{cat_name.image.path}}" data-src="/static/img/{{cat_name.image.path}}" alt="{{cat_name.alter_name}} в магазине НИППОН" title="{{cat_name.alter_name}}">
+														</a>
+													</td>
+													<td class="section_info">
+														<ul>
+															<li class="name">
+																<a href="{%url 'catalog_details' category=cat_name.name%}" class="dark_link">
+																	<span>{{cat_name.alter_name}}</span>
+																</a>
+															</li>
+															{%for sub_name in sub_cat_list%}
+																{%if sub_name.id_category == cat_name%}
+																<li class="sect">
+																	<a href="{%url 'catalog_details' category=sub_name.name%}" class="dark_link">
+																		{{sub_name.alter_name}}
+																	</a>
+																</li>
+																{%endif%}
+															{%endfor%}
+														</ul>
+													</td>
+												</tr>
+												{%if cat_name.dsc != None%}
+													<tr>
+														<td class="desc" colspan="2">
+															<span class="desc_wrapp">{{cat_name.dsc}}</span>
+														</td>
+													</tr>
+												{%endif%}
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							{%endfor%}
+						</div>
+					</div> 																				
+				</div> 																
+			</div>
+			{%include 'nipponapp/includes/catalog_menu.html'%}
+		</div>
+	</div> 	 	
+{%endblock%}

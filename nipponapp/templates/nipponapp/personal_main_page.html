@@ -1,0 +1,287 @@
+{%extends 'base.html'%}
+{%block content%}
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">Личный кабинет</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<span class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<link href="https://nippononline.ru/personal/" itemprop="item">
+							<span>
+								<span itemprop="name">Личный кабинет</span>
+								<meta itemprop="position" content="1">
+							</span>
+						</span>
+					</div>			
+				</div>
+			</section>
+		</div>
+	</div>					<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<div class="personal_wrapper">
+						<div class="row sale-personal-section-row-flex">
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/orders/">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="cur_orders"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Текущие заказы							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/account/">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="bill"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+												Личный счет							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/private/">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="personal"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Личные данные							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/orders/?filter_history=Y">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="filter_orders"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											История заказов							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/profiles/">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="profile"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Профили заказов							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'basket'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="cart"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Корзина							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/personal/subscribe/">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="subscribe"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">											
+											Подписки							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="https://nippononline.ru/contacts">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="contact"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Контакты							
+										</h2>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div> 																				
+			</div> 																
+		</div> 				
+		<div class="left_block">
+			<ul class="left_menu">
+				<li class=" current   item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/index.php">
+						<span>Мой кабинет</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/orders/">
+						<span>Текущие заказы</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/account/">
+						<span>Личный счет</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/private/">
+						<span>Личные данные</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/change-password/">
+						<span>Сменить пароль</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/orders/?filter_history=Y">
+						<span>История заказов</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/profiles/">
+						<span>Профили заказов</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'basket'%}">
+						<span>Корзина</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/personal/subscribe/">
+						<span>Подписки</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="https://nippononline.ru/contacts/">
+						<span>Контакты</span>
+					</a>
+				</li>
+				<li class="  item exit">
+					<a class="icons_fa" href="{%url 'logout_personal'%}">
+						<span>Выйти</span>
+					</a>
+				</li>
+			</ul>
+
+
+
+
+
+			<div class="banner SCALE SIDE  " id="bx_3218110189_114738">
+				<a href="https://nippononline.ru/catalog/yaponskie_nozhi/">
+					<img data-lazyload="" src="/static/img/2c3a32d101071233d12f3ca17456c770.jpg" data-src="/upload/iblock/2c3/2c3a32d101071233d12f3ca17456c770.jpg" alt="Японские ножи " title="Японские ножи " class="img-responsive lazyloaded">
+				</a>
+			</div>
+
+			<div class="subscribe_wrap">
+				<!--'start_frame_cache_IzufVt'-->
+				<div class="subscribe-form s_Arsw7O">
+					<div class="wrap_bg">
+						<div class="top_blocks">
+							<div class="text">
+								<div class="title">Будьте всегда в курсе!</div>
+								<div class="more">Узнавайте о скидках и акциях первым</div>
+							</div>
+						</div>
+						<form action="https://nippononline.ru/personal/subscribe/" class="sform box-sizing">
+							<label for="sf_RUB_ID_1Arsw7O" class="hidden">
+								<input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_1Arsw7O" value="1" checked=""> Новости магазина		
+							</label>
+							<div class="email_wrap">
+								<input type="email" title="Ваш e-mail" class="email_input" name="sf_EMAIL" maxlength="100" required="" size="20" value="" placeholder="Ваш e-mail">
+								<input type="submit" name="OK" class="btn btn-default send_btn" value="Подписаться">
+							</div>
+						</form>
+					</div>
+				</div>
+					<!--'end_frame_cache_IzufVt'-->
+			</div>
+			<br>	
+			<div class="news_blocks front">
+				<div class="top_block">
+					<div class="title_block">Новости</div>
+					<a href="https://nippononline.ru/company/news/">Все новости</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="info_block">
+					<div class="news_items">
+						<div id="bx_651765591_115622" class="item box-sizing dl">
+							<div class="info">
+								<div class="date">6 Сентября 2019</div>
+								<a class="name dark_link" href="https://nippononline.ru/company/news/nachinat_sotrudnichestvo_yapontsy_gotovy_cherez_proverennykh_lyudey_/">«Начинать сотрудничество японцы готовы через проверенных людей» </a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div id="bx_651765591_115589" class="item box-sizing dl">
+							<div class="info">
+								<div class="date">10 Июля 2019</div>
+								<a class="name dark_link" href="https://nippononline.ru/company/news/j_fest_summer_2019/">J-Fest  Summer 2019</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div id="bx_651765591_115570" class="item box-sizing dl">
+							<div class="info">
+								<div class="date">18 Июня 2019</div>
+								<a class="name dark_link" href="https://nippononline.ru/company/news/eksklyuzivnoe_meropriyatie/">Эксклюзивное мероприятие</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="news_blocks front">
+				<div class="top_block">
+					<div class="title_block">Статьи</div>
+					<a href="https://nippononline.ru/blog/">Все статьи</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="info_block">
+					<div class="news_items">
+						<div id="bx_1373509569_116815" class="item box-sizing dl">
+							<div class="info">
+								<a class="name dark_link" href="https://nippononline.ru/blog/obzory-tovarov/vitamin-s-i-antioksidantnaya-zashchita/">Витамин С и Антиоксидантная защита</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div id="bx_1373509569_116714" class="item box-sizing dl">
+							<div class="info">
+								<a class="name dark_link" href="https://nippononline.ru/blog/obzory-tovarov/yaponskie-moti-i-kak-ikh-prigotovit/">Японские моти и как их приготовить?</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div id="bx_1373509569_115281" class="item box-sizing dl">
+							<div class="info">
+								<a class="name dark_link" href="https://nippononline.ru/blog/obzory-tovarov/luchshiy-yaponskiy-ris/">Лучший Японский рис</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+{%endblock%}

@@ -1,0 +1,327 @@
+{% extends 'base.html'%}
+{% block content%}
+	<div class="wraps hover_shine" id="content">
+		{%include 'nipponapp/includes/breadcrumbs.html'%}
+		<div class="wrapper_inner front ">
+			<div class="right_block  wide_N">
+				<div class="middle ">
+					<div class="container">
+						<div class="catalog_detail detail element_1" itemscope itemtype="http://schema.org/Product">
+							<div class="basket_props_block" id="bx_basket_div_{{product.id}}" style="display: none;">
+							</div>
+							<meta itemprop="name" content="{{product.name}}" />
+							<meta itemprop="category" content="{{product.category.alter_name}}" />
+							<meta itemprop="description" content="{{product.name}}" />
+							<meta itemprop="sku" content="{{product.id}}" />
+							<div class="item_main_info noffer show_un_props" id="bx_117848907_30435">
+								<div class="img_wrapper swipeignore">
+									<div class="stickers">
+									{%if product.is_hit%}
+										<div>
+											<div class="sticker_khit_prodazh">Хит продаж</div>
+										</div>
+									{%endif%}
+									{%if product.is_new%}
+										<div>
+											<div class="sticker_novinka">Новинка</div>
+										</div>
+									{%endif%}
+									{%if product.is_sovet%}
+										<div>
+											<div class="sticker_sovetuem">Советуем</div>
+										</div>
+									{%endif%}
+									</div>
+									<div class="item_slider">
+										<div class="like_wrapper">
+											<div class="like_icons iblock">
+												<div class="wish_item text"  data-item="{{product.id}}" data-iblock="2">
+													<span class="value" title="Отложить" ><i></i></span>
+													<span class="value added" title="В отложенных"><i></i></span>
+												</div>
+											</div>
+										</div>
+
+										<div class="slides">
+											<ul>
+												<li id="photo-0" class="current">
+													<link href="/static/img/{{product.get_image_path}}" itemprop="image"/>
+													<a href="/static/img/{{product.get_image_path}}" data-fancybox-group="item_slider" class="popup_link fancy" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России ">
+														<img data-lazyload class="lazyload"  src="/static/img/{{product.get_image_path}}" data-src="/static/img/{{product.get_image_path}}"   alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России "/>
+														<div class="zoom"></div>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="item_slider color-controls flex flexslider" data-plugin-options='{"animation": "slide", "directionNav": false, "controlNav": true, "animationLoop": false, "slideshow": false, "slideshowSpeed": 10000, "animationSpeed": 600}'>
+										<ul class="slides">
+											<li id="mphoto-0" class="current">
+												<a href="/static/img/{{product.get_image_path}}" data-fancybox-group="item_slider_flex" class="fancy popup_link" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " >
+													<img data-lazyload class="lazyload" src="/static/img/{{product.get_image_path}}" data-src="/static/img/{{product.get_image_path}}" alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " />
+													<div class="zoom"></div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="right_info">
+									<div class="info_item">
+										<div class="top_info">
+											<div class="rows_block">
+												<div class="item_block col-1">
+													<div class="article iblock" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue" >
+														<span class="block_title" itemprop="name">Артикул:</span>
+														<span class="value" itemprop="value">{{product.article}}</span>
+													</div>
+												</div>
+
+											</div>
+											<div class="preview_text dotdot">{{product.name}}</div>
+											<div class="more_block icons_fa color_link">
+												<span>Подробнее</span>
+											</div>
+										</div>
+										<div class="middle_info main_item_wrapper">
+											<div id="bxdynamic_qepX1R_start" style="display:none">
+											</div>
+											<div class="prices_block">
+												<div class="cost prices clearfix">
+													<div class="price_matrix_block">
+														<div class="price_matrix_wrapper ">
+															<div class="price" data-currency="RUB" data-value="{{product.price}}">
+																<span>
+																	<span class="values_wrapper">
+																		<span class="price_value">{{product.price}}</span>
+																		<span class="price_currency"> руб.</span>
+																	</span>
+																	<span class="price_measure">/шт</span>
+																</span>
+															</div>
+														</div>
+													</div>
+
+													<div class="" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+														<meta itemprop="price" content="{{product.price}}" />
+														<meta itemprop="priceCurrency" content="RUB" />
+														<link itemprop="availability" href="http://schema.org/InStock" />
+														<meta itemprop="url" content="{%url 'product_detail' category=product.category.name index=product.id %}" />
+													</div>
+												</div>
+												<div class="quantity_block_wrapper">
+													<div class="p_block">
+														<div class="item-stock" id="bx_117848907_30435_store_quantity">
+															<span class="icon stock"></span>
+															<span class="value">
+																<span class='store_view'>{{product.count}}</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<form id="buy-form" action="{% url 'basket_upd'%}">{% csrf_token %}
+												<div class="buy_block">
+													<div class="counter_wrapp">
+														<div class="counter_block big_basket" data-offers="N" data-item="{{product.id}}" >
+															<span class="minus" id="bx_117848907_{{product.id}}_quant_down">-</span>
+															<input type="text" class="text" id="bx_117848907_{{product.id}}_quantity" name="quantity" value="1" />
+															<span class="plus" id="bx_117848907_{{product.id}}_quant_up" data-max='10'>+</span>
+														</div>
+														<div id="bx_117848907_{{product.id}}_basket_actions" class="button_block ">
+															<!--noindex-->
+															<button type='submit' id="btn-to-basket" 
+															data-float_ratio="" 
+															data-ratio="1" 
+															data-bakset_div="bx_basket_div_{{product.id}}" 
+															data-props=""
+															data-part_props="Y" 
+															data-add_props="Y"  
+															data-empty_props="Y" 
+															data-offers="" 
+															data-iblockID="2"  
+															data-quantity="1"
+															data-value="{{product.price}}" 
+															data-currency="RUB" 
+															class="btn-lg w_icons to-cart btn btn-default transition_bg animate-load qwert" 
+															data-item="{{product.id}}"
+															data-id="{{product.id}}" >
+																<i></i>
+																<span>В корзину</span>
+															</button>
+															<a rel="nofollow" href="{%url 'basket'%}" class="btn-lg w_icons in-cart btn btn-default transition_bg" data-item="{{product.id}}"  style="display:none;" id='in-basket-btn'>
+																<i></i>
+																<span>В корзине</span>
+															</a>								<!--/noindex-->
+														</div>
+													</div>
+													<div class="wrapp_one_click">
+														<span class="btn btn-default white btn-lg type_block transition_bg one_click" data-item="30435" data-iblockID="2" data-quantity="1" onclick="oneClickBuy('30435', '2', this)">
+															<span>Купить в 1 клик</span>
+														</span>
+													</div>
+												</div>
+											</form>
+
+											<div id="bxdynamic_qepX1R_end" style="display:none"></div>
+										</div>
+										<div class="element_detail_text wrap_md">
+											<div class="price_txt">
+												<div class="sharing">
+													<div class="">
+													</div>
+												</div>
+												<div class="text">
+													Цена действительна только для интернет-магазина и может отличаться от цен в розничных магазинах
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="clearleft"></div>
+							</div>
+							<div class="tabs_section">
+								<div class="tabs">
+									<ul class="nav nav-tabs">
+										<li class=" active">
+											<a href="#descr" data-toggle="tab"><span>Описание</span></a>
+										</li>
+										<li class="product_ask_tab ">
+											<a href="#ask" data-toggle="tab"><span>Задать вопрос</span></a>
+										</li>
+										<li class="stores_tab">
+											<a href="#stores" data-toggle="tab"><span>Наличие</span></a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane  active" id="descr">
+											<div class="title-tab-heading visible-xs">Описание</div>
+											<div>
+												<div class="detail_text">{{product.dsc}} </div>
+											</div>
+										</div>
+										<div class="tab-pane" id="ask">
+											<div class="title-tab-heading visible-xs">Задать вопрос</div>
+											<div class="row">
+												<div class="col-md-3 hidden-sm text_block">
+													Вы можете задать любой интересующий вас вопрос по товару или работе магазина.<br/><br/>
+												Наши квалифицированные специалисты обязательно вам помогут.						
+												</div>
+												<div class="col-md-9 form_block">
+													<div id="ask_block"></div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane stores_tab" id="stores">
+											<div class="title-tab-heading visible-xs">Наличие</div>
+											<div class="stores_wrapp">
+												<div id="bxdynamic_lEnm5l_start" style="display:none"></div>		
+												<div class="stores_block_wrap">
+													<div class="stores_block wo_image" style="display: ;">
+														<div class="stores_text_wrapp ">
+															<div class="main_info">
+																<span>
+																	<a class="title_stores" href="/contacts/stores/6/" data-storehref="/contacts/stores/6/" data-iblockhref=""> Магазин "Цветной" (ООО Ниппон), Цветной</a>
+																</span>
+															</div>
+														</div>
+														<div class="item-stock" ><span class="icon  order"></span><span class="value">Нет в наличии</span></div>							</div>
+														<div class="stores_block wo_image" style="display: ;">
+															<div class="stores_text_wrapp ">
+																<div class="main_info">
+																	<span>
+																		<a class="title_stores" href="/contacts/stores/7/" data-storehref="/contacts/stores/7/" data-iblockhref=""> Магазин "Новослободская", г. Москва, Ул. Новослободская д. 20</a>
+																	</span>
+																</div>
+															</div>
+															<div class="item-stock" >
+																<span class="icon  order"></span>
+																<span class="value">Нет в наличии</span>
+															</div>							
+														</div>
+														<div class="stores_block wo_image" style="display: ;">
+															<div class="stores_text_wrapp ">
+																<div class="main_info">
+																	<span>
+																		<a class="title_stores" href="/contacts/stores/18/" data-storehref="/contacts/stores/18/" data-iblockhref=""> Магазин "Ломоносовский"</a>
+																	</span>
+																</div>
+															</div>
+															<div class="item-stock" >
+																<span class="icon  order"></span>
+																<span class="value">Нет в наличии</span>
+															</div>							
+														</div>
+														<div class="stores_block wo_image" style="display: ;">
+															<div class="stores_text_wrapp ">
+																<div class="main_info">
+																	<span>
+																		<a class="title_stores" href="/contacts/stores/2/" data-storehref="/contacts/stores/2/" data-iblockhref=""> Магазин "Кравченко", г.Москва, ул.Кравченко, д.4к1</a>
+																	</span>
+																</div>
+															</div>
+															<div class="item-stock" >
+																<span class="icon stock"></span>
+																<span class="value">Достаточно</span>
+															</div>							
+														</div>
+													</div>
+													<div id="bxdynamic_lEnm5l_end" style="display:none"></div>		
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="gifts">
+									<div id="bxdynamic_6zLbbW_start" style="display:none"></div>
+									<span id="sale_gift_product_2002147939" class="sale_gift_product_container"></span>
+
+									<div id="bxdynamic_6zLbbW_end" style="display:none"></div>
+									<div id="bxdynamic_KSBlai_start" style="display:none"></div>
+									<div id="bxdynamic_KSBlai_end" style="display:none"></div>
+								</div>
+
+								<div id="ask_block_content" class="hidden">
+									<div id="comp_00a7a23a169f54b6170ed67bdee284cc">
+										<div id="bxdynamic_4enrz3_start" style="display:none"></div>
+										<div id="bxdynamic_4enrz3_end" style="display:none"></div>
+										<div id="bxdynamic_form-block2_start" style="display:none"></div>
+										<div id="bxdynamic_form-block2_end" style="display:none"></div>
+									</div>		
+								</div>
+								<div id="bxdynamic_des_start" style="display:none"></div>
+								<div id="bxdynamic_des_end" style="display:none"></div>
+							</div>
+
+							<div class="clearfix"></div>
+							<div class="bottom_slider specials tab_slider_wrapp">
+								<div class="top_blocks">
+									<ul class="tabs">
+										<li data-code="RECOMENDATION" style="display:none;" class="cur"><span>Рекомендуем</span></li>
+										<li class="stretch"></li>
+									</ul>
+									<ul class="slider_navigation top custom_flex border">
+										<li class="tabs_slider_navigation RECOMENDATION_nav cur" data-code="RECOMENDATION"></li>
+									</ul>
+								</div>
+								<ul class="tabs_content">
+									<li class="tab RECOMENDATION_wrapp" data-code="RECOMENDATION">
+										<div id="bxdynamic_es4Hjc_start" style="display:none"></div>
+										<div id="bxdynamic_es4Hjc_end" style="display:none"></div>													
+									</li>
+								</ul>
+							</div>
+					</div>
+				</div>
+			</div>
+			 
+			{%include 'nipponapp/includes/catalog_menu.html'%}
+	</div>
+{% endblock%}
+{# <button type='submit' id="btn-to-basket" 
+														data-value="{{product.price}}" 
+														data-currency="RUB" 
+														class="btn-lg w_icons to-cart btn btn-default transition_bg animate-load" 
+														data-item="{{product.id}}" 
+														data-title="{{product.name}}" 
+														data-href="{%url 'product_detail' category=product.category.name index=product.id %}"
+														data-id="{{product.id}}"> #}

@@ -1,0 +1,10 @@
+{%for product in products.object_list%}
+	{%if display == 'block'%}
+		{%include 'nipponapp/includes/product_card_block.html'%}
+	{%elif display == 'list'%}
+		{%include 'nipponapp/includes/product_card_list.html'%}
+	{%elif display == 'table'%}
+		{%include 'nipponapp/includes/product_card_table.html'%}
+	{%endif%}
+
+{%endfor%}

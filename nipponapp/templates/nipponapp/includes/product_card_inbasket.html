@@ -1,0 +1,48 @@
+<tr data-id="{{product_b.product.id}}" product-id="{{product_b.product.id}}" data-iblockid="">
+    <td class="thumb-cell">
+        <a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id %}" class="thumb"> 
+            <img data-lazyload="" class="lazyload" src="/static/img/{{product_b.product.get_image_path}}" 
+            data-src="/static/img/{{product_b.product.get_image_path}}"
+            alt="{{product_b.product.name}}" 
+            title="{{product_b.product.name}}">
+        </a>
+    </td>
+    <td class="name-cell" style="padding-left:0; padding-right:0;">
+        <a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id %}">{{product_b.product.name}}</a><br>
+        <div class="item_props">
+        </div>
+    </td>
+    <td class="cost-cell notes">
+        <div class="cost prices clearfix">
+            <div class="price_name">Розничная цена</div>
+            <div class="price">{{product_b.product.price}} руб.</div>
+            <input type="hidden" name="item_price_{{product_b.product.id}}" value="{{product_b.product.price}}">
+            <input type="hidden" name="item_summ_{{product_b.product.id}}" value="{{product_b.product.price}}">
+        </div>
+    </td>
+    <td class="count-cell" style="vertical-align: top !important; padding-left: 2px; padding-right: 2px;">
+        <div class="counter_block basket">
+            <span onclick="setQuantityFly(&#39;{{product_b.product.id}}&#39;, &#39;1&#39;, &#39;down&#39;)" class="minus">-</span> 
+            <input type="text" class="text" id="QUANTITY_INPUT_{{product_b.product.id}}" name="QUANTITY_INPUT_{{product_b.product.id}}" size="2"
+            data-id="{{product_b.product.id}}" data-float_ratio="" maxlength="18" min="0" max="56" step="1" value="{{product_b.nmb}}" onchange="updateQuantityFly(&#39;QUANTITY_INPUT_{{product_b.product.id}}&#39;, &#39;{{product_b.product.id}}&#39;, &#39;1&#39;)">
+            <span onclick="setQuantityFly(&#39;{{product_b.product.id}}&#39;, &#39;1&#39;, &#39;up&#39;)" class="plus">+</span> 
+        </div>
+        <input type="hidden" id="{{product_b.product.id}}" name="QUANTITY_{{product_b.product.id}}" value="{{product_b.nmb}}">
+    </td>
+    <td class="summ-cell">
+        <div class="cost prices">
+            <div class="price">{{product_b.total_price|floatformat:"0"}} руб.</div>
+        </div>
+    </td>
+
+    <td class="delay-cell delay">
+        <a class="wish_item" href="https://nippononline.ru/ajax/show_basket_fly.php?action=delay&amp;id={{product_b.product.id}}">
+            <span class="icon" title="Отложить"><i></i></span>
+        </a>
+    </td>
+    <td class="remove-cell">
+        <a class="remove" href="#" data-id="{{product_b.product.id}}" title="Удалить">
+            <i></i>
+        </a>
+    </td>
+</tr>

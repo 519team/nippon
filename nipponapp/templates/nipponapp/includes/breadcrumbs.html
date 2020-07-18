@@ -1,0 +1,76 @@
+<div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<h1 id="pagetitle">
+					{{title}}
+				</h1>
+			</div>
+			<div class="breadcrumbs" id="navigation" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+				<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<a href="{%url 'catalog'%}" title="Каталог" itemprop="item">
+						<span itemprop="name">Каталог</span>
+						<meta itemprop="position" content="1">
+					</a>
+				</div>	
+				{%if not search%}
+					<span class="separator">-</span>
+					<div class="bx-breadcrumb-item drop" id="bx_breadcrumb_1" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="{%url 'catalog_details' category={{category.name}}}" itemprop="item">
+						<span class="number">
+							<span itemprop="name">{{category.alter_name}}</span>
+							<b class="space"></b>
+							<span class="separator cat_last"></span>
+							<meta itemprop="position" content="2">
+						</span>
+						<div class="dropdown_wrapp">
+							<div class="dropdown">
+								{%for catalog_name in catalog %}
+									{%if catalog_name != category%}
+										<a class="dark_link" href="{%url 'catalog_details' category=catalog_name.name%}">
+										{{catalog_name.alter_name}}</a>
+									{%endif%}
+									
+								{%endfor%}
+								
+							</div>
+						</div>
+					</div>
+					{%if not sub_flag%}
+
+						<span class="separator">-</span>
+						<div class="bx-breadcrumb-item drop cat_last" id="bx_breadcrumb_2" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+							<link href="/catalog/dzhem_varene/" itemprop="item">
+							<span class="number">
+								<span itemprop="name">{{sub_category.alter_name}}</span>
+								<b class="space"></b>
+								<span class="separator cat_last"></span>
+								<meta itemprop="position" content="3">
+							</span>
+							<div class="dropdown_wrapp">
+								<div class="dropdown">
+									{%for sub_cat in sub_cat_list%}
+										{%if sub_cat != sub_category%}
+											<a class="dark_link" href="{%url 'catalog_details' category=sub_cat.name%}">{{sub_cat.alter_name}}</a>
+										{%endif%}
+									{%endfor%}
+									
+								</div>
+							</div>
+						</div>
+					{%endif%}
+					{%if product%}
+						<span class="separator">-</span>
+						<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+							<link href="/catalog/dzhem_varene/aloe_s_medom_honey_aloe_tea_580g/" itemprop="item" />
+							<span>
+								<span itemprop="name">{{product.name}}</span>
+								<meta itemprop="position" content="4">
+							</span>
+						</span>
+					{%endif%}
+				{%endif%}
+			</div>
+		</section>
+	</div>
+</div>

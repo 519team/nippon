@@ -1,0 +1,92 @@
+<tr class="item main_item_wrapper" id="bx_3966226736_{{product.id}}">
+	<td class="wrapper_td">
+		<table>
+			<tbody>
+				<tr>
+					<td class="foto-cell">
+						<div class="image_wrapper_block">
+							<a class="popup_image fancy" href="/static/img/{{product.get_image_path}}" title="260348">
+								<img src="/static/img/{{product.get_image_path}}" alt="260348" title="260348" />
+							</a>
+							<div class="fast_view_block icons" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="2" data-param-id="{{product.id}}" data-param-item_href="%2Fcatalog%2Fyaponskie_sousy%2Fsous_soevyy_dlya_zharennogo_risa_tay_boy_300gr%2F" data-name="fast_view">Быстрый просмотр</div>
+						</div>
+					</td>
+					<td class="item-name-cell">
+						<div class="title">
+							<a href="{%url 'product_detail' category=product.category.name index=product.id%}" class="dark_link">
+								{{product.name}}
+							</a>
+						</div>
+						<div class="item-stock" >
+							<span class="icon stock"></span>
+							<span class="value">{{product.count}}</span>
+						</div>									
+					</td>
+					<td class="price-cell">
+						<div class="cost prices clearfix">
+							<div class="price_matrix_block">
+								<div class="price_matrix_wrapper ">
+									<div class="price" data-currency="RUB" data-value="{{product.price}}">
+										<span>
+											<span class="values_wrapper">
+												<span class="price_value">{{product.price}}</span>
+												<span class="price_currency"> руб.</span>
+											</span>
+											<span class="price_measure">/шт</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="basket_props_block" id="bx_basket_div_{{product.id}}" style="display: none;">
+						</div>
+						<div class="adaptive_button_buy">
+							<!--noindex-->
+							<span data-value="{{product.price}}" data-currency="RUB" class="small to-cart btn btn-default transition_bg animate-load" data-item="{{product.id}}" data-float_ratio="" data-ratio="1" data-bakset_div="bx_basket_div_{{product.id}}" data-props="" data-part_props="Y" data-add_props="Y"  data-empty_props="" data-offers="" data-iblockID="2"  data-quantity="1">
+								<i></i>
+								<span>В корзину</span>
+							</span>
+							<a rel="nofollow" href="/basket/" class="small in-cart btn btn-default transition_bg" data-item="{{product.id}}"  style="display:none;">
+								<i></i>
+								<span>В корзине</span>
+							</a>											<!--/noindex-->
+						</div>
+					</td>
+					<td class="but-cell item_{{product.id}}">
+						<form id="buy-form" action="{% url 'basket_upd'%}">{% csrf_token %}
+							<div class="counter_wrapp">
+								<div class="counter_block" data-item="{{product.id}}" >
+									<span class="minus">-</span>
+									<input type="text" class="text" name="quantity" value="1" />
+									<span class="plus" data-max='9'>+</span>
+								</div>
+								<div class="button_block ">
+									<!--noindex-->
+									<button type="submit" id="btn-to-basket" data-value="{{product.price}}" data-currency="RUB" class="small to-cart btn btn-default transition_bg animate-load" data-item="{{product.id}}" data-float_ratio="" data-ratio="1" data-bakset_div="bx_basket_div_{{product.id}}" data-props="" data-part_props="Y" data-add_props="Y"  data-empty_props="" data-offers="" data-iblockID="2"  data-quantity="1" data-id="{{product.id}}">
+										<i></i>
+										<span>В корзину</span>
+									</button>
+									<a rel="nofollow" href="{%url 'basket'%}" class="small in-cart btn btn-default transition_bg" data-item="{{product.id}}"  style="display:none;" id='in-basket-btn'>
+										<i></i>
+										<span>В корзине</span>
+									</a>												<!--/noindex-->
+								</div>
+							</div>
+						</form>
+					</td>
+					<td class="like_icons ">
+						<div class="wrapp_stockers">
+							<div class="like_icons">
+								<div class="wish_item_button" >
+									<span title="Отложить" class="wish_item to" data-item="{{product.id}}" data-iblock="2"><i></i></span>
+									<span title="В отложенных" class="wish_item in added" style="display: none;" data-item="{{product.id}}" data-iblock="2"><i></i></span>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</td>
+</tr>

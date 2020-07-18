@@ -1,0 +1,196 @@
+{% extends 'base.html'%}
+{% block content%}
+	<div class="wraps hover_shine" id="content">
+		{%include 'nipponapp/includes/breadcrumbs.html'%}
+		<div class="wrapper_inner front ">
+			<div class="right_block  wide_N">
+				<div class="middle ">
+					<div class="container">
+
+						{%if search%}
+							<div class="search-page-wrap">
+								<form action="{%url 'catalog_details' category='search'%}" method="get">
+									<div class="form-control">
+										<input type="text" name="q" value="{{search}}" size="40" />
+									</div>
+									<input type="submit" class="btn btn-default" value="Найти" />
+									<input type="hidden" name="how" value="r" />
+								</form><br />
+
+							</div>
+						{%endif%}
+						
+						<div class="js_wrapper_items" data-params="{&quot;SHOW_ABSENT&quot;:&quot;&quot;,&quot;HIDE_NOT_AVAILABLE_OFFERS&quot;:&quot;N&quot;,&quot;PRICE_CODE&quot;:[&quot;BASE&quot;],&quot;OFFER_TREE_PROPS&quot;:[&quot;SIZES&quot;,&quot;COLOR_REF&quot;],&quot;OFFER_SHOW_PREVIEW_PICTURE_PROPS&quot;:&quot;&quot;,&quot;CACHE_TIME&quot;:&quot;3600000&quot;,&quot;CONVERT_CURRENCY&quot;:&quot;Y&quot;,&quot;CURRENCY_ID&quot;:&quot;RUB&quot;,&quot;OFFERS_SORT_FIELD&quot;:&quot;shows&quot;,&quot;OFFERS_SORT_ORDER&quot;:&quot;asc&quot;,&quot;OFFERS_SORT_FIELD2&quot;:&quot;shows&quot;,&quot;OFFERS_SORT_ORDER2&quot;:&quot;asc&quot;,&quot;LIST_OFFERS_LIMIT&quot;:&quot;10&quot;,&quot;CACHE_GROUPS&quot;:&quot;N&quot;,&quot;LIST_OFFERS_PROPERTY_CODE&quot;:[&quot;ARTICLE&quot;,&quot;VOLUME&quot;,&quot;SIZES&quot;,&quot;COLOR_REF&quot;,&quot;&quot;],&quot;SHOW_DISCOUNT_TIME&quot;:&quot;Y&quot;,&quot;SHOW_COUNTER_LIST&quot;:&quot;Y&quot;,&quot;PRICE_VAT_INCLUDE&quot;:&quot;Y&quot;,&quot;USE_PRICE_COUNT&quot;:&quot;Y&quot;,&quot;SHOW_MEASURE&quot;:&quot;Y&quot;,&quot;SHOW_OLD_PRICE&quot;:&quot;Y&quot;,&quot;SHOW_DISCOUNT_PERCENT&quot;:&quot;Y&quot;,&quot;SHOW_DISCOUNT_PERCENT_NUMBER&quot;:&quot;N&quot;,&quot;USE_REGION&quot;:&quot;&quot;,&quot;STORES&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;,&quot;13&quot;,&quot;14&quot;,&quot;15&quot;,&quot;16&quot;,&quot;17&quot;,&quot;18&quot;,&quot;19&quot;,&quot;20&quot;,&quot;21&quot;,&quot;22&quot;,&quot;23&quot;],&quot;DEFAULT_COUNT&quot;:&quot;1&quot;,&quot;BASKET_URL&quot;:&quot;/basket/&quot;,&quot;OFFERS_CART_PROPERTIES&quot;:&quot;&quot;,&quot;PRODUCT_PROPERTIES&quot;:[],&quot;PARTIAL_PRODUCT_PROPERTIES&quot;:&quot;Y&quot;,&quot;ADD_PROPERTIES_TO_BASKET&quot;:&quot;Y&quot;,&quot;SHOW_DISCOUNT_TIME_EACH_SKU&quot;:&quot;N&quot;,&quot;SHOW_ARTICLE_SKU&quot;:&quot;Y&quot;,&quot;OFFER_ADD_PICT_PROP&quot;:&quot;MORE_PHOTO&quot;,&quot;PRODUCT_QUANTITY_VARIABLE&quot;:&quot;quantity&quot;,&quot;MAIN_IBLOCK_ID&quot;:&quot;2&quot;,&quot;IBINHERIT_TEMPLATES&quot;:[]}">
+
+							{% if sub_flag%}
+								<div class="section_block">
+									<div class="sections_wrapper">
+										<div class="list items">
+											<div class="row margin0 flexbox">
+												{% for sub in sub_cat_list%}
+												<div class="col-md-3 col-sm-4 col-xs-6">
+													<div class="item" id="bx_1847241719_3677">
+														<div class="name">
+															<a href="{%url 'catalog_details' category=sub.name%}" class="dark_link">{{sub.alter_name}}</a>
+														</div>
+													</div>
+												</div>
+												{%endfor%}
+											</div>
+										</div>
+									</div>
+								</div>
+							{%endif%}
+
+							<div class="right_block1 clearfix catalog vertical" id="right_block_ajax">
+								<div class="inner_wrapper">
+
+									<div class="adaptive_filter">
+										<a class="filter_opener"><i></i><span>Фильтр</span></a>
+									</div>
+
+									<div id="bxdynamic_viewtype-block_start" style="display:none"></div>			
+
+									<div class="sort_header view_block">
+										<!--noindex-->
+										<div class="sort_filter ">
+											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=SHOWS&amp;order=desc" class="sort_btn asc SHOWS" rel="nofollow">
+												<i class="icon" title="По популярности"></i>
+												<span>По популярности</span>
+												<i class="arr icons_fa"></i>
+											</a>
+											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=NAME&amp;order=desc" class="sort_btn  asc NAME" rel="nofollow">
+												<i class="icon" title="По алфавиту"></i>
+												<span>По алфавиту</span>
+												<i class="arr icons_fa"></i>
+											</a>
+											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=PRICE&amp;order=desc" class="sort_btn  asc PRICE" rel="nofollow">
+												<i class="icon" title="По цене"></i>
+												<span>По цене</span>
+												<i class="arr icons_fa"></i>
+											</a>
+										</div>
+										<div class="sort_display">
+											<a rel="nofollow" href="
+											?display=block&?PAGEN_1={{products.number}}{%if search%}&q={{search}}{%endif%}" class="sort_btn block {%if display == 'block'%}current{%endif%}"><i title="плиткой"></i></a>
+											<a rel="nofollow" href="?display=list&PAGEN_1={{products.number}}{%if search%}&q={{search}}{%endif%}" class="sort_btn list {%if display == 'list'%}current{%endif%}"><i title="списком"></i></a>
+											<a rel="nofollow" href="?display=table&PAGEN_1={{products.number}}{%if search%}&q={{search}}{%endif%}" class="sort_btn table {%if display == 'table'%}current{%endif%}"><i title="таблицей"></i></a>
+										</div>
+										<div class="clearfix"></div>
+										<!--/noindex-->
+									</div>
+
+
+									<div class="ajax_load {{display}}">
+										
+											{%if display == 'block'%}
+													<div class="top_wrapper row margin0 show_un_props">
+														<div class="catalog_block items block_list" id="block">
+													{%elif display == 'list'%}
+													<div class="top_wrapper row margin0 show_un_props">
+														<div class="display_list show_un_props" id="block">
+													{%elif display == 'table'%}
+														<table class="module_products_list">
+															<tbody id="block">
+											{%endif%}
+											
+												{%for product in products.object_list%}
+													{%if display == 'block'%}
+														{%include 'nipponapp/includes/product_card_block.html'%}
+													{%elif display == 'list'%}
+														{%include 'nipponapp/includes/product_card_list.html'%}
+													{%elif display == 'table'%}
+														{%include 'nipponapp/includes/product_card_table.html'%}
+													{%endif%}
+
+												{%endfor%}
+
+											{%if display == 'block' or display == 'list'%}
+												</div>
+											</div>
+											{%elif display == 'table'%}
+													</tbody>
+												</table>
+											{%endif%}
+										{%if is_paginated%}
+											<div class="bottom_nav block">
+												{%if next_url%}
+													<div class="ajax_load_btn">
+														<span class="more_text_ajax">Показать еще</span>
+													</div>	
+												{%endif%}
+
+												<div class="module-pagination">
+													<div class="nums">
+														<ul class="flex-direction-nav">
+															{%if prev_url%}
+
+															<li class="flex-nav-prev "><a href="?display={{display}}&{{prev_url}}" class="flex-prev"></a></li>
+
+															{%endif%}
+
+
+															{%if next_url%}
+
+															<li class="flex-nav-next "><a href="?display={{display}}&{{next_url}}" class="flex-next"></a></li>
+															{%endif%}	
+
+														</ul>
+
+														{%for n in products.paginator.page_range%}
+
+															{%if products.number == n %}
+
+																<span class="cur">{{ products.number }}</span>
+
+															{% elif n > products.number|add:-3 and n < products.number|add:3 %}
+
+																<a href="?display={{display}}&PAGEN_1={{ n }}" class="dark_link">{{ n }}</a>
+																
+															{%endif%}
+
+
+														{%endfor%}
+
+													</div>
+												</div>
+											</div>
+										{%endif%}
+				
+													
+										<script>
+											BX.message({
+												QUANTITY_AVAILIABLE: 'Есть в наличии',
+												QUANTITY_NOT_AVAILIABLE: 'Нет в наличии',
+												ADD_ERROR_BASKET: 'Ошибка добавления товара в корзину',
+												ADD_ERROR_COMPARE: 'Ошибка добавления товара в список сравнения',
+											})
+											sliceItemBlock();
+										</script>	
+										<script>
+											BX.Currency.setCurrencies([{'CURRENCY':'RUB','FORMAT':{'FORMAT_STRING':'# руб.','DEC_POINT':'.','THOUSANDS_SEP':' ','DECIMALS':2,'THOUSANDS_VARIANT':'S','HIDE_ZERO':'Y'}}]);
+										</script>
+									</div>
+									<div id="bxdynamic_viewtype-block_end" style="display:none"></div>															
+									{%if sub_flag%}																										
+										<div class="group_description_block bottom">
+											<div>
+												{%if category.dsc != None%}
+													{{category.dsc}}
+												{%endif%}
+											
+											</div>
+										</div>
+									{%endif%}
+									<div class="landing_1"></div>
+									<div class="clear"></div> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{%include 'nipponapp/includes/catalog_menu.html'%}
+		</div>
+	</div> 	
+{%endblock%}

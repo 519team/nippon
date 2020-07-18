@@ -1,0 +1,145 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+	<!--title_content-->
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<div class="print-link" title="Версия для печати">
+						<i class="svg svg-print"></i>
+					</div>
+					<h1 id="pagetitle">Корзина</h1>
+				</div>
+				<div class="breadcrumbs" id="navigation" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+					<span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="https://nippononline.ru/basket/" itemprop="item">
+						<span>
+							<span itemprop="name">Корзина</span>
+							<meta itemprop="position" content="1">
+						</span>
+					</span>
+				</div>		
+			</section>
+		</div>
+	</div>					<!--end-title_content-->
+
+	<div class="wrapper_inner wide_page">
+		<div class="middle ">
+			<div class="container">
+				<div class="maxwidth-theme">
+					<!--  -->
+					<div id="basket-root" class="bx-basket bx-blue bx-step-opacity" style="opacity: 1;">		
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="alert alert-warning alert-dismissable" id="basket-warning" style="display: none;">
+									<span class="close" data-entity="basket-items-warning-notification-close">×</span>
+									<div data-entity="basket-general-warnings" style="display: none;"></div>
+									<div data-entity="basket-item-warnings" style="display: none;">
+										В вашей корзине 
+										<a href="javascript:void(0)" data-entity="basket-items-warning-count"></a>
+										 требует внимания.					
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="basket-items-list-wrapper basket-items-list-wrapper-height-fixed" id="basket-items-list-wrapper" 
+								style="">
+									<div class="basket-items-list-header" data-entity="basket-items-list-header" style="">
+										<div class="basket-items-search-field" data-entity="basket-filter">
+											<div class="form has-feedback">
+												<input type="text" class="form-control" placeholder="Фильтр" data-entity="basket-filter-input">
+												<span class="form-control-feedback basket-clear" data-entity="basket-filter-clear-btn"></span>
+											</div>
+										</div>
+										<div class="basket-items-list-header-filter">
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item active" data-entity="basket-items-count" data-filter="all" style="">В корзине 3 товара</a>
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="similar" style="display: none;"></a>
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="warning" style="display: none;"></a>
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="delayed" style="display: none;"></a>
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="not-available" style="display: none;"></a>
+											<div class="top_control basket_sort">
+												<span style="opacity:1;" class="delete_all btn btn-default white white-bg grey remove_all_basket">Очистить
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="basket-items-list-container" id="basket-items-list-container">
+										<div class="basket-items-list-overlay" id="basket-items-list-overlay" style="display: none;"></div>
+										<div class="basket-items-list" id="basket-item-list">
+											<div class="basket-search-not-found" id="basket-item-list-empty-result" style="display: none;">
+												<div class="basket-search-not-found-icon"></div>
+												<div class="basket-search-not-found-text">
+													По данному запросу товаров не найдено								
+												</div>
+											</div>
+											<table class="basket-items-list-table" id="basket-item-table">
+												<tbody>
+												{# recovery of the goods #}
+												{%for product in products_in_basket%}
+													{%include 'nipponapp/includes/product_card_big_basket.html'%}
+												{%endfor%}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12" data-entity="basket-total-block">
+								<div class="basket-checkout-container visible" data-entity="basket-checkout-aligner">
+									<div class="basket-checkout-section">
+										<div class="basket-checkout-section-inner">
+											<div class="basket-checkout-block basket-checkout-block-total">
+												<div class="basket-checkout-block-total-inner">
+													<div class="basket-checkout-block-total-title">Итого:</div>
+													<div class="basket-checkout-block-total-description">
+														Сумма НДС: 758.33 руб.
+													</div>
+												</div>
+											</div>
+
+											<div class="basket-checkout-block basket-checkout-block-total-price">
+												<div class="basket-checkout-block-total-price-inner">
+
+													<div class="basket-coupon-block-total-price-current" data-entity="basket-total-price">4 550 руб.</div>
+
+												</div>
+											</div>
+
+											<div class="basket-checkout-block basket-checkout-block-btn">
+												<a href="{%url 'order'%}" class="btn btn-lg btn-default basket-btn-checkout white" data-entity="basket-checkout-button">
+													Оформить заказ					
+												</a>
+											</div>
+											<div class="fastorder">
+												<span class="oneclickbuy btn btn-default btn-lg fast_order" onclick="oneClickBuyBasket()">Быстрый заказ
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-entity="parent-container">
+						<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
+							Выберите один из подарков			
+						</div>
+						<div class="sale-products-gift bx-blue" data-entity="sale-products-gift-container"></div>
+					</div>
+					<!--'start_frame_cache_es4Hjc'-->
+					<span id="bigdata_recommended_products_Zz2YMH"><!--'start_frame_cache_Zz2YMH'--><!--'end_frame_cache_Zz2YMH'-->
+					</span>
+					<!--'end_frame_cache_es4Hjc'-->
+				</div> 																
+			</div> 																				
+		</div>
+	</div> 				
+</div> 	
+    <link rel="stylesheet" type="text/css" href="/static/css/page_496c903ff616354760698c6d2240f6db_v1.css">
+{%endblock%}

@@ -1,0 +1,79 @@
+<tr class="basket-items-list-item-container" id="basket-item" data-entity="basket-item" data-id="{{product.product.id}}">
+	<td class="basket-items-list-item-descriptions">
+		<div class="basket-items-list-item-descriptions-inner" id="basket-item-height-aligner-{{product.product.id}}">
+			<div class="basket-item-block-image">
+				<a href="{%url 'product_detail' category=product.product.category.name index=product.product.id%}" class="basket-item-image-link">
+					<img data-lazyload="" class="basket-item-image lazyloaded" alt="{{product.product.name}}" src="/static/img/{{product.product.get_image_path}}" data-src="/static/img/{{product.product.get_image_path}}">
+				</a>
+			</div>
+			<div class="basket-item-block-info">
+				<span class="basket-item-actions-remove visible-xs" data-entity="basket-item-delete">
+					
+				</span>
+				<h2 class="basket-item-info-name">
+					<a href="{%url 'product_detail' category=product.product.category.name index=product.product.id%}" class="basket-item-info-name-link">
+						<span data-entity="basket-item-name">{{product.product.name}}</span>
+					</a>
+				</h2>
+				<div class="basket-item-block-properties">
+					<div class="basket-item-property-custom basket-item-property-custom-text
+					" data-entity="basket-item-property">
+						<div class="basket-item-property-custom-name">Тип цены</div>
+						<div class="basket-item-property-custom-value" data-column-property-code="TYPE" data-entity="basket-item-property-column-value">
+						Розничная цена
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</td>
+	<td class="basket-items-list-item-price basket-items-list-item-price-for-one hidden-xs">
+		<div class="basket-item-block-price">
+
+			<div class="basket-item-price-current">
+				<span class="basket-item-price-current-text" id="basket-item-price" data-price="{{product.product.price}}">
+					{{product.product.price}} руб.
+				</span>
+			</div>
+			<div class="basket-item-price-title">
+				цена за 1 шт
+			</div>
+		</div>
+	</td>
+	<td class="basket-items-list-item-amount">
+		
+		<div class="basket-item-block-amount" data-entity="basket-item-quantity-block">
+			<span class="basket-item-amount-btn-minus" data-entity="basket-item-quantity-minus"></span>
+			<div class="basket-item-amount-filed-block">
+				<input type="text" class="basket-item-amount-filed" value="{{product.nmb}}" data-value="{{product.nmb}}"
+					data-entity="basket-item-quantity-field" id="basket-item-quantity" min="0" max="56">
+			</div>
+			<span class="basket-item-amount-btn-plus" data-entity="basket-item-quantity-plus"></span>
+			<div class="basket-item-amount-field-description">
+				шт
+			</div>
+		</div>
+	</td>
+	<td class="basket-items-list-item-price">
+		<div class="basket-item-block-price">
+
+			<div class="basket-item-price-current">
+				<span class="basket-item-price-current-text amount" id="basket-item-sum-price" data-amount="{{product.total_price}}">
+					{{product.total_price}} руб.
+				</span>
+			</div>
+
+		</div>
+	</td>
+	<td class="basket-items-list-item-remove hidden-xs">
+		<div class="basket-item-block-actions">
+			<span class="basket-item-actions-remove" data-entity="basket-item-delete"
+			data-item="{{product.product.id}}" 
+			data-nmb="{{product.nmb}}"
+			data-title="{{product.product.name}}"
+			data-href="{%url 'product_detail' category=product.product.category.name index=product.product.id%}"
+			data-image="/static/img/{{product.product.get_image_path}}"
+			data-price="{{product.product.price}}"></span>
+		</div>
+	</td>
+</tr>
