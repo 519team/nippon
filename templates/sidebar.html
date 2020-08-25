@@ -1,0 +1,25 @@
+{%load story_tag contact_tags news_tag static%}
+<div class="banner SCALE SIDE  " id="bx_3485106786_114738">
+    <a href="/nippon/catalog/yaponskie_nozhi/">
+        <img data-lazyload="" src="{%static 'img/ffcc9e5866b0396ee9cae575945ba20f.jpg'%}"  alt="Японские ножи " title="Японские ножи " class="lazyload img-responsive">
+    </a>
+</div>
+
+<div class="subscribe_wrap">
+    <div id="bxdynamic_IzufVt_start" style="display:none"></div>
+    <div class="subscribe-form s_Arsw7O">
+        <div class="wrap_bg">
+            <div class="top_blocks">
+                <div class="text">
+                    <div class="title">Будьте всегда в курсе!</div>
+                    <div class="more">Узнавайте о скидках и акциях первым</div>
+                </div>
+            </div>
+            {%contact_form%}
+        </div>
+    </div>
+    <div id="bxdynamic_IzufVt_end" style="display:none"></div>
+</div>
+<br>
+{% get_last_news%}
+{% get_last_stories %}

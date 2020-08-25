@@ -1,0 +1,10 @@
+ <form action="{%url 'contact'%}" class="sform box-sizing" novalidate="novalidate" method="post">
+    <label for="sf_RUB_ID_1hgkNft" class="hidden">
+        <input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_1hgkNft" value="1" checked=""> Новости магазина             
+    </label>
+    <div class="email_wrap">
+    	{%csrf_token%}
+        {{contact_form}}
+        <input type="submit" name="OK" class="btn btn-default send_btn" value="Подписаться">
+    </div>
+</form>

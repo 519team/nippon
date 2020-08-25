@@ -1,4 +1,4 @@
-{% load static %}
+{% load static contact_tags%}
 <!DOCTYPE html>
 <!-- saved from url=(0024)https://nippononline.ru/ -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" class="bx-core bx-no-touch bx-no-retina bx-chrome">
@@ -17,7 +17,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <link href="{% static 'css/core.min.css' %}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{% static 'css/template_4747c4383ec334af0a46a28a2cdc712c_v1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css'%}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f201800e-62b9-4386-b053-5db3a2a45712&lang=ru_RU" type="text/javascript">
+    </script>
     <script type="text/javascript" src="{%static 'script/jquery-3.5.1.js'%}"></script>
     <script src="{% static 'script/basket.js' %}" type="text/javascript" async=""></script>
 
@@ -29,111 +32,7 @@
     <script type="text/javascript" async="" src="{% static 'script/watch.js'%}"></script>
     <script type="text/javascript" async="" src="{% static 'script/d5pau3MwEp'%}"></script>
     <script async="" src="{% static 'script/loader_2_j77ie3.js'%}"></script>
-    <script data-skip-moving="true">
-        (
-            function(w, d) {
-                var v = w.frameCacheVars = {
-                    'CACHE_MODE': 'HTMLCACHE',
-                    'storageBlocks': [],
-                    'dynamicBlocks': {
-                        'WIklcT': '4ef8164712f6',
-                        'basketitems-component-block': 'd41d8cd98f00',
-                        'header-auth-block1': 'd41d8cd98f00',
-                        'header-auth-block2': 'd41d8cd98f00',
-                        'header-basket-with-compare-block3': 'd41d8cd98f00',
-                        'header-auth-block3': 'd41d8cd98f00',
-                        'mobile-auth-block1': 'd41d8cd98f00',
-                        'mobile-basket-with-compare-block1': 'd41d8cd98f00',
-                        'IzufVt': '60912062ee90',
-                        '8ofwKu': '8754ff770ff4',
-                        'basketitems-block': 'd41d8cd98f00',
-                        'all-basketitems-block': 'd41d8cd98f00'
-                    },
-                    'AUTO_UPDATE': true,
-                    'AUTO_UPDATE_TTL': '0'
-                };
-                var inv = false;
-                if (v.AUTO_UPDATE === false) {
-                    if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0) {
-                        var lm = Date.parse(d.lastModified);
-                        if (!isNaN(lm)) {
-                            var td = new Date().getTime();
-                            if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td) {
-                                w.frameRequestStart = false;
-                                w.preventAutoUpdate = true;
-                                return;
-                            }
-                            inv = true;
-                        }
-                    } else {
-                        w.frameRequestStart = false;
-                        w.preventAutoUpdate = true;
-                        return;
-                    }
-                }
-                var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null);
-                if (!r) {
-                    return;
-                }
-                w.frameRequestStart = true;
-                var m = v.CACHE_MODE;
-                var l = w.location;
-                var x = new Date().getTime();
-                var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : "");
-                var u = l.protocol + "//" + l.host + l.pathname + q;
-                r.open("GET", u, true);
-                r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic");
-                r.setRequestHeader("BX-CACHE-MODE", m);
-                r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : "");
-                if (inv) {
-                    r.setRequestHeader("BX-INVALIDATE-CACHE", "Y");
-                }
-                try {
-                    r.setRequestHeader("BX-REF", d.referrer || "");
-                } catch (e) {}
-                if (m === "APPCACHE") {
-                    r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS));
-                    r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : "");
-                }
-                r.onreadystatechange = function() {
-                    if (r.readyState != 4) {
-                        return;
-                    }
-                    var a = r.getResponseHeader("BX-RAND");
-                    var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false;
-                    if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)) {
-                        var f = {
-                            error: true,
-                            reason: a != x ? "bad_rand" : "bad_status",
-                            url: u,
-                            xhr: r,
-                            status: r.status
-                        };
-                        if (w.BX && w.BX.ready) {
-                            BX.ready(function() {
-                                setTimeout(
-                                    function() {
-                                        BX.onCustomEvent("onFrameDataRequestFail", [f]);
-                                    }, 0);
-                            });
-                        } else {
-                            w.frameRequestFail = f;
-                        }
-                        return;
-                    }
-                    if (b) {
-                        b.onFrameDataReceived(r.responseText);
-                        if (!w.frameUpdateInvoked) {
-                            b.update(false);
-                        }
-                        w.frameUpdateInvoked = true;
-                    } else {
-                        w.frameDataString = r.responseText;
-                    }
-                };
-                r.send();
-            })(window, document);
-    </script>
+    
     <script data-skip-moving="true">
         (
             function(w, d, n) {
@@ -214,7 +113,7 @@
 
     <link href="{% static 'css/ui.font.opensans.min.css'%}" rel="stylesheet">
     <link href="{% static 'css/main.popup.bundle.min.css'%}" rel="stylesheet">
-    <link href="{% static 'css/template_4c0a62c0196fd0f66ead3843bdb54c8c_v1.css'%}" data-template-style="true" rel="stylesheet">
+    <link href="{% static 'css/template_4c0a62c0196fd0f66ead3843bdb54c8c_v1.css'%}"  rel="stylesheet">
     <link href="{% static 'css/popup.min.css'%}" data-template-style="true" rel="stylesheet">
     <link rel="shortcut icon" href="https://nippononline.ru/favicon.ico?1585204744" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="https://nippononline.ru/include/apple-touch-icon.png">
@@ -232,6 +131,7 @@
     <div id="bxdynamic_basketitems-component-block_start" style="display:none"></div>
     <div id="ajax_basket"></div>
     <div id="bxdynamic_basketitems-component-block_end" style="display:none"></div>
+
     <script src="{% static 'script/setTheme.php'%}" data-skip-moving="true"></script>
     <div class="wrapper1 with_left_block front_page basket_fly basket_fill_DARK side_LEFT catalog_icons_N banner_auto with_fast_view mheader-v1 header-v1 regions_N fill_N footer-v1 front-vcustom mfixed_N mfixed_view_always title-v3 with_phones with_lazy">
         <div class="header_wrap visible-lg visible-md title-v3 index">
@@ -355,7 +255,7 @@
                                                                 </td>
                                                                 <td class="menu-item" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="" href="https://nippononline.ru/help/">
+                                                                        <a class="" href="/help/">
                                                                             <div>
                                                                                 Доставка и оплата
                                                                                 <div class="line-wrapper">
@@ -367,7 +267,7 @@
                                                                 </td>
                                                                 <td class="menu-item" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="" href="https://nippononline.ru/contacts/stores/">
+                                                                        <a class="" href="{%url 'markets'%}">
                                                                             <div>
                                                                                 Магазины
                                                                                 <div class="line-wrapper">
@@ -379,7 +279,7 @@
                                                                 </td>
                                                                 <td class="menu-item" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="" href="https://nippononline.ru/services/">
+                                                                        <a class="" href="/services/">
                                                                             <div>
                                                                                 Услуги
                                                                                 <div class="line-wrapper">
@@ -391,7 +291,7 @@
                                                                 </td>
                                                                 <td class="menu-item" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="" href="https://nippononline.ru/sale/">
+                                                                        <a class="" href="/sale/">
                                                                             <div>
                                                                                 Акции
                                                                                 <div class="line-wrapper">
@@ -403,7 +303,7 @@
                                                                 </td>
                                                                 <td class="menu-item" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="" href="https://nippononline.ru/services/optovoe-napravlenie/">
+                                                                        <a class="" href="/services/optovoe-napravlenie/">
                                                                             <div>
                                                                                 Оптовое направление
                                                                                 <div class="line-wrapper">
@@ -415,13 +315,13 @@
                                                                 </td>
                                                                 <td class="menu-item dropdown js-dropdown nosave" style="visibility: visible;">
                                                                     <div class="wrap">
-                                                                        <a class="dropdown-toggle more-items" href="https://nippononline.ru/#">
+                                                                        <a class="dropdown-toggle more-items" href="/#">
                                                                             <span>Ещё</span>
                                                                         </a>
                                                                         <span class="tail"></span>
                                                                         <ul class="dropdown-menu">
                                                                             <li class="menu-item " data-hidewidth="955" data-class="menu-item unvisible    ">
-                                                                                <a class="" href="https://nippononline.ru/franchise">
+                                                                                <a class="" href="/franchise">
                                                                                     <div>
                                                                                         Франшиза
                                                                                         <div class="line-wrapper">
@@ -431,7 +331,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li class="menu-item " data-hidewidth="1065" data-class="menu-item unvisible    ">
-                                                                                <a class="" href="https://nippononline.ru/company/">
+                                                                                <a class="" href="/company/">
                                                                                     <div>
                                                                                         Компания
                                                                                         <div class="line-wrapper">
@@ -441,7 +341,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li class="menu-item " data-hidewidth="1129" data-class="menu-item unvisible    ">
-                                                                                <a class="" href="https://nippononline.ru/blog/">
+                                                                                <a class="" href="{%url 'blog'%}">
                                                                                     <div>
                                                                                         Блог
                                                                                         <div class="line-wrapper">
@@ -451,7 +351,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li class="menu-item " data-hidewidth="1353" data-class="menu-item unvisible    ">
-                                                                                <a class="" href="https://nippononline.ru/help/page-chef/">
+                                                                                <a class="" href="/help/page-chef/">
                                                                                     <div>
                                                                                         Страница шеф-повара
                                                                                         <div class="line-wrapper">
@@ -509,7 +409,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/help/">
+                                                        <a class="" href="/help/">
                                                             <div>
                                                                 Доставка и оплата
                                                                 <div class="line-wrapper">
@@ -521,7 +421,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/contacts/stores/">
+                                                        <a class="" href="{%url 'markets'%}">
                                                             <div>
                                                                 Магазины
                                                                 <div class="line-wrapper">
@@ -533,7 +433,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/services/">
+                                                        <a class="" href="/services/">
                                                             <div>
                                                                 Услуги
                                                                 <div class="line-wrapper">
@@ -545,7 +445,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/sale/">
+                                                        <a class="" href="/sale/">
                                                             <div>
                                                                 Акции
                                                                 <div class="line-wrapper">
@@ -557,7 +457,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/services/optovoe-napravlenie/">
+                                                        <a class="" href="/services/optovoe-napravlenie/">
                                                             <div>
                                                                 Оптовое направление
                                                                 <div class="line-wrapper">
@@ -569,7 +469,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/franchise">
+                                                        <a class="" href="/franchise">
                                                             <div>
                                                                 Франшиза
                                                                 <div class="line-wrapper">
@@ -581,7 +481,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/company/">
+                                                        <a class="" href="/company/">
                                                             <div>
                                                                 Компания
                                                                 <div class="line-wrapper">
@@ -593,7 +493,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/blog/">
+                                                        <a class="" href="{%url 'blog'%}">
                                                             <div>
                                                                 Блог
                                                                 <div class="line-wrapper">
@@ -605,7 +505,7 @@
                                                 </td>
                                                 <td class="menu-item" style="visibility: visible;">
                                                     <div class="wrap">
-                                                        <a class="" href="https://nippononline.ru/help/page-chef/">
+                                                        <a class="" href="/help/page-chef/">
                                                             <div>
                                                                 Страница шеф-повара
                                                                 <div class="line-wrapper">
@@ -905,117 +805,117 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class=" dark-color parent" href="https://nippononline.ru/help/" title="Доставка и оплата">
+                                    <a class=" dark-color parent" href="/help/" title="Доставка и оплата">
                                         <span>Доставка и оплата</span>
                                         <span class="arrow"><i class="svg svg_triangle_right"></i></span>
                                     </a>
                                     <ul class="dropdown">
                                         <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
-                                        <li class="menu_title"><a href="https://nippononline.ru/help/">Доставка и оплата</a></li>
+                                        <li class="menu_title"><a href="/help/">Доставка и оплата</a></li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/help/delivery/" title="Условия доставки">
+                                            <a class="dark-color" href="/help/delivery/" title="Условия доставки">
                                                 <span>Условия доставки</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/help/exchange-and-return" title="Обмен и Возврат">
+                                            <a class="dark-color" href="/help/exchange-and-return" title="Обмен и Возврат">
                                                 <span>Обмен и Возврат</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/contacts/stores/" title="Магазины">
+                                    <a class=" dark-color" href="{%url 'markets'%}" title="Магазины">
                                         <span>Магазины</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" dark-color parent" href="https://nippononline.ru/services/" title="Услуги">
+                                    <a class=" dark-color parent" href="/services/" title="Услуги">
                                         <span>Услуги</span>
                                         <span class="arrow"><i class="svg svg_triangle_right"></i></span>
                                     </a>
                                     <ul class="dropdown">
-                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
-                                        <li class="menu_title"><a href="https://nippononline.ru/services/">Услуги</a></li>
+                                        <li class="menu_back"><a href="" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="/services/">Услуги</a></li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/services/optovoe-napravlenie/" title="Оптовое направление">
+                                            <a class="dark-color" href="/services/optovoe-napravlenie/" title="Оптовое направление">
                                                 <span>Оптовое направление</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/services/podarochnye-nabory/" title="Подарочные наборы">
+                                            <a class="dark-color" href="/services/podarochnye-nabory/" title="Подарочные наборы">
                                                 <span>Подарочные наборы</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/services/torgovoe-oborudovanie/" title="Торговое оборудование">
+                                            <a class="dark-color" href="/services/torgovoe-oborudovanie/" title="Торговое оборудование">
                                                 <span>Торговое оборудование</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/services/logisticheskie-uslugi-iz-yaponii/" title="Логистические услуги из Японии">
+                                            <a class="dark-color" href="/services/logisticheskie-uslugi-iz-yaponii/" title="Логистические услуги из Японии">
                                                 <span>Логистические услуги из Японии</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/sale/" title="Акции">
+                                    <a class=" dark-color" href="/sale/" title="Акции">
                                         <span>Акции</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/services/optovoe-napravlenie/" title="Оптовое направление">
+                                    <a class=" dark-color" href="/services/optovoe-napravlenie/" title="Оптовое направление">
                                         <span>Оптовое направление</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/franchise" title="Франшиза">
+                                    <a class=" dark-color" href="/franchise" title="Франшиза">
                                         <span>Франшиза</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" dark-color parent" href="https://nippononline.ru/company/" title="Компания">
+                                    <a class=" dark-color parent" href="/company/" title="Компания">
                                         <span>Компания</span>
                                         <span class="arrow"><i class="svg svg_triangle_right"></i></span>
                                     </a>
                                     <ul class="dropdown">
-                                        <li class="menu_back"><a href="https://nippononline.ru/" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
-                                        <li class="menu_title"><a href="https://nippononline.ru/company/">Компания</a></li>
+                                        <li class="menu_back"><a href="{%url 'main'%}" class="dark-color" rel="nofollow"><i class="svg svg-arrow-right"></i>Назад</a></li>
+                                        <li class="menu_title"><a href="/company/">Компания</a></li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/company/news/" title="Новости">
+                                            <a class="dark-color" href="{%url 'news'%}" title="Новости">
                                                 <span>Новости</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/company/staff/" title="Сотрудники">
+                                            <a class="dark-color" href="{%url 'staff'%}" title="Сотрудники">
                                                 <span>Сотрудники</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/company/vacancy/" title="Вакансии">
+                                            <a class="dark-color" href="{%url 'vacancy'%}" title="Вакансии">
                                                 <span>Вакансии</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/company/licenses/" title="Лицензии">
+                                            <a class="dark-color" href="/company/licenses/" title="Лицензии">
                                                 <span>Лицензии</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dark-color" href="https://nippononline.ru/include/licenses_detail.php" title="Политика">
+                                            <a class="dark-color" href="/politics/" title="Политика">
                                                 <span>Политика</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/blog/" title="Блог">
+                                    <a class=" dark-color" href="{%url 'blog'%}" title="Блог">
                                         <span>Блог</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" dark-color" href="https://nippononline.ru/help/page-chef/" title="Страница шеф-повара">
+                                    <a class=" dark-color" href="/help/page-chef/" title="Страница шеф-повара">
                                         <span>Страница шеф-повара</span>
                                     </a>
                                 </li>
@@ -1163,7 +1063,7 @@
                                             <div class="item-link">
                                                 <div class="item">
                                                     <div class="title">
-                                                        <a href="https://nippononline.ru/company/index.php">Компания</a>
+                                                        <a href="/company/">Компания</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1171,42 +1071,42 @@
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/company/">О компании</a>
+                                                            <a href="/company/">О компании</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/company/news/">Новости</a>
+                                                            <a href="{%url 'news'%}">Новости</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/company/staff/">Сотрудники</a>
+                                                            <a href="{%url 'staff'%}">Сотрудники</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/company/vacancy/">Вакансии</a>
+                                                            <a href="{%url 'vacancy'%}">Вакансии</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/contacts/">Контакты</a>
+                                                            <a href="{%url 'contacts'%}">Контакты</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="{%url 'politic'%}">Политика</a>
+                                                            <a href="/politics/">Политика</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1228,21 +1128,21 @@
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/help/">Помощь</a>
+                                                            <a href="/help/">Помощь</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/help/delivery/">Условия доставки</a>
+                                                            <a href="/help/delivery/">Условия доставки</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/help/exchange-and-return">Обмен и Возврат</a>
+                                                            <a href="/help/exchange-and-return">Обмен и Возврат</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1256,7 +1156,7 @@
                                             <div class="item-link">
                                                 <div class="item">
                                                     <div class="title">
-                                                        <a href="https://nippononline.ru/help/">Помощь</a>
+                                                        <a href="/help/">Помощь</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1264,28 +1164,28 @@
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/blog/">Блог</a>
+                                                            <a href="{%url 'blog'%}">Блог</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/info/faq/">Вопрос-ответ</a>
+                                                            <a href="/info/faq/">Вопрос-ответ</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/info/brands/">Бренды</a>
+                                                            <a href="{%url 'brands'%}">Бренды</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="item-link">
                                                     <div class="item">
                                                         <div class="title">
-                                                            <a href="https://nippononline.ru/landings/">Обзоры</a>
+                                                            <a href="/landings/">Обзоры</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1308,15 +1208,7 @@
                                                         <div class="more">Узнавайте о скидках и акциях первым</div>
                                                     </div>
                                                 </div>
-                                                <form action="https://nippononline.ru/personal/subscribe/" class="sform box-sizing" novalidate="novalidate">
-                                                    <label for="sf_RUB_ID_1hgkNft" class="hidden">
-                                                        <input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_1hgkNft" value="1" checked=""> Новости магазина             
-                                                    </label>
-                                                    <div class="email_wrap">
-                                                        <input type="email" title="Ваш e-mail" class="email_input" name="sf_EMAIL" maxlength="100" required="" size="20" value="" placeholder="Ваш e-mail" aria-required="true">
-                                                        <input type="submit" name="OK" class="btn btn-default send_btn" value="Подписаться">
-                                                    </div>
-                                                </form>
+                                                {%contact_form%}
                                             </div>
                                         </div>
                                         <div id="bxdynamic_8ofwKu_end" style="display:none"></div>
@@ -1534,7 +1426,7 @@
                             </a>
                         </div>
                         <ul class="tabs">
-                            <li item-section="AnDelCanBuy" data-type="AnDelCanBuy">
+                            <li class="active cur" item-section="AnDelCanBuy" data-type="AnDelCanBuy">
                                 <div class="wrap_li">
                                     <span>Готовые к заказу</span>
                                     <span class="quantity">
@@ -1555,7 +1447,7 @@
                     <form method="post" action="" name="basket_form" id="basket_form" class="basket_wrapp">
                         {%csrf_token%}
                         <ul class="tabs_content basket">
-                            <li item-section="AnDelCanBuy">
+                            <li item-section="AnDelCanBuy" class="cur">
                                 <div class="module-cart">
                                     <div class="goods" style="overflow-x: hidden !important;">
                                         <table class="colored" width="100%" id="basket_items">
@@ -2738,8 +2630,12 @@
 
     <div class="title-search-result title-search-input fixed_type" style="display: none;"></div>
     <a class="scroll-to-top ROUND_COLOR PADDING" href="https://nippononline.ru/#" id="scrollToTop"></a>
+    <script src="{% static 'script/swiper.min.js'%}"></script>
+    <script src="{%static 'script/main.js'%}"></script>
+    {%include 'personal/includes/auth_form.html'%}
+    {%block modal%}
+    {%endblock%}
 
-    {%include 'nipponapp/includes/auth_form.html'%}
 </body>
 
 </html>

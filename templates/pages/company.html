@@ -1,0 +1,139 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+О компании
+{%endblock%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+			<!--title_content-->
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">О компании</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList"><span class=""
+							itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<link href="/company/" itemprop="item"><span><span
+									itemprop="name">О компании</span>
+								<meta itemprop="position" content="1"></span></span></div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<p>
+					</p>
+					<table class="company_table">
+						<tbody>
+							<tr>
+								<td>
+									<a href="{%static 'img/pages/about1.jpg'%}" class="fancybox" rel="company_galery">
+										<img data-lazyload="" class=" lazyloaded" src="{%static 'img/pages/about1.jpg'%}"
+											data-src="/images/company/about1.jpg"> </a>
+								</td>
+								<td>
+									<a href="{%static 'img/pages/about2.jpg'%}" class="fancybox" rel="company_galery">
+										<img data-lazyload="" class=" lazyloaded" src="{%static 'img/pages/about2.jpg'%}"
+											data-src="/images/company/about2.jpg"> </a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+					</p>
+					<p>
+						Мы рады приветствовать Вас в интернет-магазине нашей компании!
+					</p>
+					<p>
+						Наша компания была основана в 2011 году, занимается импортом и реализацией продуктов питания
+						из Японии. Наши главные приоритеты - высокое качество и приемлемые цены. Наш интернет-магазин
+						принимает заказы круглосуточно, без выходных.
+					</p>
+					<p>
+						Розничных покупателей ждем в наших магазинах по адресу: <br>
+						1) ул. Кравченко, д.4, корп.1&nbsp;
+					</p>
+					<p>
+						2) ул. Цветной бульвар, д.7 с.1
+					</p>
+					<p>
+						3) ул. Новослободская д.20<br>
+					</p>
+					<p>
+						4) Ленинский проспект 73/8
+					</p>
+					<p>
+						5) ул. Академика Королева д.3
+					</p>
+					<p>
+						6) ул. Рождественка 6/9/20 стр.1<br>
+					</p>
+					<p>
+					</p>
+					<p>
+						<br>
+					</p>
+					<p>
+						<br>
+					</p>
+					<p>
+						По вопросам оптовых закупок обращайтесь по телефону или пишите на электронную почту. Наши
+						менеджеры ответят на все Ваши вопросы в кратчайшие сроки.
+					</p>
+					<p>
+						Телефон: <a href="tel:+74957777763">+7 495 777-77-63</a>
+					</p>
+					<p>
+						E-mail: <a href="mailto:opt@nippononline.ru">opt@nippononline.ru</a>
+					</p>
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="left_block">
+			<ul class="left_menu">
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'news'%}">
+						<span>Новости</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'staff'%}">
+						<span>Сотрудники</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'vacancy'%}">
+						<span>Вакансии</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="/company/licenses/">
+						<span>Лицензии</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="/politics/">
+						<span>Политика</span>
+					</a>
+				</li>
+			</ul>
+
+
+
+
+
+			{%include 'sidebar.html'%}
+		</div>
+	</div>
+</div>
+
+{%endblock%}
