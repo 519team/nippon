@@ -1,0 +1,50 @@
+<div class="shadow col-md-4 col-sm-6">
+	<div class="item" id="bx_3218110189_115769">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="image ">
+					<a
+						href="{{staff.get_absolute_url}}">
+						<img data-lazyload=""
+							src="{{staff.image.url}}"
+							data-src="{{staff.image.url}}"
+							alt="{{staff.name}}"
+							title="{{staff.name}}"
+							class="img-responsive ls-is-cached lazyloaded">
+					</a> </div>
+				<div class="body-info" style="height: 170px;">
+					<div class="top-block-wrapper">
+						<div class="title">
+							<a href="{{staff.get_absolute_url}}">
+								{{staff.name}} 
+							</a> 
+						</div>
+
+						<div class="post">{{staff.vacancy}}</div>
+					</div>
+
+					{%if staff.email and staff.phone%}
+					<div class="middle-props">
+						<div class="value">
+							<!-- noindex --><a href="mailto:{{stuff.email}}"
+								target="_blank" rel="nofollow"><a
+									href="mailto:{{staff.email}}">{{staff.email}}</a></a>
+							<!-- /noindex -->
+						</div>
+						<div class="value">{{staff.phone}} {{staff.phone_suffix}}</div>
+					</div>
+					{%endif%}
+					{%if staff.insta%}
+					<div class="bottom-props">
+						<!-- noindex -->
+						<a href="{{staff.insta}}"
+							target="_blank" rel="nofollow"
+							class="value social_inst">{{staff.insta}}</a>
+						<!-- /noindex -->
+					</div>
+					{%endif%}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

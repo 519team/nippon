@@ -1,0 +1,138 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">Личный кабинет</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<span class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<link href="/personal/" itemprop="item">
+							<span>
+								<span itemprop="name">Личный кабинет</span>
+								<meta itemprop="position" content="1">
+							</span>
+						</span>
+					</div>			
+				</div>
+			</section>
+		</div>
+	</div>					<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<div class="personal_wrapper">
+						<div class="row sale-personal-section-row-flex" style="display: flex;flex-wrap: wrap;">
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'orders'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="cur_orders"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Текущие заказы							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'amount'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="bill"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+												Личный счет							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'private'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="personal"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Личные данные							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="/personal/orders/?filter_history=Y">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="filter_orders"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											История заказов							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'order_profiles'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="profile"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Профили заказов							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'basket'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="cart"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Корзина							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'subscribe'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="subscribe"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">											
+											Подписки							
+										</h2>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+								<div class="sale-personal-section-index-block bx-theme-">
+									<a class="sale-personal-section-index-block-link" href="{%url 'contacts'%}">
+										<span class="sale-personal-section-index-block-ico">
+											<i class="contact"></i>						
+										</span>
+										<h2 class="sale-personal-section-index-block-name">
+											Контакты							
+										</h2>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div> 																				
+			</div> 																
+		</div> 				
+		<div class="left_block">
+			{%include 'personal/includes/personal_sidebar.html'%}
+			{%include 'sidebar.html'%}
+		</div>
+	</div> 
+</div>
+{%endblock%}

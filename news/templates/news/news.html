@@ -1,0 +1,151 @@
+{%extends 'base.html'%}
+{%block title%}
+ Новости
+ {%endblock%}
+ {%block content%}
+ <div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<a class="rss" href="/company/news/rss/" title="rss" target="_blank">RSS</a>
+				<h1 id="pagetitle">Новости</h1>
+			</div>
+			<div id="navigation">
+				<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+					<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+						itemtype="http://schema.org/ListItem"><a href="/company/"
+							title="О компании" itemprop="item"><span itemprop="name">О компании</span>
+							<meta itemprop="position" content="1"></a></div><span class="separator">-</span><span
+						class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="/company/news/" itemprop="item"><span><span
+								itemprop="name">Новости</span>
+							<meta itemprop="position" content="2"></span></span>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--end-title_content-->
+
+<div class="wrapper_inner wide_page">
+
+	<div class="middle ">
+		<div class="container">
+			<div class="maxwidth-theme">
+				<div class="text_before_items">
+				</div>
+
+
+				<div class="head-block top">
+					<div class="bottom_border"></div>
+					{%if pub_year%}
+					<div class="item-link">
+						<div class="title">
+							<a class="btn-inline black" href="{%url 'news'%}">За все время</a>
+						</div>
+					</div>
+					{%else%}
+					<div class="item-link active">
+						<div class="title">
+							<span class="btn-inline black">За все время</span>
+						</div>
+					</div>
+					{%endif%}
+					{%for year in years%}
+						{%if year == pub_year%}
+							<div class="item-link active">
+								<div class="title btn-inline black">
+									<a class="btn-inline black"
+										href="/company/news/?year={{year}}">{{year}}</a>
+								</div>
+							</div>
+						{%else%}
+							<div class="item-link">
+								<div class="title btn-inline black">
+									<a class="btn-inline black"
+										href="/company/news/?year={{year}}">{{year}}</a>
+								</div>
+							</div>
+						{%endif%}
+					{%endfor%}
+				</div>
+
+
+				<div class="sub_container fixed_wrapper">
+					<div class="row">
+						<div class="col-md-9">
+							<div class="item-views table-type-block table-elements news2">
+
+
+								<div class="items row flexbox">
+									{%for item in news%}
+										{%include 'news/includes/news_card.html'%}
+									{%endfor%}
+								</div>
+								{%if is_paginated%}
+									<div class="bottom_nav block">
+										
+
+										<div class="module-pagination">
+											<div class="nums">
+												<ul class="flex-direction-nav">
+													{%if prev_url%}
+
+													<li class="flex-nav-prev "><a href="?{{prev_url}}" class="flex-prev"></a></li>
+
+													{%endif%}
+
+
+													{%if next_url%}
+
+													<li class="flex-nav-next "><a href="?{{next_url}}" class="flex-next"></a></li>
+													{%endif%}	
+
+												</ul>
+
+												{%for n in news.paginator.page_range%}
+
+													{%if news.number == n %}
+
+														<span class="cur">{{ news.number }}</span>
+
+													{% elif n > news.number|add:-3 and n < news.number|add:3 %}
+
+														<a href="?PAGEN_1={{ n }}" class="dark_link">{{ n }}</a>
+														
+													{%endif%}
+
+
+												{%endfor%}
+
+											</div>
+										</div>
+									</div>
+								{%endif%}
+							</div>
+
+
+						</div>
+						<div class="col-md-3  with-padding-left hidden-xs hidden-sm">
+							<div class="fixed_block_fix"></div>
+							<div class="ask_a_question_wrapper">
+								<div class="ask_a_question" style="top: 0px;">
+									<div class="inner">
+										<div class="text-block">
+											Наши специалисты ответят на любой интересующий вопрос по услуге </div>
+									</div>
+									<div class="outer">
+										<span><span class="btn btn-default btn-lg white animate-load"
+												data-event="jqm" data-param-form_id="ASK"
+												data-name="question"><span>Задать вопрос</span></span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

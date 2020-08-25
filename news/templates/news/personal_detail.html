@@ -1,0 +1,160 @@
+{%extends 'base.html'%}
+{%block title%}
+{{personal.name}}
+{%endblock%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+			<!--title_content-->
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">{{personal.name}}</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+							itemtype="http://schema.org/ListItem">
+							<a href="https://nippononline.ru/company/" title="О компании" itemprop="item">
+								<span itemprop="name">О компании</span>
+								<meta itemprop="position" content="1">
+							</a>
+						</div>
+						<span class="separator">-</span>
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_1" itemprop="itemListElement" itemscope=""
+							itemtype="http://schema.org/ListItem">
+							<a href="{%url 'staff'%}" title="Сотрудники" itemprop="item">
+								<span itemprop="name">Сотрудники</span>
+								<meta itemprop="position" content="2">
+							</a>
+						</div>
+						<span class="separator">-</span>
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_2" itemprop="itemListElement" itemscope=""
+							itemtype="http://schema.org/ListItem">
+							<a href="{%url 'staff'%}" title="{{personal.category.name}}" itemprop="item">
+								<span itemprop="name">{{personal.category.name}}</span>
+								<meta itemprop="position" content="3">
+							</a>
+						</div>
+						<span class="separator">-</span>
+						<span class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<link href="{{personal.get_absolute_url}}"
+								itemprop="item">
+								<span>
+									<span itemprop="name">{{personal.name}}</span>
+								<meta itemprop="position" content="4">
+							</span>
+						</span>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<div class="detail staff">
+						<article>
+							<div class="detailimage">
+								<img data-lazyload=""
+									src="{{personal.image.url}}"
+									data-src="{{personal.image.url}}"
+									title="{{personal.name}}" alt="{{personal.name}}"
+									class="img-responsive ls-is-cached lazyloaded">
+							</div>
+
+
+							<div class="post-content">
+								<div class="content">
+									{%if personal.insta%}
+									<div class="item-views">
+										<div class="item">
+											<div class="bottom-props">
+												<!-- noindex -->
+												<a href="{{personal.insta}}"
+													target="_blank" rel="nofollow"
+													class="value social_inst">{{personal.insta}}</a>
+												<!-- /noindex -->
+											</div>
+										</div>
+									</div>
+									{%endif%}
+
+									<hr>
+									<div class="properties">
+										{%if personal.email%}
+										<div class="inner-wrapper">
+											<div class="property icon-block email">
+												<a href="mailto:{{personal.email}}"><a
+														href="mailto:{{personal.email}}">{{personal.email}}</a></a>
+											</div>
+										</div>
+										{%endif%}
+										<div class="inner-wrapper">
+											<div class="property  post">
+												Должность:&nbsp;
+												{{personal.vacancy}} </div>
+										</div>
+										{%if personal.phone%}
+										<div class="inner-wrapper">
+											<div class="property icon-block phone">
+												{{personal.phone}} {{personal.phone_suffix}} 
+											</div>
+										</div>
+										{%endif%}
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div style="clear:both"></div>
+					<hr class="bottoms">
+					<div class="row">
+						<div class="col-md-6 share">
+						</div>
+						<div class="col-md-6">
+							<a class="back-url url-block" href="{%url 'staff'%}"><i
+									class="fa fa-angle-left"></i><span>Список сотрудников</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="left_block">
+			<ul class="left_menu">
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'news'}">
+						<span>Новости</span>
+					</a>
+				</li>
+				<li class=" current   item ">
+					<a class="icons_fa" href="{%url 'staff'%}">
+						<span>Сотрудники</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="{%url 'vacancy'%}">
+						<span>Вакансии</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="/company/licenses/">
+						<span>Лицензии</span>
+					</a>
+				</li>
+				<li class="  item ">
+					<a class="icons_fa" href="/politics/">
+						<span>Политика</span>
+					</a>
+				</li>
+			</ul>
+			{%include 'sidebar.html'%}
+		</div>
+	</div>
+</div>
+
+{%endblock%}

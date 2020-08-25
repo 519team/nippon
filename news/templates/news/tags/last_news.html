@@ -1,0 +1,20 @@
+<div class="news_blocks front">
+        <div class="top_block">
+            <div class="title_block">Новости</div>
+            <a href="{%url 'news'%}">Все новости</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="info_block">
+            <div class="news_items">
+                {%for news in last_news%}
+                <div id="bx_3099439860_115622" class="item box-sizing dl">
+                    <div class="info">
+                        <div class="date">{{news.publicate}}</div>
+                        <a class="name dark_link" href="{{news.get_absolute_url}}">{{news.title}}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>

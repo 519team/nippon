@@ -1,0 +1,93 @@
+<div class="col-md-12 col-sm-12 sale-order-list-container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 sale-order-list-title-container">
+			<h2 class="sale-order-list-title">
+				Заказ №{{order.id}} от {{order.created|date}},
+				{{order.productinorder_set.all.count}} товара на сумму {{order.total_price}} руб. </h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 sale-order-list-inner-container">
+			<span class="sale-order-list-inner-title-line">
+				<span class="sale-order-list-inner-title-line-item">Оплата</span>
+				<span class="sale-order-list-inner-title-line-border"></span>
+			</span>
+			<div class="row sale-order-list-inner-row">
+
+				<div class="sale-order-list-inner-row-body">
+					<div class="col-md-9 col-sm-8 col-xs-12 sale-order-list-payment">
+						<div class="sale-order-list-payment-title">
+							Счет №{{order.id}}/1 от {{order.id|date}}, <span
+								class="sale-order-list-payment-title-element">{{order.payment}}</span>
+							<span class="sale-order-list-status-alert">Не оплачено</span>
+						</div>
+						<div class="sale-order-list-payment-price">
+							<span class="sale-order-list-payment-element">Сумма к оплате
+								по счету:</span>
+
+							<span class="sale-order-list-payment-number">{{order.total_price}} руб.</span>
+						</div>
+						<a href="https://nippononline.ru/personal/orders/#"
+							class="sale-order-list-change-payment" id="46428/1">
+							сменить способ оплаты </a>
+
+					</div>
+					<div
+						class="col-md-3 col-sm-4 col-xs-12 sale-order-list-button-container">
+						<a class="sale-order-list-button ajax_reload"
+							href="https://nippononline.ru/order/payment/?ORDER_ID=46428&amp;PAYMENT_ID=46428/1">
+							Оплатить </a>
+					</div>
+
+				</div>
+				<div
+					class="col-lg-9 col-md-9 col-sm-10 col-xs-12 sale-order-list-inner-row-template">
+					<a class="sale-order-list-cancel-payment">
+						<i class="fa fa-long-arrow-left"></i> назад </a>
+				</div>
+			</div>
+			<div class="sale-order-list-inner-title-line">
+				<span class="sale-order-list-inner-title-line-item">{{order.delivery}}</span>
+				<span class="sale-order-list-inner-title-line-border"></span>
+			</div>
+			<div class="row sale-order-list-inner-row">
+				<div class="col-md-9 col-sm-8 col-xs-12 sale-order-list-shipment">
+					<div class="sale-order-list-shipment-title">
+						<span class="sale-order-list-shipment-element">
+							Отгрузка №46428/2, стоимость доставки 300 руб. </span>
+						<span class="sale-order-list-status-alert">Не отгружено</span>
+					</div>
+
+					<div class="sale-order-list-shipment-status">
+						<span class="sale-order-list-shipment-status-item">Статус
+							отгрузки:</span>
+						<span class="sale-order-list-shipment-status-block">Новый
+							заказ</span>
+					</div>
+
+					<div class="sale-order-list-shipment-item">
+						Служба доставки:
+						Доставка курьером </div>
+				</div>
+			</div>
+			<div class="row sale-order-list-inner-row">
+				<div class="sale-order-list-top-border"></div>
+				<div class="col-md-8  col-sm-12 sale-order-list-about-container">
+					<a class="sale-order-list-about-link"
+						href="/personal/orders/46428">Подробнее о
+						заказе</a>
+				</div>
+				<div class="col-md-2 col-sm-12 sale-order-list-repeat-container">
+					<a class="sale-order-list-repeat-link"
+						href="/personal/orders/?COPY_ORDER=Y&amp;ID=46428">Повторить
+						заказ</a>
+				</div>
+				<div class="col-md-2 col-sm-12 sale-order-list-cancel-container">
+					<a class="sale-order-list-cancel-link"
+						href="/personal/cancel/46428?CANCEL=Y">Отменить
+						заказ</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

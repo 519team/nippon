@@ -1,0 +1,137 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+Мои пользовательский счет
+{%endblock%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+			<!--title_content-->
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">Мои пользовательский счет</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope
+							itemtype="http://schema.org/ListItem"><a href="/personal/" title="Личный кабинет"
+								itemprop="item"><span itemprop="name">Личный кабинет</span>
+								<meta itemprop="position" content="1"></a></div><span class="separator">-</span><span
+							class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+							<link href="{%url 'amount'%}" itemprop="item" /><span><span itemprop="name">Внутренний
+									счет</span>
+								<meta itemprop="position" content="2"></span></span>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<div class="personal_wrapper">
+						<div class="inner_border">
+							<div class="sale-personal-account-wallet-container">
+								<div class="sale-personal-account-wallet-title">
+									СОСТОЯНИЕ СЧЕТА НА 08.08.2020 </div>
+								<div class="sale-personal-account-wallet-list-container">
+									<div class="sale-personal-account-wallet-list">
+										<div class="sale-personal-account-wallet-list-item">
+											<div class="sale-personal-account-wallet-sum">0 руб.</div>
+											<div class="sale-personal-account-wallet-currency">
+												<div class="sale-personal-account-wallet-currency-item">RUB</div>
+												<div class="sale-personal-account-wallet-currency-item">Рубль</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h3 class="" style="margin-left: 50px;line-height: 20px;font-size: 20px;">
+								Пополнение счета </h3>
+							<div class="bx-sap" id="bx-sapOo0tzjnOTY">
+								<div class="container-fluid">
+									<div class="">
+										<div class="">
+											<h3  style="margin-left: 25px;line-height: 20px;font-size: 20px;">
+												Фиксированный платёж
+											</h3>
+											
+											<ul class='sale-list' style='display:flex;text-decoration:none;'>
+												<li>100</li>
+												<li>200</li>
+												<li>300</li>
+												<li>400</li>
+												<li>500</li>
+											</ul>
+											
+										</div>
+									</div>
+									<div class="">
+										<div class="col-xs-12 sale-acountpay-block form-horizontal">
+											<h3 class="sale-acountpay-title">Сумма</h3>
+											<div class="" style="max-width: 200px;">
+												<div class="form-group" style="margin-bottom: 0;">
+
+													<div class='col-sm-9'>
+														<input type='text' placeholder='0.00'
+															class='form-control input-lg sale-acountpay-input'
+															value='0.00' name=buyMoney>
+													</div> <label
+														class='control-label input-lg input-lg col-sm-3'>руб.</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 sale-acountpay-block">
+											<h3 class="sale-acountpay-title">Метод оплаты</h3>
+											<div>
+												<div class="sale-acountpay-pp row">
+													<div class="col-md-7 col-sm-8 col-xs-12 ">
+														<div
+															class="sale-acountpay-pp-company col-lg-3 col-sm-4 col-xs-6 bx-selected">
+															<div class="sale-acountpay-pp-company-graf-container">
+																<input type="checkbox"
+																	class="sale-acountpay-pp-company-checkbox"
+																	name="PAY_SYSTEM_ID" value="14" checked='checked'>
+																<div class="sale-acountpay-pp-company-image"
+																	style="
+													background-image: url(/upload/resize_cache/sale/paysystem/logotip/63a/95_55_1/63abec0e5a86ddb6acdf6a579e60c8fb.jpg);
+													background-image: -webkit-image-set(url(/upload/resize_cache/sale/paysystem/logotip/63a/95_55_1/63abec0e5a86ddb6acdf6a579e60c8fb.jpg) 1x, url(/upload/resize_cache/sale/paysystem/logotip/63a/95_55_1/63abec0e5a86ddb6acdf6a579e60c8fb.jpg) 2x);">
+																</div>
+															</div>
+															<div class="sale-acountpay-pp-company-smalltitle">
+																Оплата онлайн </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<a href=""
+												class="btn btn-default btn-lg sale-account-pay-button">Купить</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="left_block">
+			{%include 'personal/includes/personal_sidebar.html'%}
+
+			{%include 'sidebar.html'%}
+		</div>
+	</div>
+</div>
+{%endblock%}

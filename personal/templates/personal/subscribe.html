@@ -1,0 +1,139 @@
+{%extends 'base.html'%}
+{%block title%}
+{%endblock%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+	<!--title_content-->
+	<div class="top_inner_block_wrapper maxwidth-theme">
+		<div class="page-top-wrapper grey v3">
+			<section class="page-top maxwidth-theme ">
+				<div class="page-top-main">
+					<h1 id="pagetitle">Ваши подписки</h1>
+				</div>
+				<div id="navigation">
+					<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+							itemtype="http://schema.org/ListItem"><a href="{%url 'personal_main'%}"
+								title="Личный кабинет" itemprop="item"><span itemprop="name">Личный кабинет</span>
+								<meta itemprop="position" content="1"></a></div><span class="separator">-</span><span
+							class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+							<link href="{%url 'subscribe'%}" itemprop="item"><span><span
+									itemprop="name">Подписка на новости</span>
+								<meta itemprop="position" content="2"></span></span>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--end-title_content-->
+
+	<div class="wrapper_inner ">
+
+		<div class="right_block  wide_">
+			<div class="middle ">
+				<div class="container">
+					<div class="subscribe-edit border_block">
+						<form action="{%url 'subscribe'%}" method="post">
+							<input type="hidden" name="sessid" id="sessid" value="8f761e958227ad8c8e52d52031fe28b4">
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="data-table">
+								<thead>
+									<tr>
+										<td colspan="2">Авторизация</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td width="40%">Адрес подписки будет принадлежать пользователю: {{user.first_name}} [{{user.email}}].
+										</td>
+										<td width="60%">
+											Вы можете <a
+												href="{%url 'logout_personal'%}">закончить
+												сеанс</a>, чтобы авторизоваться под другим пользователем.<br>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						<br>
+						<form action="{%url 'subscribe'%}" method="post">
+							<input type="hidden" name="sessid" id="sessid_1" value="8f761e958227ad8c8e52d52031fe28b4">
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="data-table top">
+								<thead>
+									<tr>
+										<td colspan="2">
+											<h4>Настройки подписки</h4>
+										</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr valign="top">
+										<td class="left_blocks">
+											<div class="form-control">
+												<label>Ваш e-mail <span class="star">*</span></label>
+												<input type="text" name="EMAIL" value="{{user.email}}"
+													size="30" maxlength="255">
+											</div>
+											<div class="adaptive more_text">
+												<div class="more_text_small">
+													После добавления или изменения адреса подписки вам будет выслан
+													код подтверждения.<br>
+													Подписка будет не активной до ввода кода подтверждения. </div>
+											</div>
+											<h5>Рубрики подписки<span class="star">*</span></h5>
+											<div class="filter label_block">
+												<input type="checkbox" name="RUB_ID[]" id="RUB_ID_1" value="1">
+												<label for="RUB_ID_1">Новости магазина</label>
+											</div>
+											<h5>Предпочтительный формат</h5>
+											<div class="filter label_block radio">
+												<input type="radio" name="FORMAT" id="txt" value="text"><label
+													for="txt">Текст</label>&nbsp;/&nbsp;<input type="radio"
+													name="FORMAT" id="html" value="html"><label
+													for="html">HTML</label>
+											</div>
+										</td>
+										<td class="right_blocks">
+											<div class="more_text_small">
+												После добавления или изменения адреса подписки вам будет выслан код
+												подтверждения.<br>
+												Подписка будет не активной до ввода кода подтверждения. </div>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">
+											<div class="subscribe_licenses">
+												<div class="licence_block filter label_block">
+													<input type="checkbox" id="licenses_subscribe" checked=""
+														name="licenses_subscribe" value="Y">
+													<label for="licenses_subscribe">
+														Я согласен на <a
+															href="/politics/"
+															target="_blank">обработку персональных данных</a> </label>
+												</div>
+											</div>
+											<input type="submit" name="Save" class="btn btn-default" value="Добавить">
+											<input type="reset" class="btn btn-default white" value="Сброс"
+												name="reset">
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+							<input type="hidden" name="PostAction" value="Add">
+							<input type="hidden" name="ID" value="">
+							<input type="hidden" name="check_condition" value="YES">
+						</form>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="left_block">
+			{%include 'personal/includes/personal_sidebar.html'%}
+			{%include 'sidebar.html'%}
+		</div>
+	</div>
+</div>
+
+{%endblock%}

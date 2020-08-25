@@ -1,0 +1,34 @@
+<div class="col-md-4 col-sm-6">
+	<div class="item shadow slice-item noborder wdate"
+		id="bx_3218110189_115622">
+		{%if item.poster%}
+		<div class="image shine">
+			<a
+				href="{{item.get_absolute_url}}">
+				<img data-lazyload=""
+					src="{{item.poster.url}}"
+					data-src="/upload/iblock/385/385979e1df619b0906c819e75ab5b0b9.jpg"
+					alt="«Начинать сотрудничество японцы готовы через проверенных людей» "
+					title="«Начинать сотрудничество японцы готовы через проверенных людей» "
+					class="img-responsive ls-is-cached lazyloaded">
+			</a>
+		</div>
+		{%endif%}
+		<div class="body-info">
+			<div class="title" style="height: 72px;">
+				<a href="{{item.get_absolute_url}}"
+					class="dark-color"> {{item.title}}</a> </div>
+
+			<div class="period">
+				<span class="date">{{item.publicate}}</span>
+			</div>
+			{%if item.preview%}
+			<div class="previewtext">
+				<p>
+					{{item.preview}}
+				</p>
+			</div>
+			{%endif%}
+		</div>
+	</div>
+</div>

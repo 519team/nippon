@@ -1,0 +1,167 @@
+{%extends 'base.html'%}
+{%block title%}
+{{news.title}}
+{%endblock%}
+{%block content%}
+<div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<a class="rss" href="/company/news/rss/" title="rss" target="_blank">RSS</a>
+				<div class="line_block share top rss-block">
+				</div>
+				<h1 id="pagetitle" class="shares_block">Прием в посольстве Японии</h1>
+			</div>
+			<div id="navigation">
+				<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+					<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+						itemtype="http://schema.org/ListItem">
+						<a href="/company/"
+							title="О компании" itemprop="item">
+							<span itemprop="name">О компании</span>
+							<meta itemprop="position" content="1">
+						</a>
+					</div>
+					<span class="separator">-</span>
+					<div class="bx-breadcrumb-item" id="bx_breadcrumb_1" itemprop="itemListElement" itemscope=""
+						itemtype="http://schema.org/ListItem">
+						<a href="{%url  'news'%}"
+							title="Новости" itemprop="item">
+							<span itemprop="name">Новости</span>
+							<meta itemprop="position" content="2">
+						</a>
+					</div>
+					<span class="separator">-</span>
+					<span
+						class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="{{news.get_absolute_url}}"
+							itemprop="item">
+							<span>
+								<span itemprop="name">{{news.title}}</span>
+								<meta itemprop="position" content="3">
+							</span>
+						</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--end-title_content-->
+
+<div class="wrapper_inner wide_page">
+
+	<div class="middle ">
+		<div class="container">
+			<div class="maxwidth-theme">
+				<div class="detail news fixed_wrapper">
+
+					<style>
+						body h1 {
+							padding-right: 360px;
+						}
+					</style>
+					{%if news.poster%}
+					<div class="detailimage image-wide">
+						<a href="{{news.poster.url}}"
+							class="fancy" title="Прием в посольстве Японии">
+							<img data-lazyload=""
+								src="{{news.poster.url}}"
+								data-src="{{news.poster.url}}"
+								class="img-responsive lazyloaded" title="Прием в посольстве Японии"
+								alt="Прием в посольстве Японии">
+							</a>
+						</div>
+						{%endif%}
+					{%if news.preview%}
+					<div class="introtext_wrapper">
+						<div class="introtext">
+							<p>{{news.preview}}</p>
+						</div>
+					</div>
+					{%endif%}
+
+
+					<div class="period">
+						<span class="date">{{news.publicate}}</span>
+					</div>
+
+					<div class="content">
+						{{news.body|safe}}
+					</div>
+
+
+
+					{%if news.imagenews_set.all%}
+					<div class="wraps galerys-block with-padding">
+						<hr>
+						<h5>Фотогалерея</h5>
+						<div class="small-gallery-block">
+							<div class="flexslider unstyled front border small_slider custom_flex top_right color-controls flexslider-init flexslider-control-nav flexslider-direction-nav"
+								data-plugin-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;useCSS&quot;: true, &quot;directionNav&quot;: true, &quot;controlNav&quot; :true, &quot;animationLoop&quot;: true, &quot;slideshow&quot;: false, &quot;counts&quot;: [4, 3, 2, 1]}">
+
+								<div class="flex-viewport" style="overflow: hidden; position: relative;">
+									<ul class="slides items"
+										style="width: 1600%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+										{%for photo in news.imagenews_set.all%}
+										<li class="col-md-3 item visible" data-thumb-alt=""
+											style="width: 322.5px; margin-right: 0px; float: left; display: block; opacity: 1; height: 300px; line-height: 21px;">
+											<div>
+												<img data-lazyload=""
+													src="{{photo.image.url}}"
+													data-src="{{photo.image.url}}"
+													class="lazyload img-responsive inline"
+													title="{{news.title}}"
+													alt="{{news.title}}" draggable="false">
+											</div>
+											<a href="{{photo.image.url}}"
+												class="fancy dark_block_animate" rel="gallery" target="_blank"
+												title="Прием в посольстве Японии"></a>
+										</li>
+										{%endfor%}
+										
+									</ul>
+								</div>
+								<ol class="flex-control-nav flex-control-paging">
+									<li><a href="https://nippononline.ru/company/news/priem_v_posolstve_yaponii/#"
+											class="flex-active">1</a></li>
+									<li><a
+											href="https://nippononline.ru/company/news/priem_v_posolstve_yaponii/#">5</a>
+									</li>
+								</ol>
+								<ul class="flex-direction-nav">
+									<li class="flex-nav-prev"><a class="flex-prev"
+											href="https://nippononline.ru/company/news/priem_v_posolstve_yaponii/#">Previous</a>
+									</li>
+									<li class="flex-nav-next"><a class="flex-next"
+											href="https://nippononline.ru/company/news/priem_v_posolstve_yaponii/#">Next</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					{%endif%}
+
+
+
+
+
+				</div>
+
+				<div style="clear:both"></div>
+				<hr class="bottoms">
+
+				<div class="row">
+					<div class="col-md-6 share">
+						<div class="line_block">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<a class="back-url url-block" href="{%url 'news'%}"><i
+								class="fa fa-angle-left"></i><span>Назад к списку</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}
