@@ -1,0 +1,205 @@
+{%extends 'base.html'%}
+{%block title%}
+{{story.title}}
+{%endblock%}
+{%block content%}
+<div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<a class="rss" href="https://nippononline.ru/blog/rss/" title="rss" target="_blank">RSS</a>
+				<div class="line_block share top rss-block">
+				</div>
+				<h1 id="pagetitle" class="shares_block">{{story.title}}</h1>
+			</div>
+			<div id="navigation">
+				<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+					<div class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+						itemtype="http://schema.org/ListItem">
+						<a href="{%url 'blog'%}" title="Блог" itemprop="item">
+							<span itemprop="name">Блог</span>
+							<meta itemprop="position" content="1">
+						</a>
+					</div>
+					<span class="separator">-</span>
+					<span class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="{{story.get_absolute_url}}"
+							itemprop="item">
+							<span>
+								<span itemprop="name">{{story.title}}</span>
+							<meta itemprop="position" content="2">
+						</span>
+					</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--end-title_content-->
+
+<div class="wrapper_inner wide_page">
+
+	<div class="middle ">
+		<div class="container">
+			<div class="maxwidth-theme">
+				<div class="row">
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md ">
+						<div class="detail blog">
+							{%if story.poster%}
+							<div class="detailimage image-wide">
+								<a href="{{story.get_absolute_url}}" class="fancybox" title="О нас">
+									<img data-lazyload="" src="{{story.poster.url}}"  class="img-responsive lazyloaded" title="{{story.title}}" alt="{{story.title}}">
+								</a>
+							</div>
+							{%endif%}
+							<div class="preview-text-detail">
+								<p>
+									{{story.preview}}
+								</p>
+								<hr class="colored_line">
+							</div>
+							<div class="content">
+								{{story.body|safe}}
+							</div>
+							<div id="bxdynamic_video_start" style="display:none"></div>
+							<div id="bxdynamic_video_end" style="display:none"></div>
+						</div>
+						<div style="clear:both"></div>
+						<hr class="bottoms">
+						<div class="search-tags-cloud">
+							<div class="title-block-middle">Теги</div>
+							<div class="tags">
+								{%for tag in story.tags.all%}
+									<a href="https://nippononline.ru/search/index.php?tags=%D1%8F%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BF%D0%BE%D1%81%D1%83%D0%B4%D0%B0"
+									rel="nofollow">{{tag.name}}</a>
+								{%endfor%}
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 share">
+								<div class="line_block">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<a class="back-url url-block" href="{%url 'blog'%}"><i
+										class="fa fa-angle-left"></i><span>Назад к списку</span></a>
+							</div>
+						</div>
+						<div id="soc_comments_div_115050" class="bx_soc_comments_div bx_important bx_blue">
+							<div id="soc_comments_div_116815" class="bx_soc_comments_div bx_important bx_blue">
+								<div id="soc_comments_116815" class="bx-catalog-tab-section-container tabs">
+									<ul class="bx-catalog-tab-list1 nav nav-tabs" style="left: 0;">
+										<li id="soc_comments_116815BLOG" class="active"><a
+												href="https://nippononline.ru/blog/obzory-tovarov/vitamin-s-i-antioksidantnaya-zashchita/#soc_comments_116815BLOG_cont"
+												data-toggle="tab">Комментарии</a></li>
+									</ul>
+									<div class="bx-catalog-tab-body-container">
+										<div class="bx-catalog-tab-container">
+											<div id="soc_comments_116815BLOG_cont" class="">
+												<div id="bx-cat-soc-comments-blg_116815">
+													<div id="comp_168cc356f94796e48841e4d3e31b6260">
+														<div class="blog-comments" id="blg-comment-22">
+															<a name="comments"></a>
+															<div id="form_comment_" style="display:none;">
+
+															</div>
+															<div class="blog-add-comment">
+																<a class="btn btn-default white clicked" href="javascript:void(0)">
+																	Добавить комментарий
+																</a>
+															</div>
+															<a name="0"></a>
+
+															<div id="form_comment_0">
+																<div id="err_comment_0"></div>
+																<div id="form_comment_0"></div>
+																<div id="new_comment_cont_0"></div>
+																<div id="new_comment_0" style="display:none;"></div>
+																<div id="form_c_del" style="display: block;">
+																	<div class="blog-comment-form">
+																		<form method="POST" name="form_comment" id="form_comment"
+																			action="{%url 'add_comment' pk=story.id%}">
+																			{%csrf_token%}
+																			<input type="hidden" name="parentId" id="parentId" value="">
+																			<div class="blog-comment-fields">
+																				<div class="blog-comment-field blog-comment-field-user">
+																					<div class="row form">
+																						<div class="col-md-6">
+																							<div class="form-group animated-labels ">
+																								<label for="user_name">Ваше имя 
+																									<span class="required-star">*</span>
+																								</label>
+																								<div class="input">
+																									<input maxlength="255" size="30"
+																										class="form-control" tabindex="3"
+																										type="text" name="name"
+																										id="user_name" value="">
+																								</div>
+																							</div>
+																						</div>
+																						<div class="col-md-6">
+																							<div class="form-group animated-labels ">
+																								<label for="user_email">E-mail</label>
+																								<div class="input">
+																									<input maxlength="255" size="30"
+																										class="form-control" tabindex="4"
+																										type="text" name="email"
+																										id="user_email" value="">
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+																				<textarea class="lha-textarea" rows="25" id="comment" name="body"
+																				style="font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 16px; height: 170px; width: 959px;"></textarea>
+																				<div style="height=10px; margin-top:10px;"></div>
+																				<div class="blog-comment-buttons-wrapper">
+																					<input tabindex="10" class="btn btn-default"
+																						value="Отправить" type="submit" name="sub-post"
+																						id="post-button">
+																				</div>
+																			</div>
+																			<input type="hidden" name="blog_upload_cid" id="upload-cid"
+																				value="">
+																			<input type="submit" name="save" value="Y"
+																				style="display: none;">
+																		</form>
+																	</div>
+																</div>
+															</div>
+															<div class="blog-comment-line" style="margin-left:0em;"></div>
+															<a name="2"></a>
+															{%for comment in story.get_comments%}
+																{%include 'blog/includes/comment_card.html'%}
+															{%endfor%}
+															
+														</div>
+													</div>
+													<script>
+												        function addComment(id) {
+												            document.getElementById("parentId").value = id;
+												        }
+												    </script>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm right-menu-md">
+						<div class="sidearea">
+							{%include 'blog/includes/sidebar.html'%}
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

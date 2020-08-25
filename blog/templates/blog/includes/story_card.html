@@ -1,0 +1,36 @@
+{%if story.poster%}
+<div class="col-md-4 col-sm-4">
+	<div class="item shadow animation-boxs  normal-block" id="bx_3218110189_115081"
+		style="height: 266px;">
+		<div class="inner-item">
+			<div class="image shine">
+				<a href="{{story.get_absolute_url}}">
+					<img data-lazyload="" class=" lazyloaded" src="{{story.poster.url}}" data-src="{{story.poster.url}}"
+						alt="{{story.title}}" title="{{story.title}}">
+				</a> </div>
+			<div class="title">
+				<a href="{{story.get_absolute_url}}">
+					<span>{{story.title}}</span>
+				</a> </div>
+		</div>
+	</div>
+</div>
+{%else%}
+<div class="col-md-4 col-sm-4">
+	<div class="item shadow animation-boxs  normal-block" id="bx_3218110189_115050"
+		style="height: 300px;">
+		<div class="inner-item">
+			<div class="title">
+				<a href="{{story.get_absolute_url }}">
+					<span>{{story.title}}</span>
+				</a>
+				<div class="prev_text-block">
+					<p>
+						{{story.preview}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endif%}

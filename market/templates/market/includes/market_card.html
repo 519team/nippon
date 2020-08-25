@@ -1,0 +1,45 @@
+<div class="item " data-id="114953">
+	<div class="image">
+		<a href="https://nippononline.ru/contacts/stores/114953/">
+			<img data-lazyload=""
+				class=" lazyloaded"
+				src="{{market.title_img}}"
+
+				data-src="{{market.title_img}}"
+				alt="{{market.address}}"
+				title="{{market.address}}">
+		</a>
+	</div>
+	<div class="rubber">
+		<div class="title_metro">
+			<a href="{%url 'market_detail' pk=market.id%}">
+				<div class="title">{{market.address}}</div>
+			</a>
+			{%for metro in market.metro_set.all%}
+				<div class="metro">
+					<i></i>
+					{{metro}}
+				</div>
+			{%endfor%}
+		</div>
+		<div class="schedule_phone_email">
+			<div class="schedule">{{market.worktime}}</div>
+			<div class="phone_email">
+				<div class="phone">
+					<a rel="nofollow" href="#">{{market.phone}}</a>
+				</div>
+				{%if market.email%}
+					<div class="email">
+						<a rel="nofollow" href="mailto:{{market.email}}">
+							<a href="mailto:{{market.email}}">{{market.email}}</a>
+						</a>
+					</div>
+				{%elif market.phone_suffix%}
+					<div class="phone">
+						<a rel="nofollow" href="#">{{market.phone_suffix}}</a>
+					</div>
+				{%endif%}
+			</div>
+		</div>
+	</div>
+</div>

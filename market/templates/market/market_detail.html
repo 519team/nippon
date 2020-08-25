@@ -1,0 +1,112 @@
+{%extends 'base.html'%}
+{%block title%}
+	{{market.address}}
+{%endblock%}
+{%block content%}
+
+	<div class="wraps hover_shine" id="content">
+		<div class="middle ">
+			<div class="container">
+				<div class="contacts_map" id="map">
+					<script type="text/javascript">
+					    // Функция ymaps.ready() будет вызвана, когда
+					    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+					    ymaps.ready(init);
+					    function init(){
+					        // Создание карты.
+					        var myMap = new ymaps.Map("map", {
+					            // Координаты центра карты.
+					            // Порядок по умолчанию: «широта, долгота».
+					            // Чтобы не определять координаты центра карты вручную,
+					            // воспользуйтесь инструментом Определение координат.
+					            center: [{{market.point}}],
+					            // Уровень масштабирования. Допустимые значения:
+					            // от 0 (весь мир) до 19.
+					            zoom: 18
+					        });
+							var myPlacemark = new ymaps.Placemark([{{market.point}}],{
+								balloonContentHeader: '<div class=\"title\"><a href=\"{%url 'market_detail' pk=market.id%}\" class=\"dark_link\">{{market.address}}<\/a><\/div>',
+							    balloonContentBody: 'Режим работы<\/div><div class=\"value font_sm\">{{market.worktime}}<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:{{market.phone}}\">{{market.phone}}<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:{{market.phone_suffix}}\">{{market.phone_suffix}}<\/a><\/div><\/div>'
+					
+							},{
+								iconLayout: 'default#imageWithContent',
+							    iconImageHref: '/static/img/marker.svg',
+							    iconImageSize: [46, 57],
+							    iconImageOffset: [-15, -27]
+							});
+							myMap.geoObjects.add(myPlacemark);
+							myMap.controls.remove('geolocationControl').
+										   remove('trafficControl').
+										   remove('rulerControl').
+										   remove('searchControl');
+						}
+
+					</script>
+				</div>
+				<div class="wrapper_inner shop detail">
+					<div class="contacts_left">
+						<div class="store_description">
+							<div class="store_property">
+								<div class="title">Адрес</div>
+								<div class="value">{{market.address}}</div>
+							</div>
+							{%if market.metro_set.all%}
+							<div class="store_property metro">
+								<div class="title">Станция метро</div>
+								{%for metro in market.metro_set.all%}
+									<div class="value"><i></i>{{metro}}</div>
+								{%endfor%}
+							</div>
+							{%endif%}
+							<div class="store_property">
+								<div class="title">Телефон</div>
+								<div class="value">
+									<div class="phone"><a rel="nofollow" href="tel:{{market.phone}}">{{market.phone}}</a></div>
+									{%if market.phone_suffix%}
+										<div class="phone"><a rel="nofollow" href="tel:%D0%B4%D0%BE%D0%B1.3">{{market.phone_suffix}}</a></div>
+									{%endif%}
+								</div>
+							</div>
+							{%if market.email%}
+								<div class="store_property">
+									<div class="title">Email</div>
+									<div class="value">
+										<div class="email"><a rel="nofollow" href="email:{{market.email}}">{{market.email}}</a></div>
+									</div>
+								</div>
+							{%endif%}
+							<div class="store_property">
+								<div class="title">Режим работы</div>
+								<div class="value">{{market.worktime}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="contacts_right">
+						{%if market.path%}
+							<blockquote><span style="font-family: Arial, Helvetica;"><b>{{market.path}}</b></span></blockquote>
+						{%endif%}
+						<!-- noindex-->
+						{%for img in market.marketimage_set.all%}
+							<a class="fancy" data-fancybox-group="item_slider"
+								title="{{market.address}}"
+								href="{{img.image.url}}">
+								<img data-lazyload="" class=" lazyloaded"
+									title="{{img.title}}"
+									alt="{{img.title}}"
+									src="{{img.image.url}}"
+									data-src="{{img.image.url}}">
+							</a>
+						<!-- /noindex-->
+						{%endfor%}
+					</div>
+					<div class="clearboth"></div>
+					<!-- noindex--><a rel="nofollow" href="{%url 'markets'%}" class="back-url url-block"><i
+							class="fa fa-angle-left"></i><span>Вернуться</span></a><!-- /noindex-->
+				</div>
+				<div class="clearboth"></div>
+
+			</div>
+		</div>
+	</div>
+
+{%endblock%}

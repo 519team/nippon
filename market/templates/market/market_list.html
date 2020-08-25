@@ -1,0 +1,73 @@
+{%extends 'base.html'%}
+{%block title%}
+	Магазины
+{%endblock%}
+{%block content%}
+<div class="wraps hover_shine" id="content">
+	<div class="middle ">
+		<div class="container">
+			<div class="contacts_map" id="map">
+				<script type="text/javascript">
+				    // Функция ymaps.ready() будет вызвана, когда
+				    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+				    ymaps.ready(init);
+				    function init(){
+				        // Создание карты.
+				        var myMap = new ymaps.Map("map", {
+				            // Координаты центра карты.
+				            // Порядок по умолчанию: «широта, долгота».
+				            // Чтобы не определять координаты центра карты вручную,
+				            // воспользуйтесь инструментом Определение координат.
+				            center: [55.76, 47.64],
+				            // Уровень масштабирования. Допустимые значения:
+				            // от 0 (весь мир) до 19.
+				            zoom: 6
+				        });
+				        var myGeoObjects = [];
+				        {%for market in market_list%}
+						var myPlacemark = new ymaps.Placemark([{{market.point}}],{
+							balloonContentHeader: '<div class=\"title\"><a href=\"{%url 'market_detail' pk=market.id%}\" class=\"dark_link\">{{market.address}}<\/a><\/div>',
+						    balloonContentBody: 'Режим работы<\/div><div class=\"value font_sm\">{{market.worktime}}<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:{{market.phone}}\">{{market.phone}}<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:{{market.phone_suffix}}\">{%if  market.phone_suffix %}{{market.phone_suffix}}{%endif%}<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"email:{{market.email}}\">{%if  market.email %}{{market.email}}{%endif%}<\/a><\/div><\/div>'
+				
+						},{
+							iconLayout: 'default#imageWithContent',
+						    iconImageHref: '/static/img/marker.svg',
+						    iconImageSize: [46, 57],
+						    iconImageOffset: [-15, -27]
+						});
+						myGeoObjects.push(myPlacemark);
+						//myMap.geoObjects.add(myPlacemark);
+						{%endfor%}
+						var myClusterer = new ymaps.Clusterer({
+							clusterIcons: [
+			                {
+			                    href: '/static/img/cluster.svg',
+			                    size: [60, 60],
+			                    offset: [-20, -20]
+			                }]
+						});
+						myClusterer.add(myGeoObjects);
+						myMap.geoObjects.add(myClusterer);
+						myMap.controls.remove('geolocationControl').
+									   remove('trafficControl').
+									   remove('rulerControl').
+									   remove('searchControl');
+					}
+
+				</script>
+			</div>
+
+			<div class="wrapper_inner">
+				<div class="shops list">
+					<div class="items">
+						{%for market in market_list%}
+							{%include 'market/includes/market_card.html'%}
+						{%endfor%}
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+	</div>
+</div>
+{%endblock%}

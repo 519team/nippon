@@ -1,0 +1,19 @@
+<div class="news_blocks front">
+    <div class="top_block">
+        <div class="title_block">Статьи</div>
+        <a href="{%url 'blog'%}">Все статьи</a>
+        <div class="clearfix"></div>
+    </div>
+    <div class="info_block">
+        <div class="news_items">
+            {%for story in last_stories%}
+                <div id="bx_565502798_116815" class="item box-sizing dl">
+                    <div class="info">
+                        <a class="name dark_link" href="{{story.get_absolute_url}}">{{story.title}}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>

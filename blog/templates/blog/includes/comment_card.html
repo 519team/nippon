@@ -1,0 +1,137 @@
+<div class="blog-comment" style="padding-left:0em;">
+	<div id="blg-comment-2">
+		<div class="blog-comment-cont">
+			<div class="blog-comment-cont-white">
+				<div class="blog-comment-info">
+					<div class="blog-post-rating rating_vote_graphic"
+						style="display:none !important;">
+					</div>
+					<div class="blog-author">{{comment.name}}</div>
+					<div class="blog-comment-date">{{comment.created}}</div>
+				</div>
+				<div class="blog-clear-float"></div>
+				<div class="blog-comment-content">
+					{{comment.body}} 
+					<div class="blog-comment-meta">
+						<span class="blog-comment-answer">
+							<a href="#blg-comment-22" onclick="addComment('{{ comment.id }}')">Ответить</a></span>
+						<span class="blog-vert-separator"></span>
+						<span class="rating_vote_text"
+							style="display:inline-block !important;">
+							<span class="blog-vert-separator"></span>
+							<span class="ilike">
+								<span
+									class="bx-ilike-button bx-ilike-button-disable"
+									id="bx-ilike-button-BLOG_COMMENT-2-1595681387">
+									<span class="all-wrapper">
+										<span class="bx-ilike-left-wrap "
+											title="Только авторизованные пользователи могут участвовать в голосовании">
+											<span class="bx-ilike-left"></span>
+											<span class="bx-ilike-right-wrap">
+												<span
+													class="bx-ilike-right">1</span>
+											</span>
+											<span
+												class="bx-ilike-text">Нравится</span>
+										</span>
+									</span>
+								</span>
+								<span class="bx-ilike-wrap-block"
+									id="bx-ilike-popup-cont-BLOG_COMMENT-2-1595681387"
+									style="display:none;">
+									<span class="bx-ilike-popup">
+										<span class="bx-ilike-wait"></span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="blog-clear-float"></div>
+
+	</div>
+	<div id="err_comment_2"></div>
+	<div id="form_comment_2"></div>
+	{%for com in comment.comment_set.all%}
+		<div id="new_comment_cont_2" style="padding-left:2.5em;">
+			<div class="blog-comment-line" style="margin-left:0em;"></div>
+			<a name="4"></a>
+			<div class="blog-comment" style="padding-left:0em;">
+				<div id="blg-comment-4">
+					<div class="blog-comment-cont blog-comment-new">
+						<div class="blog-comment-cont-white">
+							<div class="blog-comment-info">
+								<div class="blog-post-rating rating_vote_graphic"
+									style="display:none !important;">
+								</div>
+								<div class="blog-author">{{com.name}}</div>
+								<div class="blog-comment-date">{{com.created}}
+								</div>
+							</div>
+							<div class="blog-clear-float"></div>
+							<div class="blog-comment-content">
+								<div class="blog-comment-meta">
+									<span class="blog-comment-answer"><a
+											href="javascript:void(0)"
+											onclick="return showComment(&#39;4&#39;)">Ответить</a></span>
+									<span class="blog-vert-separator"></span>
+									<span class="blog-comment-parent"><a
+											href="https://nippononline.ru/blog/obzory-tovarov/vitamin-s-i-antioksidantnaya-zashchita/#2">Родитель</a></span>
+									<span class="blog-vert-separator"></span>
+									<span class="rating_vote_text"
+										style="display:inline-block !important;">
+										<span class="blog-vert-separator"></span>
+										<span class="ilike">
+											<span
+												class="bx-ilike-button bx-ilike-button-disable"
+												id="bx-ilike-button-BLOG_COMMENT-4-1595681474">
+												<span class="all-wrapper">
+													<span class="bx-ilike-left-wrap "
+														title="Только авторизованные пользователи могут участвовать в голосовании">
+														<span
+															class="bx-ilike-left"></span>
+														<span
+															class="bx-ilike-right-wrap">
+															<span
+																class="bx-ilike-right">0</span>
+														</span>
+														<span
+															class="bx-ilike-text">Нравится</span>
+													</span>
+												</span>
+											</span>
+											<span class="bx-ilike-wrap-block"
+												id="bx-ilike-popup-cont-BLOG_COMMENT-4-1595681474"
+												style="display:none;">
+												<span class="bx-ilike-popup">
+													<span
+														class="bx-ilike-wait"></span>
+												</span>
+											</span>
+										</span>
+										
+									</span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="blog-clear-float"></div>
+
+				</div>
+				<div id="err_comment_4"></div>
+				<div id="form_comment_4"></div>
+				<div id="new_comment_cont_4" style="padding-left:2.5em;"></div>
+				<div id="new_comment_4" style="display:none;"></div>
+
+			</div>
+
+		</div>
+	{%endfor%}
+	
+	<div id="new_comment_2" style="display:none;"></div>
+
+</div>

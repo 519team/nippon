@@ -1,0 +1,33 @@
+{%load static%}
+<div class="fill-block container-block">
+	<div class="title-block-middle">Категории</div>
+	<ul class="categorys">
+		{%for category in categories%}
+		<li>
+			<a href="{{category.get_absolute_url}}"
+				class="dark-color">
+				<span class="text">{{category.name}}</span>
+				<span class="count">{{category.story_set.all.count}}</span>
+			</a>
+		</li>
+		{%endfor%}
+	</ul>
+</div>
+<!--noindex-->
+<div class="search-tags-cloud">
+	<div class="title-block-middle">Облако тегов</div>
+	<div class="tags">
+		{%for tag in tags%}
+		<a href="/blog/search/?tags={{tag.slug}}"
+			rel="nofollow">{{tag.name}}</a>
+		{%endfor%}
+	</div>
+</div>
+<!--/noindex-->
+
+
+<div class="banner SCALE SIDE  " id="bx_3485106786_114738">
+    <a href="/nippon/catalog/yaponskie_nozhi/">
+        <img data-lazyload="" src="{%static 'img/ffcc9e5866b0396ee9cae575945ba20f.jpg'%}"  alt="Японские ножи " title="Японские ножи " class="lazyload img-responsive">
+    </a>
+</div>

@@ -1,0 +1,90 @@
+{%extends 'base.html'%}
+
+{%block title%}
+	{{cat.name}}
+{%endblock%}
+
+{%block content%}
+<div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<a class="rss" href="https://nippononline.ru/blog/rss/" title="rss" target="_blank">RSS</a>
+				<h1 id="pagetitle">Блог</h1>
+			</div>
+			<div id="navigation">
+				<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+					<span class=""
+						itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="https://nippononline.ru/blog/" itemprop="item">
+						<span>
+							<span itemprop="name">Блог</span>
+							<meta itemprop="position" content="1">
+						</span>
+					</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--end-title_content-->
+
+<div class="wrapper_inner wide_page">
+
+	<div class="middle ">
+		<div class="container">
+			<div class="maxwidth-theme">
+				<div class="row">
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md ">
+						<div class="text_before_items">
+						</div>
+
+						
+
+						<div class="banners-small blog">
+							<div class="items row">
+							{%for story in stories%}
+								{%if forloop.counter|add:1 < 5%}
+									{%include 'blog/includes/story_card.html'%}
+								{%endif%}
+							{%endfor%}
+							</div>
+							<div class="items row">
+							{%for story in stories%}
+								{%if forloop.counter|add:1 < 7 and forloop.counter > 3%}
+									{%include 'blog/includes/story_card.html'%}
+								{%endif%}
+							{%endfor%}
+							</div>
+							<div class="bottom_nav">
+								<div class="ajax_load_btn">
+									<span class="more_text_ajax">Показать еще</span>
+								</div>
+								<div class="module-pagination">
+									<div class="nums">
+										<ul class="flex-direction-nav">
+											<li class="flex-nav-next "><a
+													href="https://nippononline.ru/blog/?PAGEN_1=2"
+													class="flex-next"></a></li>
+
+										</ul>
+										<span class="cur">1</span>
+										<a href="https://nippononline.ru/blog/?PAGEN_1=2" class="dark_link">2</a>
+										<a href="https://nippononline.ru/blog/?PAGEN_1=3" class="dark_link">3</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm right-menu-md">
+						<div class="sidearea">
+							{%include 'blog/includes/sidebar.html'%}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

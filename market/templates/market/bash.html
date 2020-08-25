@@ -1,0 +1,633 @@
+<div class="contacts_map">
+	<div id="bxdynamic_shops-map-block_start" style="display:none"></div>
+	<script>
+		var geo_result;
+		var clusterer;
+		var markerSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="46" height="57" viewBox="0 0 46 57">' +
+			'<defs><style>.cls-marker, .cls-marker3 {fill: #fff;}.cls-marker, .cls-marker2 {fill-rule: evenodd;}.cls-marker {opacity: 0.5;}.cls-marker2 {fill: #247ee3;}</style></defs>' +
+			'<path data-name="Ellipse 275 copy" class="cls-marker" d="M142.976,200.433L143,200.469s-7.05,5.826-10,10.375c-2.263,3.489-2.974,6.153-5,6.156s-2.737-2.667-5-6.156c-2.95-4.549-10-10.375-10-10.375l0.024-.036A23,23,0,1,1,142.976,200.433Z" transform="translate(-105 -160)"/>' +
+			'<path data-name="Ellipse 253 copy 4" class="cls-marker2" d="M140,198.971L140,199s-6.362,5.91-8.092,8.456C128.351,212.69,128,215,128,215s-0.307-2.084-3.826-7.448C121.8,203.935,116,199,116,199l0-.029A20,20,0,1,1,140,198.971Z" transform="translate(-105 -160)"/>' +
+			'<circle data-name="Ellipse 254 copy 5" class="cls-marker3" cx="23" cy="23" r="12"/>' +
+			'</svg>';
+
+		var clusterSVG = '<div class="cluster_custom"><span>$[properties.geoObjects.length]</span>' +
+			'<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">' +
+			'<defs><style>.cls-cluster, .cls-cluster3 {fill: #fff;}.cls-cluster {opacity: 0.5;}.cls-cluster2 {fill: #247ee3;}</style></defs>' +
+			'<circle class="cls-cluster" cx="28" cy="28" r="28"/>' +
+			'<circle data-name="Ellipse 275 copy 2" class="cls-cluster2" cx="28" cy="28" r="25"/>' +
+			'<circle data-name="Ellipse 276 copy" class="cls-cluster3" cx="28" cy="28" r="18"/>' +
+			'</svg>' +
+			'</div>';
+
+		var closeSVG = '<svg class="svg-close" width="14" height="14" viewBox="0 0 14 14">' +
+			'<path data-name="Rounded Rectangle 568 copy 16" class="cls-1" d="M1009.4,953l5.32,5.315a0.987,0.987,0,0,1,0,1.4,1,1,0,0,1-1.41,0L1008,954.4l-5.32,5.315a0.991,0.991,0,0,1-1.4-1.4L1006.6,953l-5.32-5.315a0.991,0.991,0,0,1,1.4-1.4l5.32,5.315,5.31-5.315a1,1,0,0,1,1.41,0,0.987,0.987,0,0,1,0,1.4Z" transform="translate(-1001 -946)"></path>' +
+			'</svg>';
+
+		function BX_SetPlacemarks_MAP_mF8Ev4(map) {
+			if (typeof window["BX_YMapAddPlacemark"] != 'function') {
+				/* If component's result was cached as html,
+				 * script.js will not been loaded next time.
+				 * let's do it manualy.
+				 */
+
+				(function (d, s, id) {
+					var js, bx_ym = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s);
+					js.id = id;
+					js.src =
+						"/bitrix/templates/aspro_next/components/bitrix/map.yandex.view/map/script.js?1593756372";
+					bx_ym.parentNode.insertBefore(js, bx_ym);
+				}(document, 'script', 'bx-ya-map-js'));
+
+				var ymWaitIntervalId = setInterval(function () {
+					if (typeof window["BX_YMapAddPlacemark"] == 'function') {
+						BX_SetPlacemarks_MAP_mF8Ev4(map);
+						clearInterval(ymWaitIntervalId);
+					}
+				}, 300);
+
+				return;
+			}
+
+			var arObjects = {
+				PLACEMARKS: [],
+				POLYLINES: []
+			};
+			clusterer = new ymaps.Clusterer();
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '114953',
+				'LAT': '55.782542812968',
+				'LON': '37.598564389549',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114953/\" class=\"dark_link\">1. НИППОН - Новослободская, г. Москва, Ул. Новослободская д. 20<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 22.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.3\">доб.3<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114953/\" class=\"dark_link\">1. НИППОН - Новослободская, г. Москва, Ул. Новослободская д. 20<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 22.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.3\">доб.3<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '114954',
+				'LAT': '55.675386324255',
+				'LON': '37.521429669311',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114954/\" class=\"dark_link\">2. НИППОН - Проспект Вернадского, г. Москва, Ул.Кравченко д. 4к1<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">Проспект Вернадского<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 22.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.1\">доб.1<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114954/\" class=\"dark_link\">2. НИППОН - Проспект Вернадского, г. Москва, Ул.Кравченко д. 4к1<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">Проспект Вернадского<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 22.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.1\">доб.1<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '114956',
+				'LAT': '55.76933949604',
+				'LON': '37.620648364163',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114956/\" class=\"dark_link\">3. НИППОН - Цветной Бульвар, г. Москва, ул. Цветной бульвар, д. 7 с.1<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 23.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.2\">доб. 2<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114956/\" class=\"dark_link\">3. НИППОН - Цветной Бульвар, г. Москва, ул. Цветной бульвар, д. 7 с.1<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 23.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><div class=\"value\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:доб.2\">доб. 2<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '115532',
+				'LAT': '55.820995',
+				'LON': '37.632977',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/115532/\" class=\"dark_link\">4. НИППОН - Академика Королева, г. Москва, ул. Академика королева д.3<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">ВДНХ<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 09.30 до  21.30<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:+74957777763\">+7 (495) 7777763<\/a><\/div><\/div><div class=\"property email\"><div class=\"title-prop font_upper\">E-mail<\/div><div class=\"value font_sm\"><a class=\"dark_link\" href=\"mailto:info@nippononline.ru\">info@nippononline.ru<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/115532/\" class=\"dark_link\">4. НИППОН - Академика Королева, г. Москва, ул. Академика королева д.3<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">ВДНХ<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 09.30 до  21.30<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:+74957777763\">+7 (495) 7777763<\/a><\/div><\/div><div class=\"property email\"><div class=\"title-prop font_upper\">E-mail<\/div><div class=\"value font_sm\"><a class=\"dark_link\" href=\"mailto:info@nippononline.ru\">info@nippononline.ru<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '115600',
+				'LAT': '55.688713607976',
+				'LON': '37.547480101852',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/115600/\" class=\"dark_link\">5. НИППОН - Университет,  г. Москва, Ленинский проспект, д.73/8<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">Университет<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 23.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><\/div><div class=\"property email\"><div class=\"title-prop font_upper\">E-mail<\/div><div class=\"value font_sm\"><a class=\"dark_link\" href=\"mailto:info@nippononline.ru\">info@nippononline.ru<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/115600/\" class=\"dark_link\">5. НИППОН - Университет,  г. Москва, Ленинский проспект, д.73/8<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Метро<\/div><div class=\"value font_sm\">Университет<\/div><\/div><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">с 10.00 до 23.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:84957777763\">8(495)777-77-63<\/a><\/div><\/div><div class=\"property email\"><div class=\"title-prop font_upper\">E-mail<\/div><div class=\"value font_sm\"><a class=\"dark_link\" href=\"mailto:info@nippononline.ru\">info@nippononline.ru<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, {
+				'ID': '114959',
+				'LAT': '54.900114144073',
+				'LON': '52.312675457672',
+				'TEXT': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114959/\" class=\"dark_link\">г. Альметьевск (ФРАНШИЗА), проспект Габдуллы Тукая, 56<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">С 10.00 до 20.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:89872332020\">8(987)233-20-20<\/a><\/div><\/div><\/div><\/div>',
+				'HTML': '<div class=\"map_info_store\"><div class=\"title\"><a href=\"/contacts/stores/114959/\" class=\"dark_link\">г. Альметьевск (ФРАНШИЗА), проспект Габдуллы Тукая, 56<\/a><\/div><div class=\"properties\"><div class=\"property schedule\"><div class=\"title-prop font_upper\">Режим работы<\/div><div class=\"value font_sm\">С 10.00 до 20.00<\/div><\/div><div class=\"property phone\"><div class=\"title-prop font_upper\">Телефон<\/div><div class=\"value font_sm\"><a class=\"dark_link\" rel= \"nofollow\" href=\"tel:89872332020\">8(987)233-20-20<\/a><\/div><\/div><\/div><\/div>'
+			}, true);
+			/* set dynamic zoom for ballons */
+
+			// map.setBounds(map.geoObjects.getBounds(), {checkZoomRange: true});
+			/*var geo_result = ymaps.geoQuery(map.geoObjects);
+			if(geo_result.getLength() > 1)
+				geo_result.applyBoundsToMap(map);
+			else
+			{
+				map.zoomRange.get().then(function(range){
+			        map.setZoom(range[1]);
+			    });
+			}*/
+
+			map.geoObjects.events.add('click', function (e) {
+				setTimeout(function () {
+					$('.ymaps-b-balloon .ymaps-b-balloon__close').addClass('close_custom').html(
+					closeSVG);
+				}, 100);
+			});
+			var clusterIcons = [{
+					size: [56, 56],
+					offset: [-28, -28]
+				},
+				/*{
+					shape: {
+						type: 'Circle',
+						coordinates: [0, 0],
+						radius: 28
+					}
+				}*/
+			];
+
+			clusterer = new ymaps.Clusterer({
+				clusterIcons: clusterIcons,
+				clusterIconContentLayout: ymaps.templateLayoutFactory.createClass(clusterSVG),
+			});
+			clusterer.add(arObjects.PLACEMARKS);
+			map.geoObjects.add(clusterer);
+			// map.setBounds(map.geoObjects.getBounds(), {
+			map.setBounds(clusterer.getBounds(), {
+				zoomMargin: 40,
+				// checkZoomRange: true
+			});
+
+			/*geo_result = ymaps.geoQuery(map.geoObjects);
+			geo_result.applyBoundsToMap(map);*/
+
+
+
+			/**/
+		}
+	</script>
+	<div class="bx-yandex-view-layout swipeignore">
+		<div class="bx-yandex-view-map">
+			<script>
+				var script = document.createElement('script');
+				script.src = 'https://api-maps.yandex.ru/2.0/?load=package.full&mode=release&lang=ru-RU&wizard=bitrix';
+				(document.head || document.documentElement).appendChild(script);
+				script.onload = function () {
+					this.parentNode.removeChild(script);
+				};
+			</script>
+			<script>
+				if (!window.GLOBAL_arMapObjects)
+					window.GLOBAL_arMapObjects = {};
+
+				var map;
+
+				function init_MAP_mF8Ev4() {
+					if (!window.ymaps)
+						return;
+
+					/*if(typeof window.GLOBAL_arMapObjects['MAP_mF8Ev4'] !== "undefined")
+						return;*/
+
+					var node = BX("BX_YMAP_MAP_mF8Ev4");
+					node.innerHTML = '';
+
+					map = window.GLOBAL_arMapObjects['MAP_mF8Ev4'] = new ymaps.Map(node, {
+						center: [55.606181897552, 40.038962497091],
+						zoom: 4,
+						type: 'yandex#map',
+						// adjustZoomOnTypeChange: true
+					});
+
+					if (map.behaviors.isEnabled("scrollZoom"))
+						map.behaviors.disable("scrollZoom");
+					map.behaviors.enable("dblClickZoom");
+					map.behaviors.enable("drag");
+					if (map.behaviors.isEnabled("rightMouseButtonMagnifier"))
+						map.behaviors.disable("rightMouseButtonMagnifier");
+					map.controls.add('zoomControl');
+					map.controls.add('smallZoomControl');
+					map.controls.add('typeSelector');
+					map.controls.add('scaleLine');
+					if (window.BX_SetPlacemarks_MAP_mF8Ev4) {
+						window.BX_SetPlacemarks_MAP_mF8Ev4(map);
+					}
+				}
+
+				(function bx_ymaps_waiter() {
+					if (typeof ymaps !== 'undefined')
+						ymaps.ready(init_MAP_mF8Ev4);
+					else
+						setTimeout(bx_ymaps_waiter, 100);
+				})();
+
+
+				/* if map inits in hidden block (display:none)
+				 *  after the block showed
+				 *  for properly showing map this function must be called
+				 */
+				function BXMapYandexAfterShow(mapId) {
+					if (window.GLOBAL_arMapObjects[mapId] !== undefined)
+						window.GLOBAL_arMapObjects[mapId].container.fitToViewport();
+				}
+			</script>
+			<div id="BX_YMAP_MAP_mF8Ev4" class="bx-yandex-map" style="height: 400px; width: 100%;">
+				<ymaps class="ymaps-map ymaps-i-ua_js_yes"
+					style="z-index: 0; width: 1635px; height: 400px;">
+					<ymaps class="ymaps-glass-pane ymaps-events-pane"
+						style="z-index: 500; position: absolute; width: 1635px; height: 400px; left: 0px; top: 0px; user-select: none; transform: translate3d(0px, 0px, 0px) scale(1, 1); cursor: url(&quot;https://api-maps.yandex.ru/2.0/./images/ef50ac9e93aaebe3299791c79f277f8e.cur&quot;) 16 16, url(&quot;https://api-maps.yandex.ru/2.0/./images/ef50ac9e93aaebe3299791c79f277f8e.cur&quot;), move;"
+						unselectable="on"></ymaps>
+					<ymaps class="ymaps-layers-pane"
+						style="z-index: 100; position: absolute; left: 818px; top: 200px;">
+						<ymaps
+							style="z-index: 150; position: absolute; transform: translate3d(0px, 0px, 0px) scale(1, 1);">
+							<canvas
+								style="position: absolute; width: 1892px; height: 656px; left: -946px; top: -328px;"
+								height="656" width="1892"></canvas></ymaps>
+					</ymaps>
+					<ymaps class="ymaps-copyrights-pane" style="z-index: 1000; position: absolute;">
+						<ymaps>
+							<ymaps class="ymaps-copyrights-logo">
+								<ymaps class="ymaps-logotype-div"><a target="_blank"
+										class="ymaps-logo-link ymaps-logo-link-ru"
+										href="https://yandex.ru/maps/?origin=jsapi&amp;ll=46.286575,54.536661&amp;z=7&amp;l=">
+										<ymaps class="ymaps-logo-link-wrap"></ymaps>
+									</a></ymaps>
+							</ymaps>
+							<ymaps class="ymaps-copyrights-legend">
+								<ymaps class="ymaps-copyright-legend-container">
+									<ymaps class="ymaps-copyright-legend">
+										<ymaps
+											class="ymaps-copyright-legend-element ymaps-copyright-legend-element-black">
+											<ymaps style="display: inline;">© Яндекс</ymaps>
+										</ymaps>
+									</ymaps>
+									<ymaps
+										class="ymaps-copyright-agreement ymaps-copyright-agreement-black">
+										<a href="https://yandex.ru/legal/maps_termsofuse/?lang=ru"
+											target="_blank">Условия
+											использования</a></ymaps>
+								</ymaps>
+							</ymaps>
+						</ymaps>
+					</ymaps>
+					<ymaps
+						style="z-index: 850; height: 0px; width: 0px; bottom: 0px; left: 0px; position: absolute;">
+						<ymaps style="bottom: 5px; left: 5px; position: absolute;"><iframe
+								src="./Магазины_files/saved_resource.html" width="171" height="29"
+								scrolling="no" frameborder="0"
+								style="overflow: hidden; height: 0px;"></iframe></ymaps>
+					</ymaps>
+					<ymaps class="ymaps-controls-pane" style="z-index: 800; position: static;">
+						<ymaps class="ymaps-controls-righttop" style="z-index: 800;">
+							<ymaps style="top: 5px; right: 5px; position: absolute;">
+								<ymaps>
+									<ymaps class="ymaps-b-select ymaps-b-select_control_listbox" style="">
+										<ymaps
+											class="ymaps-b-form-button ymaps-b-form-button_theme_grey-no-transparent-26 ymaps-b-form-button_height_26 ymaps-i-bem"
+											role="button" unselectable="on" style="user-select: none;">
+											<ymaps class="ymaps-b-form-button__left"></ymaps>
+											<ymaps class="ymaps-b-form-button__content">
+												<ymaps class="ymaps-b-form-button__text">
+													<ymaps id="id_159542181482062252_0" unselectable="on"
+														style="user-select: none;">
+														<ymaps>
+															<ymaps class="ymaps-b-select__title"
+																style="display: block; width: 60px;">Схема
+															</ymaps>
+															<ymaps class="ymaps-b-select__arrow"
+																title="Развернуть"></ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+										<ymaps
+											class="ymaps-b-popupa ymaps-b-popupa_layout_yes ymaps-b-popupa_theme_white ymaps-i-bem">
+											<ymaps class="ymaps-b-popupa__shadow"></ymaps>
+											<ymaps
+												class="ymaps-b-popupa__body ymaps-b-popupa__body_theme_white">
+												<ymaps class="ymaps-b-popupa__ie-gap">&nbsp;</ymaps>
+												<ymaps class="ymaps-b-listbox-panel" style="">
+													<ymaps>
+														<ymaps class="ymaps-group">
+															<ymaps>
+																<ymaps></ymaps>
+																<ymaps>
+																	<ymaps
+																		class="ymaps-b-listbox-panel__item ymaps-b-listbox-panel__item_state_current">
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-link"
+																			unselectable="on"
+																			style="user-select: none;">
+																			Схема
+																		</ymaps>
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-flag">
+																		</ymaps>
+																	</ymaps>
+																</ymaps>
+															</ymaps>
+															<ymaps>
+																<ymaps></ymaps>
+																<ymaps>
+																	<ymaps
+																		class="ymaps-b-listbox-panel__item ">
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-link"
+																			unselectable="on"
+																			style="user-select: none;">
+																			Спутник
+																		</ymaps>
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-flag">
+																		</ymaps>
+																	</ymaps>
+																</ymaps>
+															</ymaps>
+															<ymaps>
+																<ymaps></ymaps>
+																<ymaps>
+																	<ymaps
+																		class="ymaps-b-listbox-panel__item ">
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-link"
+																			unselectable="on"
+																			style="user-select: none;">
+																			Гибрид
+																		</ymaps>
+																		<ymaps
+																			class="ymaps-b-listbox-panel__item-flag">
+																		</ymaps>
+																	</ymaps>
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+									</ymaps>
+								</ymaps>
+							</ymaps>
+						</ymaps>
+						<ymaps class="ymaps-controls-lefttop" style="z-index: 800;">
+							<ymaps class="ymaps-b-zoom_hints-pos_right"
+								style="top: 75px; left: 5px; position: absolute;">
+								<ymaps>
+									<ymaps class="ymaps-b-zoom">
+										<ymaps
+											class="ymaps-b-zoom__button ymaps-b-zoom__button_type_minus"
+											unselectable="on" style="user-select: none;">
+											<ymaps
+												class="ymaps-b-form-button ymaps-b-form-button_size_sm ymaps-b-form-button_theme_grey-sm ymaps-b-form-button_height_26 ymaps-i-bem"
+												role="button">
+												<ymaps class="ymaps-b-form-button__left"></ymaps>
+												<ymaps class="ymaps-b-form-button__content">
+													<ymaps class="ymaps-b-form-button__text">
+														<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+										<ymaps class="ymaps-b-zoom__scale"
+											style="height: 132.667px; user-select: none;"
+											unselectable="on">
+											<ymaps class="ymaps-b-zoom__scale-bg"></ymaps>
+											<ymaps class="ymaps-b-zoom__mark" style="top: 52px;">
+												<ymaps class="ymaps-b-zoom__mark-inner">
+													<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+												</ymaps>
+											</ymaps>
+											<ymaps class="ymaps-b-hint-placeholder">
+												<ymaps>
+													<ymaps>
+														<ymaps class="ymaps-b-zoom__hint"
+															style="top: 17px;">
+															<ymaps class="ymaps-b-zoom__hint-left">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-content">
+																<ymaps class="ymaps-b-zoom__hint-text">мир
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-right">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+												<ymaps>
+													<ymaps>
+														<ymaps class="ymaps-b-zoom__hint"
+															style="top: 38px;">
+															<ymaps class="ymaps-b-zoom__hint-left">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-content">
+																<ymaps class="ymaps-b-zoom__hint-text">
+																	страна</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-right">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+												<ymaps>
+													<ymaps>
+														<ymaps class="ymaps-b-zoom__hint"
+															style="top: 66px;">
+															<ymaps class="ymaps-b-zoom__hint-left">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-content">
+																<ymaps class="ymaps-b-zoom__hint-text">
+																	город</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-right">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+												<ymaps>
+													<ymaps>
+														<ymaps class="ymaps-b-zoom__hint"
+															style="top: 94px;">
+															<ymaps class="ymaps-b-zoom__hint-left">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-content">
+																<ymaps class="ymaps-b-zoom__hint-text">
+																	улица</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-right">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+												<ymaps>
+													<ymaps>
+														<ymaps class="ymaps-b-zoom__hint"
+															style="top: 115px;">
+															<ymaps class="ymaps-b-zoom__hint-left">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-content">
+																<ymaps class="ymaps-b-zoom__hint-text">дом
+																</ymaps>
+															</ymaps>
+															<ymaps class="ymaps-b-zoom__hint-right">
+																<ymaps class="ymaps-b-zoom__sprite">
+																</ymaps>
+															</ymaps>
+														</ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+										<ymaps class="ymaps-b-zoom__button ymaps-b-zoom__button_type_plus"
+											unselectable="on" style="user-select: none;">
+											<ymaps
+												class="ymaps-b-form-button ymaps-b-form-button_size_sm ymaps-b-form-button_theme_grey-sm ymaps-b-form-button_height_26 ymaps-i-bem"
+												role="button">
+												<ymaps class="ymaps-b-form-button__left"></ymaps>
+												<ymaps class="ymaps-b-form-button__content">
+													<ymaps class="ymaps-b-form-button__text">
+														<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+									</ymaps>
+								</ymaps>
+							</ymaps>
+							<ymaps style="top: 75px; left: 5px; position: absolute;">
+								<ymaps>
+									<ymaps class="ymaps-b-zoom">
+										<ymaps
+											class="ymaps-b-zoom__button ymaps-b-zoom__button_type_minus"
+											unselectable="on" style="user-select: none;">
+											<ymaps
+												class="ymaps-b-form-button ymaps-b-form-button_size_sm ymaps-b-form-button_theme_grey-sm ymaps-b-form-button_height_26 ymaps-i-bem"
+												role="button">
+												<ymaps class="ymaps-b-form-button__left"></ymaps>
+												<ymaps class="ymaps-b-form-button__content">
+													<ymaps class="ymaps-b-form-button__text">
+														<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+										<ymaps class="ymaps-b-zoom__scale" style="display: none;">
+											<ymaps class="ymaps-b-zoom__scale-bg"></ymaps>
+											<ymaps class="ymaps-b-zoom__mark" style="top:70px;">
+												<ymaps class="ymaps-b-zoom__mark-inner">
+													<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+												</ymaps>
+											</ymaps>
+											<ymaps class="ymaps-b-hint-placeholder"></ymaps>
+										</ymaps>
+										<ymaps class="ymaps-b-zoom__button ymaps-b-zoom__button_type_plus"
+											unselectable="on" style="user-select: none;">
+											<ymaps
+												class="ymaps-b-form-button ymaps-b-form-button_size_sm ymaps-b-form-button_theme_grey-sm ymaps-b-form-button_height_26 ymaps-i-bem"
+												role="button">
+												<ymaps class="ymaps-b-form-button__left"></ymaps>
+												<ymaps class="ymaps-b-form-button__content">
+													<ymaps class="ymaps-b-form-button__text">
+														<ymaps class="ymaps-b-zoom__sprite"></ymaps>
+													</ymaps>
+												</ymaps>
+											</ymaps>
+										</ymaps>
+									</ymaps>
+								</ymaps>
+							</ymaps>
+						</ymaps>
+						<ymaps class="ymaps-controls-rightbottom" style="z-index: 800;">
+							<ymaps style="bottom: 50px; right: 7px; position: absolute;">
+								<ymaps>
+									<ymaps id="id_159542181482062252_1">
+										<ymaps>
+											<ymaps class="ymaps-scaleline-control" style="width:70px">
+												<ymaps class="ymaps-scaleline-label">50&nbsp;км</ymaps>
+											</ymaps>
+										</ymaps>
+									</ymaps>
+								</ymaps>
+							</ymaps>
+						</ymaps>
+					</ymaps>
+					<ymaps class="ymaps-overlay-stepwise-pane"
+						style="z-index: 600; position: absolute; left: 818px; top: 200px; visibility: visible;">
+						<ymaps class="ymaps-point-overlay" unselectable="on"
+							style="position: absolute; height: 0px; width: 0px; user-select: none; left: -792px; top: -192px;">
+							<ymaps class="ymaps-default-cluster"
+								style="line-height: 56px; left: -28px; top: -28px; width: 56px; height: 56px;">
+								<ymaps>
+									<div class="cluster_custom"><span>5</span><svg
+											xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+											viewBox="0 0 56 56">
+											<defs>
+												<style>
+													.cls-cluster,
+													.cls-cluster3 {
+														fill: #fff;
+													}
+
+													.cls-cluster {
+														opacity: 0.5;
+													}
+
+													.cls-cluster2 {
+														fill: #247ee3;
+													}
+												</style>
+											</defs>
+											<circle class="cls-cluster" cx="28" cy="28" r="28"></circle>
+											<circle data-name="Ellipse 275 copy 2" class="cls-cluster2"
+												cx="28" cy="28" r="25">
+											</circle>
+											<circle data-name="Ellipse 276 copy" class="cls-cluster3"
+												cx="28" cy="28" r="18">
+											</circle>
+										</svg></div>
+								</ymaps>
+							</ymaps>
+						</ymaps>
+						<ymaps class="ymaps-point-overlay" unselectable="on"
+							style="position: absolute; height: 0px; width: 0px; user-select: none; left: 549px; top: -57px; z-index: 650;">
+							<ymaps><svg width="46" height="57" viewBox="0 0 46 57">
+									<defs>
+										<style>
+											.cls-marker,
+											.cls-marker3 {
+												fill: #fff;
+											}
+
+											.cls-marker,
+											.cls-marker2 {
+												fill-rule: evenodd;
+											}
+
+											.cls-marker {
+												opacity: 0.5;
+											}
+
+											.cls-marker2 {
+												fill: #247ee3;
+											}
+										</style>
+									</defs>
+									<path data-name="Ellipse 275 copy" class="cls-marker"
+										d="M142.976,200.433L143,200.469s-7.05,5.826-10,10.375c-2.263,3.489-2.974,6.153-5,6.156s-2.737-2.667-5-6.156c-2.95-4.549-10-10.375-10-10.375l0.024-.036A23,23,0,1,1,142.976,200.433Z"
+										transform="translate(-105 -160)"></path>
+									<path data-name="Ellipse 253 copy 4" class="cls-marker2"
+										d="M140,198.971L140,199s-6.362,5.91-8.092,8.456C128.351,212.69,128,215,128,215s-0.307-2.084-3.826-7.448C121.8,203.935,116,199,116,199l0-.029A20,20,0,1,1,140,198.971Z"
+										transform="translate(-105 -160)"></path>
+									<circle data-name="Ellipse 254 copy 5" class="cls-marker3" cx="23"
+										cy="23" r="12"></circle>
+								</svg></ymaps>
+						</ymaps>
+					</ymaps>
+				</ymaps>
+			</div>
+		</div>
+	</div>
+	<div id="bxdynamic_shops-map-block_end" style="display:none"></div>
+</div>

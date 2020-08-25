@@ -1,0 +1,84 @@
+{%extends 'base.html'%}
+{%block title%}
+Поиск
+{%endblock%}
+{%block content%}
+<div class="top_inner_block_wrapper maxwidth-theme">
+	<div class="page-top-wrapper grey v3">
+		<section class="page-top maxwidth-theme ">
+			<div class="page-top-main">
+				<h1 id="pagetitle">Поиск</h1>
+			</div>
+			<div id="navigation">
+				<div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList"><span class=""
+						itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<link href="{%url 'search'%}" itemprop="item">
+						<span>
+							<span itemprop="name">Поиск</span>
+							<meta itemprop="position" content="1">
+						</span>
+					</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--end-title_content-->
+
+<div class="wrapper_inner wide_page">
+
+	<div class="middle ">
+		<div class="container">
+			<div class="maxwidth-theme">
+				<div class="search-page-wrap">
+					<div class="searchinput">
+						<form
+							action="{%url 'search'%}"
+							method="post">{%csrf_token%}
+							<div class="form-control">
+								<input class="q" type="text" name="q" value="{{search}}" size="40">
+							</div>
+							<input type="submit" class="btn btn-default" value="Искать">
+							<input type="hidden" name="how" value="r">
+						</form>
+					</div><br>
+					<hr>
+					{%for story in stories%}
+						<a href="{{story.get_absolute_url}}">{{story.title|safe}}</a>
+						{%if story.get_type == 'news'%}
+							<ul class="path">
+								<li><a href="/company/">О компании</a></li>
+								<li><a href="{%url 'news'%}">Новости</a></li>
+							</ul>
+						{%else%}
+							<ul class="path">
+								<li><a href="{%url 'blog'%}">Блог</a></li>
+							</ul>
+						{%endif%}
+						{%if story.headline%}
+						<div class="text"> {{story.headline|safe}} </div>
+						{%else%}
+						<div class="text"> {{story.preview|safe}} </div>
+						{%endif%}
+						<hr>
+						{%empty%}
+						<p><font class"notetext">К сожалению, на ваш поисковый запрос ничего не найдено.</font></p>
+					{%endfor%}
+					{%if stories%}
+					<br>
+					<p>
+						{%if order == '-rank'%}
+						<b>Отсортировано по релевантности</b>&nbsp;|&nbsp;<a
+							href="/blog/search/?q={{search}}&amp;order=publicate&amp;how=d">Сортировать
+							по дате</a>
+						{%else%}
+						<a href="/blog/search/?q={{search}}&amp;order=-rank&amp;how=d">Сортировать по релевантности</a>&nbsp;|&nbsp;<b>Отсортировано по дате</b>
+						{%endif%}
+					</p>
+					{%endif%}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}
