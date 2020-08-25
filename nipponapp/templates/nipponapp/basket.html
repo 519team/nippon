@@ -1,4 +1,8 @@
 {%extends 'base.html'%}
+{%load static%}
+{%block title%}
+Корзина
+{%endblock%}
 {%block content%}
 <div class="wraps hover_shine" id="content">
 	<!--title_content-->
@@ -13,7 +17,7 @@
 				</div>
 				<div class="breadcrumbs" id="navigation" itemscope="" itemtype="http://schema.org/BreadcrumbList">
 					<span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-						<link href="https://nippononline.ru/basket/" itemprop="item">
+						<link href="{%url 'basket'%}" itemprop="item">
 						<span>
 							<span itemprop="name">Корзина</span>
 							<meta itemprop="position" content="1">
@@ -28,6 +32,7 @@
 		<div class="middle ">
 			<div class="container">
 				<div class="maxwidth-theme">
+					{%if products_in_basket%}
 					<!--  -->
 					<div id="basket-root" class="bx-basket bx-blue bx-step-opacity" style="opacity: 1;">		
 						<div class="row">
@@ -56,7 +61,7 @@
 											</div>
 										</div>
 										<div class="basket-items-list-header-filter">
-											<a href="javascript:void(0)" class="basket-items-list-header-filter-item active" data-entity="basket-items-count" data-filter="all" style="">В корзине 3 товара</a>
+											<a href="javascript:void(0)" class="basket-items-list-header-filter-item active" data-entity="basket-items-count" data-filter="all" style="">В корзине {{products_in_basket.count}} товара</a>
 											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="similar" style="display: none;"></a>
 											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="warning" style="display: none;"></a>
 											<a href="javascript:void(0)" class="basket-items-list-header-filter-item" data-entity="basket-items-count" data-filter="delayed" style="display: none;"></a>
@@ -136,6 +141,17 @@
 					<span id="bigdata_recommended_products_Zz2YMH"><!--'start_frame_cache_Zz2YMH'--><!--'end_frame_cache_Zz2YMH'-->
 					</span>
 					<!--'end_frame_cache_es4Hjc'-->
+					{%else%}
+					<div class="bx-sbb-empty-cart-container">
+						<div class="bx-sbb-empty-cart-image">
+							<img data-lazyload="" class=" lazyloaded"
+								src="{%static 'img/empty_cart.svg'%}" data-src="" alt="">
+						</div>
+						<div class="bx-sbb-empty-cart-text">Ваша корзина пуста</div>
+						<div class="bx-sbb-empty-cart-desc">
+							<a href="{%url 'main'%}">Нажмите здесь</a>, чтобы продолжить покупки </div>
+					</div>
+					{%endif%}
 				</div> 																
 			</div> 																				
 		</div>

@@ -3,10 +3,11 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import JsonResponse
-from django.http import HttpResponse
-from .forms import CheckoutContactForm
-from django.contrib.auth import logout
+from django.http import JsonResponse, HttpResponse
+from .forms import *
+from blog.models import Brand
+from market.forms import FeedbackForm
+from django.views.generic.base import View
 
 
 # sub function for views
@@ -28,34 +29,15 @@ def pagination(request, objects_list, count_of_page):
     return (page, is_paginated, prev_url, next_url)
 
 
-# class BradCrumbs:
-#   def __init__(self, title='',one_crumb='',two_crumb='',thre_crumb='',one_dropdown=[],two_dromdown=[])
-#     self.title=title
-#     self.one_crumb=one_crumb
-#     self.two_crumb=two_crumb
-#     self.three_crumb=thre_crumb
-#     self.one_dropdown=one_dropdown
-#     self.two_dromdown=two_dromdown
-
-# def fetch_data(request, id):
-#     print ('hello')
-#     product = Product.objects.get(id=id)
-#     print(product.name)
-#     return product.name
-
 # Create your views here.
 def main_page(request):
     catalog = Category.objects.all().order_by('id')
-    banners = []
-    new = Product.objects.filter(is_new=True)
-    hit = Product.objects.filter(is_hit=True)
-    sovet = Product.objects.filter(is_sovet=True)
+    new = Product.objects.filter(is_new=True)[:10]
+    hit = Product.objects.filter(is_hit=True)[:10]
+    sovet = Product.objects.filter(is_sovet=True)[:10]
+    brands = Brand.objects.all()
     return render(request, 'nipponapp/main_page.html',
-                  context={'catalog': catalog, 'new': new, 'hit': hit, 'sovet': sovet})
-
-
-def politic(request):
-    return render(request, 'nipponapp/license.html')
+                  context={'catalog': catalog, 'new': new, 'hit': hit, 'sovet': sovet, 'brands': brands})
 
 
 def category_catalog(request, category):
@@ -64,7 +46,8 @@ def category_catalog(request, category):
     title = ''
     search_query = request.GET.get('q', '')
     if search_query:
-        products = Product.objects.filter(Q(name__icontains=search_query) | Q(article__icontains=search_query))
+        products = Product.objects.filter(
+            Q(name__icontains=search_query) | Q(article__icontains=search_query)).order_by('name').distinct('name')
         title = 'Поиск'
     else:
         try:
@@ -118,25 +101,37 @@ def category_catalog(request, category):
     return render(request, 'nipponapp/catalog.html', context=context)
 
 
-def product_detail(request, category, index):
-    product = Product.objects.get(id=index)
-    title = product.name
-    category = product.category
-    sub_category = product.sub_category
-    if (sub_category):
-        sub_flag = False
-    else:
-        sub_flag = True
-    sub_cat_list = SubCategory.objects.filter(id_category=category)
-    catalog = Category.objects.all().order_by('id')
-    context = {'title': title,
-               'product': product,
-               'category': category,
-               'sub_flag': sub_flag,
-               'sub_category': sub_category,
-               'catalog': catalog,
-               'sub_cat_list': sub_cat_list}
-    return render(request, 'nipponapp/product_detail.html', context=context)
+class ProductDetail(View):
+    def get(self, request, category, index):
+        form = FeedbackForm()
+        product = Product.objects.get(id=index)
+        title = product.name
+        category = product.category
+        sub_category = product.sub_category
+        if (sub_category):
+            sub_flag = False
+        else:
+            sub_flag = True
+        sub_cat_list = SubCategory.objects.filter(id_category=category)
+        catalog = Category.objects.all().order_by('id')
+        context = {'title': title,
+                   'product': product,
+                   'category': category,
+                   'sub_flag': sub_flag,
+                   'sub_category': sub_category,
+                   'catalog': catalog,
+                   'sub_cat_list': sub_cat_list,
+                   'form': form}
+        return render(request, 'nipponapp/product_detail.html', context=context)
+
+    def post(self, request, category, index):
+        form = FeedbackForm(request.POST)
+        subject = request.POST.get('subject', '')
+        product = Product.objects.get(id=index)
+        if form.is_valid():
+            form.subject_id = subject
+            form.save()
+        return redirect(product.get_absolute_url())
 
 
 def catalog_info(request):
@@ -180,7 +175,7 @@ def basket_update(request):
         product_dict["price_per_item"] = item.price_per_item
         product_dict["nmb"] = item.nmb
         product_dict["href"] = item.product.id
-        product_dict["image"] = str(item.product.get_image_path())
+        product_dict["image"] = item.product.productimage_set.all()[0].path
         return_dict["products"].append(product_dict)
 
     return JsonResponse(return_dict)
@@ -228,31 +223,5 @@ def order(request):
             return render(request, 'nipponapp/check.html', context={'order': order})
 
     return render(request, 'nipponapp/order.html')
-
-
-def regestration(request):
-    if request.POST:
-        data = request.POST
-        login = data['REGISTER[LOGIN]']
-        name = data['REGISTER[NAME]']
-        email = data['REGISTER[EMAIL]']
-        phone = data['REGISTER[PERSONAL_PHONE]']
-        password = data['REGISTER[PASSWORD]']
-        print(login)
-        user = User(username=phone, first_name=name, email=email, password=password)
-        user.save()
-        return render(request, 'registration/login.html')
-    return render(request, 'nipponapp/regestration.html')
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('/nippon/')
-
-
-@login_required(login_url='/nippon/accounts/login/')
-def personal_main(request):
-    return render(request, 'nipponapp/personal_main_page.html')
-
 
 

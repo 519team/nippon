@@ -1,3 +1,4 @@
+{%load static%}
 <div class="item_block col-4 col-md-3 col-sm-6 col-xs-6">
 	<div class="catalog_item_wrapp item" style="height: 370px;">
 		<div class="basket_props_block" id="bx_basket_div_{{product.id}}" style="display: none;">
@@ -29,8 +30,15 @@
 						</div>
 					</div>
 					<a href="{%url 'product_detail' category=product.category.name index=product.id %}" class="thumb shine" id="bx_3966226736_{{product.id}}_pict">
-						<img data-lazyload="" class=" ls-is-cached lazyloaded" src="/static/img/{{product.get_image_path}}" data-src="" alt="{{product.name}} в магазине НИППОН" title="фото {{product.name}} в магазине НИППОН">
+						{%if product.productimage_set.all%}
+						{% with product.productimage_set.all|first as image %}
+							<img data-lazyload="" class=" ls-is-cached lazyloaded" src="{%static image.path%}" data-src="" alt="{{product.name}} в магазине НИППОН" title="фото {{product.name}} в магазине НИППОН">
+						{% endwith %}
+						{%else%}
+							<img data-lazyload="" class=" ls-is-cached lazyloaded" src="/static/img/catalog/catalog_category_noimage.svg" >
+						{%endif%}
 					</a>
+					
 					<div class="fast_view_block" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="2" data-param-id="{{product.id}}" data-param-item_href="%2Fcatalog%2Fyaponskie_sladosti%2Fzhevatelnye_konfety_so_vkusom_sodovoy_super_kislye_uha_20_gr%2F" data-name="fast_view">Быстрый просмотр</div>
 				</div>
 				<div class="item_info TYPE_1" style="height: 144px;">

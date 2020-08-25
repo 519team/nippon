@@ -1,10 +1,16 @@
+{%load static%}
 <tr data-id="{{product_b.product.id}}" product-id="{{product_b.product.id}}" data-iblockid="">
     <td class="thumb-cell">
         <a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id %}" class="thumb"> 
-            <img data-lazyload="" class="lazyload" src="/static/img/{{product_b.product.get_image_path}}" 
-            data-src="/static/img/{{product_b.product.get_image_path}}"
-            alt="{{product_b.product.name}}" 
-            title="{{product_b.product.name}}">
+            {%if product_b.product.productimage_set.all%}
+                {% with product_b.product.productimage_set.all|first as image %}
+                        <img data-lazyload=""  src="{%static image.path%}" alt="{{product_b.product.name}}" 
+                        title="{{product_b.product.name}}" data-src="{%static image.path%}" class="lazyload">
+                {% endwith %}
+            {%else%}
+                    <img data-lazyload=""  src="/static/img/catalog/catalog_category_noimage.svg" >
+            {%endif%}
+            
         </a>
     </td>
     <td class="name-cell" style="padding-left:0; padding-right:0;">

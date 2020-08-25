@@ -1,4 +1,8 @@
 {% extends 'base.html'%}
+{%load static%}
+{%block title%}
+{{product.name}}
+{%endblock%}
 {% block content%}
 	<div class="wraps hover_shine" id="content">
 		{%include 'nipponapp/includes/breadcrumbs.html'%}
@@ -32,7 +36,7 @@
 										</div>
 									{%endif%}
 									</div>
-									<div class="item_slider">
+									<div class="item_slider big-slider">
 										<div class="like_wrapper">
 											<div class="like_icons iblock">
 												<div class="wish_item text"  data-item="{{product.id}}" data-iblock="2">
@@ -44,24 +48,68 @@
 
 										<div class="slides">
 											<ul>
-												<li id="photo-0" class="current">
-													<link href="/static/img/{{product.get_image_path}}" itemprop="image"/>
-													<a href="/static/img/{{product.get_image_path}}" data-fancybox-group="item_slider" class="popup_link fancy" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России ">
-														<img data-lazyload class="lazyload"  src="/static/img/{{product.get_image_path}}" data-src="/static/img/{{product.get_image_path}}"   alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России "/>
+												{%for image in product.productimage_set.all%}
+												<li id="photo-{{forloop.counter0}}" class="{%if forloop.counter0 == 0%}current{%endif%}">
+													<link href="{% static image.path %}" itemprop="image"/>
+													<a href="{% static image.path%}" data-fancybox-group="item_slider" class="popup_link fancy" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России ">
+														<img data-lazyload class="lazyload"  src="{% static image.path %}" data-src="{% static image.path %}"   alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России "/>
 														<div class="zoom"></div>
 													</a>
 												</li>
+												{%endfor%}
 											</ul>
 										</div>
+										<div class="wrapp_thumbs xzoom-thumbs">
+										{%if product.productimage_set.count > 1%}
+										<div class="thumbs flexslider flexslider-init flexslider-direction-nav" id="slider"
+											data-plugin-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;selector&quot;: &quot;.slides_block &gt; li&quot;, &quot;directionNav&quot;: true, &quot;itemMargin&quot;:10, &quot;itemWidth&quot;: 54, &quot;controlsContainer&quot;: &quot;.thumbs_navigation&quot;, &quot;controlNav&quot; :false, &quot;animationLoop&quot;: true, &quot;slideshow&quot;: false}"
+											style="max-width:246px;">
+
+											{%if product.productimage_set.count > 4%}
+											<span class="thumbs_navigation custom_flex">
+												<ul class="flex-direction-nav">
+													<li class="flex-nav-prev current">
+														<a class="flex-prev"
+															href="https://nippononline.ru/catalog/tofu_syr/tofu_morinaga_firm_tverdyy_297g/#">Previous</a>
+													</li>
+													<li class="flex-nav-next"><a class="flex-next"
+															href="">Next</a>
+													</li>
+												</ul>
+											</span>
+											{%endif%}
+											<div class="flex-viewport swiper-container" style="overflow: hidden; position: relative;">
+												<ul class="slides_block swiper-wrapper" id="thumbs"
+													style="width: 1000%; margin-left: 0px;">
+													{%for image in product.productimage_set.all%}
+													<li class="{%if forloop.counter0 == 0%}current{%endif%} swiper-slide"
+														id="phot-{{forloop.counter0}}"
+														data-big_img="{% static image.path %}"
+														data-small_img="{% static image.path %}"
+														style="width: 54px; margin-right: 10px; float: left; display: block;">
+														<span><img data-lazyload="" class="xzoom-gallery lazyloaded" width="50"
+																data-xpreview="{% static image.path %}" src="{% static image.path %}"
+																data-src="{% static image.path %}" alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России "
+																draggable="false"></span>
+													</li>
+													{%endfor%}
+													
+												</ul>
+											</div>
+										</div>
+										{%endif%}
+									</div>
 									</div>
 									<div class="item_slider color-controls flex flexslider" data-plugin-options='{"animation": "slide", "directionNav": false, "controlNav": true, "animationLoop": false, "slideshow": false, "slideshowSpeed": 10000, "animationSpeed": 600}'>
 										<ul class="slides">
-											<li id="mphoto-0" class="current">
-												<a href="/static/img/{{product.get_image_path}}" data-fancybox-group="item_slider_flex" class="fancy popup_link" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " >
-													<img data-lazyload class="lazyload" src="/static/img/{{product.get_image_path}}" data-src="/static/img/{{product.get_image_path}}" alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " />
+											{%for image in product.productimage_set.all%}
+											<li id="mphoto-0" class="{%if forloop.counter0 == 0%}current{%endif%}">
+												<a href="{% static image.path %}" data-fancybox-group="item_slider_flex" class="fancy popup_link" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " >
+													<img data-lazyload class="lazyload" src="{% static image.path %}" data-src="{% static image.path %}" alt="Фото {{product.name}} от интернет-магазина НИППОН" title="Фото {{product.name}} от интернет-магазина НИППОН – официального дистрибьютора в России " />
 													<div class="zoom"></div>
 												</a>
 											</li>
+											{%endfor%}
 										</ul>
 									</div>
 								</div>
@@ -182,9 +230,11 @@
 							<div class="tabs_section">
 								<div class="tabs">
 									<ul class="nav nav-tabs">
-										<li class=" active">
-											<a href="#descr" data-toggle="tab"><span>Описание</span></a>
-										</li>
+										{%if product.dsc%}
+											<li class=" active">
+												<a href="#descr" data-toggle="tab"><span>Описание</span></a>
+											</li>
+										{%endif%}
 										<li class="product_ask_tab ">
 											<a href="#ask" data-toggle="tab"><span>Задать вопрос</span></a>
 										</li>
@@ -196,18 +246,91 @@
 										<div class="tab-pane  active" id="descr">
 											<div class="title-tab-heading visible-xs">Описание</div>
 											<div>
-												<div class="detail_text">{{product.dsc}} </div>
+												<div class="detail_text">{{product.dsc|safe}} </div>
 											</div>
 										</div>
 										<div class="tab-pane" id="ask">
-											<div class="title-tab-heading visible-xs">Задать вопрос</div>
+											<div class="title-tab-heading visible-xs">Задать вопрос </div>
 											<div class="row">
 												<div class="col-md-3 hidden-sm text_block">
-													Вы можете задать любой интересующий вас вопрос по товару или работе магазина.<br/><br/>
-												Наши квалифицированные специалисты обязательно вам помогут.						
-												</div>
+													Вы можете задать любой интересующий вас вопрос по товару или работе
+													магазина.<br><br>
+													Наши квалифицированные специалисты обязательно вам помогут. </div>
 												<div class="col-md-9 form_block">
-													<div id="ask_block"></div>
+													<div id="ask_block_content" class="">
+														<div id="comp_82e2bcb8387c15c2295c856859dad92a">
+															<!--'start_frame_cache_4enrz3'-->
+															<div class="maxwidth-theme">
+																<div class="form inline ASK">
+																	<!--noindex-->
+																	<div class="form_head">
+																		<h4>Задать вопрос</h4>
+																	</div>
+
+																	<form name="ASK"
+																		action="{{product.get_absolute_url}}"
+																		method="POST" enctype="multipart/form-data"
+																		novalidate="novalidate">
+																		{%csrf_token%}
+																		<div class="form_body">
+																			<div class="row">
+																				<div class="col-md-7">
+																					<div class="form-control">
+																						<label><span>Вопрос&nbsp;<span
+																									class="star">*</span></span></label>
+																						{{form.message}}
+																					</div>
+																					<input type="hidden"
+																						name="subject"
+																						value="{{product.name}}">
+																				</div>
+																				<div class="col-md-5">
+																					<div class="form-control">
+																						<label><span>Ваше имя&nbsp;<span
+																									class="star">*</span></span></label>
+																						{{form.name}} </div>
+																					<div class="form-control">
+																						<label><span>Телефон&nbsp;<span
+																									class="star">*</span></span></label>
+																						{{form.phone}} </div>
+																					<div class="form-control">
+																						<label><span>E-mail</span></label>
+																						{{form.email}}
+																					</div>
+																				</div>
+																			</div>
+																			<div class="clearboth"></div>
+																			<textarea name="nspm"
+																				style="display:none;"></textarea>
+																			<div class="clearboth"></div>
+																		</div>
+																		<div class="form_footer">
+																			<div class="licence_block filter label_block">
+																				<input type="checkbox" id="licenses_inline"
+																					checked="" name="licenses_inline"
+																					required="" value="Y"
+																					aria-required="true">
+																				<label for="licenses_inline">
+																					Я согласен на <a
+																						href="/politics/"
+																						target="_blank">обработку персональных
+																						данных</a> </label>
+																			</div>
+																			<input type="submit" class="btn btn-default"
+																				value="Отправить" name="web_form_submit">
+																			<button type="reset" class="btn btn-default white"
+																				value="reset"
+																				name="web_form_reset"><span>Сбросить</span></button>
+																		</div>
+																	</form>
+																	<!--/noindex-->
+																</div>
+															</div>
+															<!--'end_frame_cache_4enrz3'-->
+															<!--'start_frame_cache_form-block2'-->
+															<!--'end_frame_cache_form-block2'-->
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -216,112 +339,75 @@
 											<div class="stores_wrapp">
 												<div id="bxdynamic_lEnm5l_start" style="display:none"></div>		
 												<div class="stores_block_wrap">
-													<div class="stores_block wo_image" style="display: ;">
-														<div class="stores_text_wrapp ">
-															<div class="main_info">
-																<span>
-																	<a class="title_stores" href="/contacts/stores/6/" data-storehref="/contacts/stores/6/" data-iblockhref=""> Магазин "Цветной" (ООО Ниппон), Цветной</a>
-																</span>
-															</div>
-														</div>
-														<div class="item-stock" ><span class="icon  order"></span><span class="value">Нет в наличии</span></div>							</div>
+													{%for count in product.productinmarket_set.all%}
 														<div class="stores_block wo_image" style="display: ;">
 															<div class="stores_text_wrapp ">
 																<div class="main_info">
 																	<span>
-																		<a class="title_stores" href="/contacts/stores/7/" data-storehref="/contacts/stores/7/" data-iblockhref=""> Магазин "Новослободская", г. Москва, Ул. Новослободская д. 20</a>
+																		<a class="title_stores" href="{%url 'market_detail' pk=count.market.id%}" data-storehref="/contacts/stores/6/" data-iblockhref=""> {{count.market.address}}</a>
 																	</span>
 																</div>
 															</div>
 															<div class="item-stock" >
-																<span class="icon  order"></span>
-																<span class="value">Нет в наличии</span>
+																{% if count.count == 'Нет в наличии' %}
+																	<span class="icon  order"></span>
+																{%else%}
+																	<span class="icon  stock"></span>
+																{%endif%}
+																<span class="value">{{count.count}}</span>
 															</div>							
 														</div>
-														<div class="stores_block wo_image" style="display: ;">
-															<div class="stores_text_wrapp ">
-																<div class="main_info">
-																	<span>
-																		<a class="title_stores" href="/contacts/stores/18/" data-storehref="/contacts/stores/18/" data-iblockhref=""> Магазин "Ломоносовский"</a>
-																	</span>
-																</div>
-															</div>
-															<div class="item-stock" >
-																<span class="icon  order"></span>
-																<span class="value">Нет в наличии</span>
-															</div>							
-														</div>
-														<div class="stores_block wo_image" style="display: ;">
-															<div class="stores_text_wrapp ">
-																<div class="main_info">
-																	<span>
-																		<a class="title_stores" href="/contacts/stores/2/" data-storehref="/contacts/stores/2/" data-iblockhref=""> Магазин "Кравченко", г.Москва, ул.Кравченко, д.4к1</a>
-																	</span>
-																</div>
-															</div>
-															<div class="item-stock" >
-																<span class="icon stock"></span>
-																<span class="value">Достаточно</span>
-															</div>							
-														</div>
-													</div>
-													<div id="bxdynamic_lEnm5l_end" style="display:none"></div>		
+													{%endfor%}
 												</div>
+												<div id="bxdynamic_lEnm5l_end" style="display:none"></div>		
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="gifts">
-									<div id="bxdynamic_6zLbbW_start" style="display:none"></div>
-									<span id="sale_gift_product_2002147939" class="sale_gift_product_container"></span>
+							</div>
+							<div class="gifts">
+								<div id="bxdynamic_6zLbbW_start" style="display:none"></div>
+								<span id="sale_gift_product_2002147939" class="sale_gift_product_container"></span>
 
-									<div id="bxdynamic_6zLbbW_end" style="display:none"></div>
-									<div id="bxdynamic_KSBlai_start" style="display:none"></div>
-									<div id="bxdynamic_KSBlai_end" style="display:none"></div>
-								</div>
-
-								<div id="ask_block_content" class="hidden">
-									<div id="comp_00a7a23a169f54b6170ed67bdee284cc">
-										<div id="bxdynamic_4enrz3_start" style="display:none"></div>
-										<div id="bxdynamic_4enrz3_end" style="display:none"></div>
-										<div id="bxdynamic_form-block2_start" style="display:none"></div>
-										<div id="bxdynamic_form-block2_end" style="display:none"></div>
-									</div>		
-								</div>
-								<div id="bxdynamic_des_start" style="display:none"></div>
-								<div id="bxdynamic_des_end" style="display:none"></div>
+								<div id="bxdynamic_6zLbbW_end" style="display:none"></div>
+								<div id="bxdynamic_KSBlai_start" style="display:none"></div>
+								<div id="bxdynamic_KSBlai_end" style="display:none"></div>
 							</div>
 
-							<div class="clearfix"></div>
-							<div class="bottom_slider specials tab_slider_wrapp">
-								<div class="top_blocks">
-									<ul class="tabs">
-										<li data-code="RECOMENDATION" style="display:none;" class="cur"><span>Рекомендуем</span></li>
-										<li class="stretch"></li>
-									</ul>
-									<ul class="slider_navigation top custom_flex border">
-										<li class="tabs_slider_navigation RECOMENDATION_nav cur" data-code="RECOMENDATION"></li>
-									</ul>
-								</div>
-								<ul class="tabs_content">
-									<li class="tab RECOMENDATION_wrapp" data-code="RECOMENDATION">
-										<div id="bxdynamic_es4Hjc_start" style="display:none"></div>
-										<div id="bxdynamic_es4Hjc_end" style="display:none"></div>													
-									</li>
+							<div id="ask_block_content" class="hidden">
+								<div id="comp_00a7a23a169f54b6170ed67bdee284cc">
+									<div id="bxdynamic_4enrz3_start" style="display:none"></div>
+									<div id="bxdynamic_4enrz3_end" style="display:none"></div>
+									<div id="bxdynamic_form-block2_start" style="display:none"></div>
+									<div id="bxdynamic_form-block2_end" style="display:none"></div>
+								</div>		
+							</div>
+							<div id="bxdynamic_des_start" style="display:none"></div>
+							<div id="bxdynamic_des_end" style="display:none"></div>
+						</div>
+
+						<div class="clearfix"></div>
+						<div class="bottom_slider specials tab_slider_wrapp">
+							<div class="top_blocks">
+								<ul class="tabs">
+									<li data-code="RECOMENDATION" style="display:none;" class="cur"><span>Рекомендуем</span></li>
+									<li class="stretch"></li>
+								</ul>
+								<ul class="slider_navigation top custom_flex border">
+									<li class="tabs_slider_navigation RECOMENDATION_nav cur" data-code="RECOMENDATION"></li>
 								</ul>
 							</div>
-					</div>
+							<ul class="tabs_content">
+								<li class="tab RECOMENDATION_wrapp" data-code="RECOMENDATION">
+									<div id="bxdynamic_es4Hjc_start" style="display:none"></div>
+									<div id="bxdynamic_es4Hjc_end" style="display:none"></div>													
+								</li>
+							</ul>
+						</div>
 				</div>
 			</div>
+		</div>
 			 
-			{%include 'nipponapp/includes/catalog_menu.html'%}
+		{%include 'nipponapp/includes/catalog_menu.html'%}
 	</div>
 {% endblock%}
-{# <button type='submit' id="btn-to-basket" 
-														data-value="{{product.price}}" 
-														data-currency="RUB" 
-														class="btn-lg w_icons to-cart btn btn-default transition_bg animate-load" 
-														data-item="{{product.id}}" 
-														data-title="{{product.name}}" 
-														data-href="{%url 'product_detail' category=product.category.name index=product.id %}"
-														data-id="{{product.id}}"> #}

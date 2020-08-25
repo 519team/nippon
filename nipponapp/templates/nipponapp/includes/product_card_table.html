@@ -1,3 +1,4 @@
+{%load static%}
 <tr class="item main_item_wrapper" id="bx_3966226736_{{product.id}}">
 	<td class="wrapper_td">
 		<table>
@@ -5,9 +6,17 @@
 				<tr>
 					<td class="foto-cell">
 						<div class="image_wrapper_block">
-							<a class="popup_image fancy" href="/static/img/{{product.get_image_path}}" title="260348">
-								<img src="/static/img/{{product.get_image_path}}" alt="260348" title="260348" />
-							</a>
+							{%if product.productimage_set.all%}
+								{% with product.productimage_set.all|first as image %}
+									<a class="popup_image fancy" href="{%static image.path%}" title="260348">
+										<img data-lazyload=""  src="{%static image.path%}" >
+									</a>
+								{% endwith %}
+							{%else%}
+								<a class="popup_image fancy" href="/static/img/catalog/catalog_category_noimage.svg" title="260348">
+									<img data-lazyload=""  src="/static/img/catalog/catalog_category_noimage.svg" >
+								</a>
+							{%endif%}
 							<div class="fast_view_block icons" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="2" data-param-id="{{product.id}}" data-param-item_href="%2Fcatalog%2Fyaponskie_sousy%2Fsous_soevyy_dlya_zharennogo_risa_tay_boy_300gr%2F" data-name="fast_view">Быстрый просмотр</div>
 						</div>
 					</td>

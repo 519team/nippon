@@ -1,9 +1,17 @@
+{%load static%}
 <tr class="basket-items-list-item-container" id="basket-item" data-entity="basket-item" data-id="{{product.product.id}}">
 	<td class="basket-items-list-item-descriptions">
 		<div class="basket-items-list-item-descriptions-inner" id="basket-item-height-aligner-{{product.product.id}}">
 			<div class="basket-item-block-image">
 				<a href="{%url 'product_detail' category=product.product.category.name index=product.product.id%}" class="basket-item-image-link">
-					<img data-lazyload="" class="basket-item-image lazyloaded" alt="{{product.product.name}}" src="/static/img/{{product.product.get_image_path}}" data-src="/static/img/{{product.product.get_image_path}}">
+					{%if product.product.productimage_set.all%}
+		                {% with product.product.productimage_set.all|first as image %}
+		                        <img data-lazyload=""  src="{%static image.path%}" alt="{{product.product.name}}" 
+		                        title="{{product.product.name}}" data-src="{%static image.path%}" class="basket-item-image lazyloaded">
+		                {% endwith %}
+		            {%else%}
+		                    <img data-lazyload=""  src="/static/img/catalog/catalog_category_noimage.svg" >
+		            {%endif%}
 				</a>
 			</div>
 			<div class="basket-item-block-info">
@@ -67,13 +75,15 @@
 	</td>
 	<td class="basket-items-list-item-remove hidden-xs">
 		<div class="basket-item-block-actions">
+			{% with product.product.productimage_set.all|first as image %}
 			<span class="basket-item-actions-remove" data-entity="basket-item-delete"
 			data-item="{{product.product.id}}" 
 			data-nmb="{{product.nmb}}"
 			data-title="{{product.product.name}}"
 			data-href="{%url 'product_detail' category=product.product.category.name index=product.product.id%}"
-			data-image="/static/img/{{product.product.get_image_path}}"
+			data-image="{%static image.path%}"
 			data-price="{{product.product.price}}"></span>
+			{%endwith%}
 		</div>
 	</td>
 </tr>

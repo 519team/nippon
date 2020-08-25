@@ -1,23 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from market.models import Market
+from django.shortcuts import reverse
 
 
 # from utils.main import disable_for_loaddata
 
 # Create your models here.
-class Images(models.Model):
-    path = models.FilePathField()
-
 
 class Category(models.Model):
     name = models.CharField(max_length=100, null=True)
     alter_name = models.CharField(max_length=100, null=True)
-    dsc = models.CharField(max_length=1000, null=True)
-    image = models.ForeignKey(Images, on_delete=models.CASCADE)
+    dsc = models.CharField(max_length=1000, null=True, blank=True, default=None)
+    image = models.ImageField(upload_to='category/')
 
     def __str__(self):
         return self.alter_name
+
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -27,6 +27,7 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.alter_name
 
+
 class Product(models.Model):
     name = models.CharField(max_length=500, db_index=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -35,18 +36,13 @@ class Product(models.Model):
     cost = models.CharField(max_length=100)
     price = models.FloatField(default=0.0)
     count = models.CharField(max_length=100)
-    images = models.ManyToManyField('Images', blank=True, related_name='products')
     dsc = models.TextField(null=True)
     is_new = models.BooleanField(default=False)
     is_hit = models.BooleanField(default=False)
     is_sovet = models.BooleanField(default=False)
 
-    def get_image_path(self):
-        if len(self.images.all()) == 0:
-            path = Images.objects.get(id=5391).path
-        else:
-            path = self.images.all()[0].path
-        return path
+    def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'category': self.category.name, "index": self.id})
 
     def get_url(self):
         url = ''
@@ -63,8 +59,12 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
 
 
-class Magazines(models.Model):
-    address = models.CharField(max_length=500)
+class ProductImage(models.Model):
+    path = models.FilePathField()
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.path)
 
 
 class Likes(models.Model):
@@ -79,7 +79,7 @@ class Status(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return "Статус %s" % self.name
+        return self.name
 
     class Meta:
         verbose_name = 'Статус заказа'
@@ -175,3 +175,18 @@ class ProductInBasket(models.Model):
         self.price_per_item = price_per_item
         self.total_price = int(self.nmb) * price_per_item
         super(ProductInBasket, self).save(*args, **kwargs)
+
+
+class ProductInMarket(models.Model):
+    product = models.ForeignKey(Product, blank=True, null=True, default=None, on_delete=models.DO_NOTHING)
+    market = models.ForeignKey(Market, blank=True, null=True, default=None, on_delete=models.DO_NOTHING)
+    count = models.CharField(max_length=50)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return "%s" % self.product.name
+
+    class Meta:
+        verbose_name = 'Товар в магазине'
+        verbose_name_plural = 'Товары в магазине'

@@ -1,3 +1,4 @@
+{%load static%}
 <div class="col-m-20 col-lg-3 col-md-4 col-sm-6 item item_block" data-col="3">
     <div class="catalog_item_wrapp" style="height: 380px;">
         <div class="basket_props_block" id="bx_basket_div_19811_HIT" style="display: none;">
@@ -19,7 +20,14 @@
                         </div>
                     </div>
                     <a href="{%url 'product_detail' category=product.category.name index=product.id%}" class="thumb shine">
-                        <img data-lazyload="" class="lazyload noborder" src="/static/img/{{product.get_image_path}}" data-src="/static/img/{{product.get_image_path}}" alt="800001" title="800001">
+                        {%if product.productimage_set.all%}
+                            {% with product.productimage_set.all|first as image %}
+                                    <img data-lazyload=""  src="{%static image.path%}" alt="{{product.name}}" 
+                                    title="{{product.name}}" data-src="{%static image.path%}" class="lazyload noborder">
+                            {% endwith %}
+                        {%else%}
+                                <img data-lazyload=""  src="/static/img/catalog/catalog_category_noimage.svg" >
+                        {%endif%}
                     </a>
                     <div class="fast_view_block" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="2" data-param-id="19811" data-param-item_href="%2Fcatalog%2Fsoevye_boby%2Fzelyenye_soevye_boby_ajinomoto_edamame_0_5kg%2F" data-name="fast_view">Быстрый просмотр</div>
                 </div>

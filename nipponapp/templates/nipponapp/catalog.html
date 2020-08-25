@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{%load static%}
 {% block content%}
 	<div class="wraps hover_shine" id="content">
 		{%include 'nipponapp/includes/breadcrumbs.html'%}
@@ -54,17 +55,17 @@
 									<div class="sort_header view_block">
 										<!--noindex-->
 										<div class="sort_filter ">
-											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=SHOWS&amp;order=desc" class="sort_btn asc SHOWS" rel="nofollow">
+											<a href="#" class="sort_btn asc SHOWS" rel="nofollow">
 												<i class="icon" title="По популярности"></i>
 												<span>По популярности</span>
 												<i class="arr icons_fa"></i>
 											</a>
-											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=NAME&amp;order=desc" class="sort_btn  asc NAME" rel="nofollow">
+											<a href="#" class="sort_btn  asc NAME" rel="nofollow">
 												<i class="icon" title="По алфавиту"></i>
 												<span>По алфавиту</span>
 												<i class="arr icons_fa"></i>
 											</a>
-											<a href="https://nippononline.ru/catalog/yaponskie_sladosti/?sort=PRICE&amp;order=desc" class="sort_btn  asc PRICE" rel="nofollow">
+											<a href="#" class="sort_btn  asc PRICE" rel="nofollow">
 												<i class="icon" title="По цене"></i>
 												<span>По цене</span>
 												<i class="arr icons_fa"></i>
@@ -125,14 +126,14 @@
 														<ul class="flex-direction-nav">
 															{%if prev_url%}
 
-															<li class="flex-nav-prev "><a href="?display={{display}}&{{prev_url}}" class="flex-prev"></a></li>
+															<li class="flex-nav-prev "><a href="?display={{display}}&{%if search%}&q={{search}}&{%endif%}{{prev_url}}" class="flex-prev"></a></li>
 
 															{%endif%}
 
 
 															{%if next_url%}
 
-															<li class="flex-nav-next "><a href="?display={{display}}&{{next_url}}" class="flex-next"></a></li>
+															<li class="flex-nav-next "><a href="?display={{display}}&{%if search%}&q={{search}}&{%endif%}{{next_url}}" class="flex-next"></a></li>
 															{%endif%}	
 
 														</ul>
@@ -145,7 +146,7 @@
 
 															{% elif n > products.number|add:-3 and n < products.number|add:3 %}
 
-																<a href="?display={{display}}&PAGEN_1={{ n }}" class="dark_link">{{ n }}</a>
+																<a href="?display={{display}}&{%if search%}&q={{search}}&{%endif%}PAGEN_1={{ n }}" class="dark_link">{{ n }}</a>
 																
 															{%endif%}
 

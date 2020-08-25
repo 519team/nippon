@@ -1,10 +1,18 @@
+{%load static%}
 <div class="bx-soa-item-tr bx-soa-basket-info" data-id="{{product_b.product.id}}" data-nmb="{{product_b.nmb}}">
 	<div class="bx-soa-item-td" style="min-width: 300px;">
 		<div class="bx-soa-item-block">
 			<div class="bx-soa-item-img-block">
 				<a href="{%url 'product_detail' category=product_b.product.category.name index=product_b.product.id%}">
-					<div class="bx-soa-item-imgcontainer"style="background-image: url(/static/img/{{product_b.product.get_image_path}});background-image: -webkit-image-set(url(/static/img/{{product_b.product.get_image_path}}) 1x, url(/static/img/{{product_b.product.get_image_path}}) 2x)">
-					</div>
+					{%if product_b.product.productimage_set.all%}
+                		{% with product_b.product.productimage_set.all|first as image %}
+							<div class="bx-soa-item-imgcontainer"style="background-image: url({% static image.path %});background-image: -webkit-image-set(url({% static image.path %}) 1x, url({% static image.path %}) 2x)">
+							</div>
+						{%endwith%}
+					{%else%}
+						<div class="bx-soa-item-imgcontainer"style="background-image: url(/static/img/catalog/catalog_category_noimage.svg);background-image: -webkit-image-set(url(/static/img/catalog/catalog_category_noimage.svg) 1x, url(/static/img/catalog/catalog_category_noimage.svg) 2x)">
+							</div>
+					{%endif%}
 				</a>
 			</div>
 			<div class="bx-soa-item-content">
